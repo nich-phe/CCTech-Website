@@ -1,0 +1,26 @@
+packages:
+  "framer-motion": "For page transitions, scroll animations, and the vertical stepper"
+  "react-hook-form": "For robust contact form handling and validation"
+  "@hookform/resolvers": "Zod resolver for contact form validation"
+  "zod": "Schema validation for the contact form"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility to merge tailwind classes safely"
+
+images:
+  - path: "artifacts/ai-tech-website/public/images/hero-abstract.png"
+    description: "A clean, minimal, enterprise abstract background featuring deep blue and teal glowing geometric shapes, subtle grid lines, and soft light leaks, suitable for a B2B AI technology company hero section"
+    aspect_ratio: "16:9"
+  - path: "artifacts/ai-tech-website/public/images/logo.png"
+    description: "A minimal, modern geometric logo mark in deep navy blue and bright teal on a transparent background, conveying AI, data, and trust"
+    aspect_ratio: "1:1"
+  - path: "artifacts/ai-tech-website/public/images/platform-admin.png"
+    description: "An abstract, clean 3D illustration representing healthcare administration automation, featuring sleek white floating panels, subtle medical crosses, and glowing data streams in soft blues and teals"
+    aspect_ratio: "4:3"
+  - path: "artifacts/ai-tech-website/public/images/platform-tax.png"
+    description: "An abstract, clean 3D illustration representing financial tax analytics, featuring intersecting transparent planes, financial charts, and nodes connecting in a network, using deep blues and crisp whites"
+    aspect_ratio: "4:3"
+
+notes:
+  - This is a static frontend site, so no real API calls are made.
+  - The contact form simulates a network request with a timeout and displays a success state.
+  - Using Framer Motion for premium, smooth enter animations to give an enterprise feel.

@@ -1,0 +1,37 @@
+Build a multi‑page website for a technology company that specializes in creating AI‑powered platforms for industries with complex workflows, heavy administrative loads, and strict compliance requirements. The site should feel modern, clean, minimal, and trustworthy, with a palette suitable for enterprise clients (subtle accent color, plenty of white space, crisp typography).
+
+Site structure and navigation
+
+Home – Hero section with a strong headline (“AI‑powered platforms for smarter, compliant operations”) and subheadline (“We build intelligent digital platforms that reduce manual work, improve compliance visibility, and operate more efficiently across complex industries”). Include two prominent call‑to‑action buttons (“Explore Our Platforms” and “Book a Demo”). Below, introduce the company mission in a short paragraph and feature two product cards for the existing platforms, each with an icon, name, one‑sentence description, and a “Learn more” link. Finish with a high‑level vision statement about building a portfolio of intelligent platforms for admin‑heavy, compliance‑heavy sectors.
+
+About – Describe the company’s focus on designing and building practical, sector‑specific platforms rather than generic software. Explain how the team combines workflow mapping, AI automation, and compliance‑conscious development to solve real operational problems. Keep tone confident and factual.
+
+Platforms/Solutions – Create two detailed sections on this page:
+
+AI Admin Co‑Pilot – Describe it as an AI‑powered administrative co‑pilot for healthcare and allied health teams that reduces repetitive admin tasks such as documentation, summaries, reporting, communication workflows, and follow‑ups. List key outcomes like reduced admin burden, improved workflow efficiency, better documentation, and more time for client care.
+
+Tax Exposure Analytics Platform – Describe it as a tax risk and exposure platform that helps organisations and advisory firms identify compliance risks early, analyse financial and transaction data, and generate clear insights for proactive tax management. Highlight outcomes like early detection of tax exposure, better compliance visibility, faster review and reporting, and stronger advisory support.
+
+Industries – Showcase the sectors served: Healthcare and Allied Health, Financial Services and Tax Advisory, Professional Services, and other compliance‑heavy SMEs. For each, include a short description of why your AI‑powered platforms benefit that industry.
+
+How We Build – Outline your methodology in a timeline or vertical stepper: sector‑specific discovery, workflow and process mapping, platform design and prototyping, AI‑enabled automation, compliance‑conscious development, and continuous improvement.
+
+Vision/What’s Next – Explain your broader mission to build a growing portfolio of industry‑focused platforms that combine automation, analytics, and AI. Mention current focus on healthcare administration and tax exposure analytics while signalling expansion into other sectors.
+
+Contact/Demo – Include a simple contact form for visitors to book a discovery call or request a demo (fields: name, company, email, message). Add alternative options like a “Partner with us” link or social/contact information.
+
+Design & Technical notes
+
+Use responsive web design so it looks great on desktop and mobile.
+
+Employ consistent fonts (e.g., a sans‑serif like Inter or Roboto) and hierarchical headings (H1 for page titles, H2/H3 for section headings).
+
+Use icons or illustrations that evoke AI, analytics, healthcare, finance, and compliance.
+
+Include subtle hover effects on buttons and cards.
+
+Ensure navigation is sticky or easily accessible on all pages.
+
+Write clean HTML5 and CSS. If needed, use lightweight JavaScript for interactivity (e.g., smooth scrolling, form validation).
+
+Keep copy concise and professional, matching the tone of a B2B technology company.
