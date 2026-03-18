@@ -134,7 +134,7 @@ export default function Platforms() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/8 border border-border">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/platform-healthcare.png`}
+                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&auto=format&fit=crop&q=80"
                   alt="AI Admin Co-Pilot"
                   className="w-full object-cover"
                 />
@@ -194,7 +194,7 @@ export default function Platforms() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/8 border border-border">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/platform-tax.png`}
+                  src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&auto=format&fit=crop&q=80"
                   alt="Tax Exposure Analytics Platform"
                   className="w-full object-cover"
                 />

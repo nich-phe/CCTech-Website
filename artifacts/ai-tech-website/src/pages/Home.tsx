@@ -64,11 +64,20 @@ function RotatingWord() {
   );
 }
 
-/* ── Marquee strip items ── */
+/* ── Marquee strip items with colors ── */
 const marqueeItems = [
-  "AI Automation", "Healthcare Admin", "Tax Analytics", "Compliance",
-  "Workflow Mapping", "Allied Health", "Financial Services", "RegTech",
-  "Document Intelligence", "Risk Detection", "Process Automation", "SME Solutions",
+  { label: "AI Automation", color: "#0e9fac" },
+  { label: "Healthcare Admin", color: "#059669" },
+  { label: "Tax Analytics", color: "#2563eb" },
+  { label: "Compliance First", color: "#ea580c" },
+  { label: "Workflow Mapping", color: "#7c3aed" },
+  { label: "Allied Health", color: "#059669" },
+  { label: "Financial Services", color: "#2563eb" },
+  { label: "RegTech", color: "#0891b2" },
+  { label: "Document Intelligence", color: "#7c3aed" },
+  { label: "Risk Detection", color: "#dc2626" },
+  { label: "Process Automation", color: "#0e9fac" },
+  { label: "SME Solutions", color: "#ea580c" },
 ];
 
 /* ── Parallax hero background ── */
@@ -223,9 +232,9 @@ export default function Home() {
       <div className="border-y border-border bg-white py-5 overflow-hidden">
         <div className="animate-marquee">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="flex items-center gap-6 px-6 text-sm font-semibold text-muted-foreground/60 uppercase tracking-widest whitespace-nowrap">
-              {item}
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/40 shrink-0" />
+            <span key={i} className="flex items-center gap-5 px-5 text-sm font-bold uppercase tracking-widest whitespace-nowrap" style={{ color: item.color + "99" }}>
+              {item.label}
+              <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: item.color + "60" }} />
             </span>
           ))}
         </div>
@@ -351,14 +360,14 @@ export default function Home() {
           >
             <div className="relative overflow-hidden min-h-[280px]">
               <img
-                src={`${import.meta.env.BASE_URL}images/platform-healthcare.png`}
-                alt="AI Admin Co-Pilot"
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&auto=format&fit=crop&q=80"
+                alt="AI Admin Co-Pilot — Healthcare"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/10 to-transparent" />
               <div className="absolute top-6 left-6">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-bold text-primary">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-bold text-emerald-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   Healthcare & Allied Health
                 </span>
               </div>
@@ -427,7 +436,7 @@ export default function Home() {
             </div>
             <div className="relative overflow-hidden min-h-[280px] order-1 lg:order-2">
               <img
-                src={`${import.meta.env.BASE_URL}images/platform-tax.png`}
+                src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&auto=format&fit=crop&q=80"
                 alt="Tax Exposure Analytics"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
               />
