@@ -52,14 +52,14 @@ export default function About() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-border shadow-sm mb-8 text-sm font-medium text-muted-foreground">
               <span className="w-2 h-2 rounded-full bg-secondary" />
-              About AuraTech
+              About C TECH
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-8 max-w-4xl">
               We build the foundation for efficient,{" "}
               <span className="text-gradient">compliant operations.</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              AuraTech is an AI technology company focused on practical, sector-specific platforms. AI shouldn't just be an impressive demo — it should be a reliable engine for daily work.
+              C TECH is an AI technology company focused on practical, sector-specific platforms. AI shouldn't just be an impressive demo — it should be a reliable engine for daily work.
             </p>
           </motion.div>
         </motion.div>

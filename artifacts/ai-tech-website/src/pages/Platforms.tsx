@@ -70,7 +70,7 @@ export default function Platforms() {
           >
             <span className="text-5xl font-bold text-muted/30 tabular-nums">01</span>
             <div className="flex-1 h-px bg-border" />
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-100">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20">
               Healthcare & Allied Health
             </div>
           </motion.div>
@@ -106,8 +106,8 @@ export default function Platforms() {
                     transition={{ delay: i * 0.1, duration: 0.4 }}
                     className="flex items-start gap-4"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <item.icon className="w-4 h-4 text-blue-600" />
+                    <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <item.icon className="w-4 h-4 text-primary" />
                     </div>
                     <p className="text-muted-foreground leading-relaxed pt-1.5">{item.text}</p>
                   </motion.div>
@@ -143,7 +143,7 @@ export default function Platforms() {
 
               {/* Outcomes */}
               <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl p-8">
-                <p className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-5">Key Outcomes</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-primary mb-5">Key Outcomes</p>
                 <ul className="space-y-3">
                   {adminOutcomes.map((o, i) => (
                     <motion.li
@@ -154,7 +154,7 @@ export default function Platforms() {
                       transition={{ delay: i * 0.08 }}
                       className="flex items-center gap-3 text-foreground"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                       <span className="text-sm font-medium">{o}</span>
                     </motion.li>
                   ))}
