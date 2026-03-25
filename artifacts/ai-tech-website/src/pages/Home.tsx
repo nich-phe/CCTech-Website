@@ -1,585 +1,421 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "wouter";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
-import { ArrowRight, ArrowUpRight, Bot, ShieldCheck, Zap, Activity, CheckCircle2 } from "lucide-react";
-import { CTechLogo } from "@/components/CTechLogo";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-/* ── Animated counter ── */
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1600;
-          const start = performance.now();
-          function step(now: number) {
-            const progress = Math.min((now - start) / duration, 1);
-            const ease = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.round(ease * to));
-            if (progress < 1) requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        const duration = 1800;
+        const start = performance.now();
+        function step(now: number) {
+          const p = Math.min((now - start) / duration, 1);
+          setCount(Math.round((1 - Math.pow(1 - p, 3)) * to));
+          if (p < 1) requestAnimationFrame(step);
         }
-      },
-      { threshold: 0.5 }
-    );
+        requestAnimationFrame(step);
+      }
+    }, { threshold: 0.5 });
     obs.observe(el);
     return () => obs.disconnect();
   }, [to]);
-
-  return <div ref={ref}>{count}{suffix}</div>;
+  return <span ref={ref}>{count}{suffix}</span>;
 }
 
-/* ── Rotating headline word ── */
-const rotatingWords = ["smarter", "compliant", "efficient", "scalable"];
-
-function RotatingWord() {
-  const [index, setIndex] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setIndex((i) => (i + 1) % rotatingWords.length), 2200);
-    return () => clearInterval(t);
-  }, []);
+function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
-    <span className="relative inline-block overflow-hidden" style={{ minWidth: "320px" }}>
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={rotatingWords[index]}
-          className="text-gradient inline-block"
-          initial={{ y: 48, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -48, opacity: 0 }}
-          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {rotatingWords[index]}
-        </motion.span>
-      </AnimatePresence>
-    </span>
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1], delay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
   );
 }
 
-/* ── Marquee strip items with colors ── */
-const marqueeItems = [
-  { label: "AI Automation", color: "#0e9fac" },
-  { label: "Healthcare Admin", color: "#059669" },
-  { label: "Tax Analytics", color: "#2563eb" },
-  { label: "Compliance First", color: "#ea580c" },
-  { label: "Workflow Mapping", color: "#7c3aed" },
-  { label: "Allied Health", color: "#059669" },
-  { label: "Financial Services", color: "#2563eb" },
-  { label: "RegTech", color: "#0891b2" },
-  { label: "Document Intelligence", color: "#7c3aed" },
-  { label: "Risk Detection", color: "#dc2626" },
-  { label: "Process Automation", color: "#0e9fac" },
-  { label: "SME Solutions", color: "#ea580c" },
+function Line({ delay = 0 }: { delay?: number }) {
+  return (
+    <motion.div
+      initial={{ scaleX: 0 }}
+      whileInView={{ scaleX: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay }}
+      className="h-px bg-neutral-100 origin-left"
+    />
+  );
+}
+
+const platforms = [
+  {
+    index: "01",
+    name: "AI Admin Co-Pilot",
+    tag: "Healthcare & Allied Health",
+    tagColor: "#059669",
+    desc: "An invisible assistant that handles documentation, reporting, and communication — returning time to the people who need it most.",
+    photo: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop&q=80",
+    href: "/platforms",
+  },
+  {
+    index: "02",
+    name: "Tax Exposure Analytics",
+    tag: "Financial Services",
+    tagColor: "#2563eb",
+    desc: "Proactive tax risk detection for organisations and advisory firms — surface exposure before it compounds into liability.",
+    photo: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&auto=format&fit=crop&q=80",
+    href: "/platforms",
+  },
 ];
 
-/* ── Parallax hero background ── */
-export default function Home() {
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const blobY1 = useTransform(heroScroll, [0, 1], [0, 180]);
-  const blobY2 = useTransform(heroScroll, [0, 1], [0, 100]);
-  const heroOpacity = useTransform(heroScroll, [0, 0.7], [1, 0]);
+const industries = [
+  { name: "Healthcare & Allied Health", role: "Clinical automation, admin co-pilots", color: "#059669" },
+  { name: "Financial Services",         role: "Risk detection, tax intelligence",    color: "#2563eb" },
+  { name: "Legal & Professional",       role: "Document intelligence, matter flow",  color: "#7c3aed" },
+  { name: "Enterprise & SME",           role: "Scalable workflow automation",        color: "#ea580c" },
+  { name: "Supply Chain & Logistics",   role: "Operations intelligence, tracking",   color: "#0891b2" },
+];
 
+const ticker = [
+  "Healthcare", "Financial Services", "Legal", "Compliance Architecture",
+  "Tax Analytics", "Admin Automation", "Allied Health", "Risk Detection",
+  "Document Intelligence", "Workflow Mapping", "Operations", "Supply Chain",
+];
+
+export default function Home() {
   return (
     <Layout>
-      {/* ════════════════════════════════════════
-          HERO
-      ════════════════════════════════════════ */}
-      <section
-        ref={heroRef}
-        className="relative min-h-screen flex flex-col justify-center pt-20 pb-8 overflow-hidden"
-      >
-        {/* Animated blobs */}
-        <motion.div
-          style={{ y: blobY1 }}
-          className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full bg-gradient-radial from-primary/20 via-primary/8 to-transparent animate-blob pointer-events-none"
-        />
-        <motion.div
-          style={{ y: blobY2 }}
-          className="absolute top-1/2 -left-48 w-[600px] h-[600px] rounded-full bg-gradient-radial from-secondary/15 via-secondary/5 to-transparent animate-blob-delay-2 pointer-events-none"
-        />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-primary/6 to-transparent pointer-events-none rounded-full blur-3xl" />
 
-        {/* Subtle grid */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.025]"
-          style={{
-            backgroundImage: "linear-gradient(hsl(185 85% 38%) 1px, transparent 1px), linear-gradient(90deg, hsl(185 85% 38%) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
+      {/* ─────────────────────────────────────────
+          HERO  — editorial, left-aligned
+      ───────────────────────────────────────── */}
+      <section className="relative min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 sm:px-10 lg:px-16 xl:px-24 bg-white overflow-hidden">
 
-        <motion.div style={{ opacity: heroOpacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white border border-primary/20 shadow-sm mb-10"
-            >
-              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm font-semibold text-primary">Enterprise AI Solutions</span>
-              <span className="text-muted-foreground/40 text-xs">·</span>
-              <span className="text-sm text-muted-foreground">Compliance-Conscious Architecture</span>
-            </motion.div>
+        {/* Index row */}
+        <div className="flex justify-between items-center">
+          <motion.span
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.7 }}
+            className="text-[10px] font-mono tracking-[0.28em] text-neutral-400 uppercase"
+          >
+            C TECH — Enterprise AI Platforms
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.7 }}
+            className="text-[10px] font-mono tracking-[0.28em] text-neutral-400 uppercase"
+          >
+            Est. 2024
+          </motion.span>
+        </div>
 
-            {/* Headline */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-            >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-foreground tracking-tight leading-[1.04] mb-8">
-                AI-powered platforms
-                <br />
-                for{" "}
-                <RotatingWord />
-                <br />
-                operations
-              </h1>
-            </motion.div>
+        {/* Headline block */}
+        <div className="py-16 max-w-[1000px]">
+          <motion.p
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }}
+            className="text-[10px] font-mono tracking-[0.32em] uppercase text-primary mb-8"
+          >
+            ◆  Sector-specific AI
+          </motion.p>
 
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-lg sm:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
-            >
-              We build intelligent digital platforms that reduce manual work, improve compliance visibility,
-              and operate more efficiently across complex industries.
-            </motion.p>
+          {["Built for", "industries", "that can't afford", "to get it wrong."].map((line, i) => (
+            <div key={i} className="overflow-hidden">
+              <motion.h1
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.4 + i * 0.1 }}
+                className={`text-[clamp(3rem,7.5vw,6.5rem)] font-black leading-[0.96] tracking-[-0.03em] ${
+                  i === 1 ? "text-primary" : "text-foreground"
+                }`}
+              >
+                {line}
+              </motion.h1>
+            </div>
+          ))}
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
-            >
-              <Link href="/platforms">
-                <motion.button
-                  whileHover={{ scale: 1.04, boxShadow: "0 8px 30px hsl(185 85% 38% / 0.35)" }}
-                  whileTap={{ scale: 0.97 }}
-                  className="group h-14 px-8 rounded-full bg-primary text-primary-foreground font-semibold text-base flex items-center gap-2 transition-all"
-                >
-                  Explore Our Platforms
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
-              </Link>
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="h-14 px-8 rounded-full bg-white border border-border text-foreground font-semibold text-base hover:border-primary/40 hover:bg-primary/5 transition-all"
-                >
-                  Book a Demo
-                </motion.button>
-              </Link>
-            </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className="text-neutral-500 text-base sm:text-lg mt-10 max-w-lg leading-relaxed"
+          >
+            We design AI from the ground up for your compliance requirements,
+            workflow logic, and operating environment — not bolted on after the fact.
+          </motion.p>
 
-            {/* Stat row */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="inline-flex flex-wrap justify-center gap-0 divide-x divide-border bg-white border border-border rounded-2xl overflow-hidden shadow-sm"
-            >
-              {[
-                { val: 40, suffix: "%", label: "Avg. admin reduction" },
-                { val: 2, suffix: "", label: "Flagship platforms" },
-                { val: 100, suffix: "%", label: "Compliance-first builds" },
-              ].map((s, i) => (
-                <div key={i} className="px-8 py-4 text-center">
-                  <div className="text-2xl font-black text-primary tabular-nums">
-                    <Counter to={s.val} suffix={s.suffix} />
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-0.5 whitespace-nowrap">{s.label}</div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-muted-foreground/50 font-medium uppercase tracking-widest">Scroll</span>
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-            className="w-px h-8 bg-gradient-to-b from-primary/50 to-transparent"
-          />
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.05 }}
+            className="flex items-center gap-10 mt-12"
+          >
+            <Link href="/platforms">
+              <span className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground border-b border-foreground pb-0.5 cursor-pointer hover:text-primary hover:border-primary transition-colors duration-200">
+                Explore platforms
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+            <Link href="/contact">
+              <span className="text-sm font-medium text-neutral-400 cursor-pointer hover:text-neutral-700 transition-colors duration-200">
+                Book a conversation
+              </span>
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Bottom metrics */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
+          className="border-t border-neutral-100 pt-8 grid grid-cols-3 gap-4 sm:gap-10"
+        >
+          {[
+            { val: 40,  suffix: "%", label: "Avg. admin reduction"   },
+            { val: 100, suffix: "%", label: "Compliance-first builds" },
+            { val: 60,  suffix: "%", label: "Faster reporting cycles" },
+          ].map((s, i) => (
+            <div key={i}>
+              <div className="text-3xl sm:text-4xl font-black text-foreground tabular-nums">
+                <Counter to={s.val} suffix={s.suffix} />
+              </div>
+              <div className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase mt-1">{s.label}</div>
+            </div>
+          ))}
         </motion.div>
       </section>
 
-      {/* ════════════════════════════════════════
-          MARQUEE STRIP
-      ════════════════════════════════════════ */}
-      <div className="border-y border-border bg-white py-5 overflow-hidden">
+      {/* ─────────────────────────────────────────
+          TICKER
+      ───────────────────────────────────────── */}
+      <div className="border-y border-neutral-100 bg-neutral-50 py-3.5 overflow-hidden">
         <div className="animate-marquee">
-          {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="flex items-center gap-5 px-5 text-sm font-bold uppercase tracking-widest whitespace-nowrap" style={{ color: item.color + "99" }}>
-              {item.label}
-              <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: item.color + "60" }} />
+          {[...ticker, ...ticker].map((item, i) => (
+            <span key={i} className="inline-flex items-center gap-6 px-6 text-[10px] font-mono tracking-[0.3em] text-neutral-400 uppercase whitespace-nowrap">
+              {item}
+              <span className="w-px h-3 bg-neutral-200 shrink-0" />
             </span>
           ))}
         </div>
       </div>
 
-      {/* ════════════════════════════════════════
-          MISSION — DARK SECTION
-      ════════════════════════════════════════ */}
-      <section className="relative py-32 bg-[hsl(220,30%,7%)] text-white overflow-hidden noise-bg">
-        {/* Teal orb */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse,hsl(185,85%,38%,0.15),transparent_70%)] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[radial-gradient(ellipse,hsl(185,65%,52%,0.10),transparent_70%)] pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-20 items-center">
-            {/* Left */}
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-6">Our Mission</p>
-              <h2 className="text-4xl md:text-5xl font-black leading-[1.1] mb-8 max-w-2xl">
-                Empowering complex industries through{" "}
-                <span className="text-gradient">focused automation.</span>
-              </h2>
-              <p className="text-white/55 text-lg leading-relaxed max-w-xl mb-12">
-                Complex workflows shouldn't bottleneck growth. We integrate AI precisely into regulated environments —
-                mapping processes with surgical accuracy to ensure compliance, security, and unprecedented efficiency.
-              </p>
-              {/* Feature pills */}
-              <div className="flex flex-wrap gap-3">
-                {[
-                  { icon: Zap, label: "Workflow Mapping" },
-                  { icon: Bot, label: "AI Automation" },
-                  { icon: ShieldCheck, label: "Compliance First" },
-                  { icon: Activity, label: "Actionable Analytics" },
-                ].map((f, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08, duration: 0.4 }}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/10 text-sm font-medium text-white/80 hover:bg-white/12 transition-colors"
-                  >
-                    <f.icon className="w-3.5 h-3.5 text-primary" />
-                    {f.label}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Right: Large stats */}
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="space-y-px"
-            >
-              {[
-                { val: 40, suffix: "%", label: "Average reduction in admin load for healthcare clients", color: "border-l-primary" },
-                { val: 100, suffix: "%", label: "Compliance-conscious architecture on every build", color: "border-l-secondary" },
-                { val: 60, suffix: "%", label: "Faster reporting cycles on the Tax Analytics Platform", color: "border-l-primary/60" },
-              ].map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.12, duration: 0.5 }}
-                  className={`bg-white/5 border-l-2 ${s.color} rounded-r-2xl p-7 hover:bg-white/8 transition-colors`}
-                >
-                  <div className="text-5xl font-black text-white mb-2 tabular-nums">
-                    <Counter to={s.val} suffix={s.suffix} />
-                  </div>
-                  <p className="text-white/45 text-sm leading-relaxed">{s.label}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+      {/* ─────────────────────────────────────────
+          MANIFESTO
+      ───────────────────────────────────────── */}
+      <section className="py-28 sm:py-40 px-6 sm:px-10 lg:px-16 xl:px-24 bg-white">
+        <Reveal>
+          <p className="text-[10px] font-mono tracking-[0.32em] uppercase text-neutral-400 mb-12">Our position</p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <p className="text-[clamp(1.8rem,4.5vw,3.8rem)] font-black leading-[1.12] tracking-[-0.02em] text-foreground max-w-[860px]">
+            Generic AI tools aren't built for sectors with real consequences.{" "}
+            <span className="text-primary">We are.</span>
+          </p>
+        </Reveal>
+        <Line delay={0.18} />
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-12 max-w-3xl">
+          <Reveal delay={0.2}>
+            <p className="text-neutral-500 text-base leading-relaxed">
+              We design AI platforms with compliance architecture from day one — not as an afterthought. Every data flow, every output, every integration is built for the rules of your sector.
+            </p>
+          </Reveal>
+          <Reveal delay={0.28}>
+            <p className="text-neutral-500 text-base leading-relaxed">
+              Healthcare. Financial. Legal. Each industry has its own language, its own risk, its own workflow. We don't adapt generic models — we build specific ones.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          PLATFORM SHOWCASE
-      ════════════════════════════════════════ */}
-      <section className="py-28 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section header */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6"
-          >
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Flagship Platforms</p>
-              <h2 className="text-4xl md:text-5xl font-black text-foreground leading-tight">
-                Purpose-built for
-                <br />the industries we serve.
-              </h2>
-            </div>
+      {/* ─────────────────────────────────────────
+          PLATFORMS — numbered editorial rows
+      ───────────────────────────────────────── */}
+      <section className="bg-neutral-50 border-t border-neutral-100">
+        <div className="px-6 sm:px-10 lg:px-16 xl:px-24 pt-20 pb-4 flex items-end justify-between">
+          <Reveal>
+            <p className="text-[10px] font-mono tracking-[0.32em] uppercase text-neutral-400">Flagship platforms</p>
+          </Reveal>
+          <Reveal delay={0.1}>
             <Link href="/platforms">
-              <motion.div
-                whileHover={{ x: 4 }}
-                className="inline-flex items-center gap-2 text-primary font-semibold text-sm shrink-0 cursor-pointer"
-              >
-                View all platforms <ArrowUpRight className="w-4 h-4" />
-              </motion.div>
+              <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-primary cursor-pointer hover:opacity-60 transition-opacity">
+                All platforms →
+              </span>
+            </Link>
+          </Reveal>
+        </div>
+
+        {platforms.map((p, i) => (
+          <motion.div
+            key={p.index}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="border-t border-neutral-200 last:border-b"
+          >
+            <Link href={p.href}>
+              <div className="group px-6 sm:px-10 lg:px-16 xl:px-24 py-10 grid grid-cols-[3rem_1fr_auto] gap-6 items-center cursor-pointer hover:bg-white transition-colors duration-300">
+                <span className="text-[11px] font-mono text-neutral-300 tracking-widest">{p.index}</span>
+
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-10 min-w-0">
+                  <h3 className="text-xl sm:text-2xl font-black text-foreground tracking-tight group-hover:text-primary transition-colors duration-200 shrink-0">
+                    {p.name}
+                  </h3>
+                  <p className="text-sm text-neutral-400 leading-relaxed hidden sm:block max-w-sm">
+                    {p.desc}
+                  </p>
+                  <span
+                    className="text-[10px] font-mono tracking-[0.2em] uppercase px-2.5 py-1 rounded-sm shrink-0 w-fit"
+                    style={{ color: p.tagColor, backgroundColor: p.tagColor + "14" }}
+                  >
+                    {p.tag}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-5">
+                  <div className="w-20 h-14 rounded overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block shrink-0">
+                    <img src={p.photo} alt={p.name} className="w-full h-full object-cover" />
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 text-neutral-200 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" />
+                </div>
+              </div>
             </Link>
           </motion.div>
+        ))}
+      </section>
 
-          {/* Platform 1 — light */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="group grid grid-cols-1 lg:grid-cols-[1fr_1fr] rounded-3xl overflow-hidden border border-border mb-5 hover:shadow-xl hover:shadow-primary/8 transition-all duration-500"
-          >
-            <div className="relative overflow-hidden min-h-[280px]">
-              <img
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&auto=format&fit=crop&q=80"
-                alt="AI Admin Co-Pilot — Healthcare"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/10 to-transparent" />
-              <div className="absolute top-6 left-6">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-bold text-emerald-700">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  Healthcare & Allied Health
+      {/* ─────────────────────────────────────────
+          INDUSTRIES — clean list rows
+      ───────────────────────────────────────── */}
+      <section className="py-28 px-6 sm:px-10 lg:px-16 xl:px-24 bg-white">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4">
+          <Reveal>
+            <p className="text-[10px] font-mono tracking-[0.32em] uppercase text-neutral-400">Industries we serve</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <Link href="/industries">
+              <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-primary cursor-pointer hover:opacity-60 transition-opacity">
+                Explore industries →
+              </span>
+            </Link>
+          </Reveal>
+        </div>
+
+        <div>
+          {industries.map((ind, i) => (
+            <motion.div
+              key={ind.name}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.07 }}
+              className="group border-t border-neutral-100 last:border-b py-5 flex items-center justify-between gap-6 cursor-pointer"
+              style={{ paddingLeft: "0px" }}
+            >
+              <div className="flex items-center gap-4">
+                <motion.span
+                  className="w-1.5 h-1.5 rounded-full shrink-0"
+                  style={{ backgroundColor: ind.color }}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 + 0.2, duration: 0.3 }}
+                />
+                <span className="text-base sm:text-lg font-bold text-foreground tracking-tight group-hover:text-primary transition-colors duration-200">
+                  {ind.name}
                 </span>
               </div>
-            </div>
-            <div className="bg-white p-10 xl:p-14 flex flex-col justify-center">
-              <h3 className="text-2xl xl:text-3xl font-black text-foreground mb-4 leading-tight">AI Admin Co-Pilot</h3>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                An invisible assistant handling documentation, reporting, and communication workflows —
-                giving healthcare teams back the hours they deserve.
-              </p>
-              <ul className="space-y-2.5 mb-10">
-                {["Automated clinical documentation", "Intelligent follow-up workflows", "Compliance-safe reporting"].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/platforms">
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  className="inline-flex items-center gap-2 text-primary font-semibold text-sm cursor-pointer"
-                >
-                  Explore platform <ArrowUpRight className="w-4 h-4" />
-                </motion.div>
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Platform 2 — dark */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.08 }}
-            className="group grid grid-cols-1 lg:grid-cols-[1fr_1fr] rounded-3xl overflow-hidden border border-border hover:shadow-xl hover:shadow-primary/8 transition-all duration-500"
-          >
-            <div className="bg-[hsl(220,30%,7%)] p-10 xl:p-14 flex flex-col justify-center order-2 lg:order-1">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/15 text-xs font-bold text-primary mb-8 w-fit border border-primary/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                Financial Services
-              </div>
-              <h3 className="text-2xl xl:text-3xl font-black text-white mb-4 leading-tight">
-                Tax Exposure Analytics Platform
-              </h3>
-              <p className="text-white/55 mb-8 leading-relaxed">
-                Proactive tax risk analysis for organisations and advisory firms.
-                Identify compliance risks early — before they become costly.
-              </p>
-              <ul className="space-y-2.5 mb-10">
-                {["Early tax exposure detection", "Deep transaction data analysis", "Automated advisory reporting"].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-white/80">
-                    <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/platforms">
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  className="inline-flex items-center gap-2 text-primary font-semibold text-sm cursor-pointer"
-                >
-                  Explore platform <ArrowUpRight className="w-4 h-4" />
-                </motion.div>
-              </Link>
-            </div>
-            <div className="relative overflow-hidden min-h-[280px] order-1 lg:order-2">
-              <img
-                src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&auto=format&fit=crop&q=80"
-                alt="Tax Exposure Analytics"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
-              />
-              <div className="absolute inset-0 bg-gradient-to-l from-black/30 via-black/10 to-transparent" />
-            </div>
-          </motion.div>
+              <span className="text-sm text-neutral-400 hidden sm:block shrink-0 tabular-nums">{ind.role}</span>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          WHY DIFFERENT — Feature comparison
-      ════════════════════════════════════════ */}
-      <section className="py-24 bg-muted/40 border-y border-border relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,hsl(185,85%,38%,0.05),transparent_70%)] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">The Difference</p>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-              Generic AI tools vs. sector-specific platforms.
-            </h2>
-            <p className="text-muted-foreground max-w-lg mx-auto">
-              A general-purpose assistant cannot navigate healthcare administration or tax exposure analysis safely.
+      {/* ─────────────────────────────────────────
+          HOW WE BUILD — 3-col minimal
+      ───────────────────────────────────────── */}
+      <section className="bg-[hsl(220,25%,6%)] text-white py-28 px-6 sm:px-10 lg:px-16 xl:px-24">
+        <Reveal>
+          <p className="text-[10px] font-mono tracking-[0.32em] uppercase text-neutral-600 mb-20">How we build</p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-16 sm:gap-0 sm:divide-x divide-white/8">
+          {[
+            { n: "01", title: "Understand",
+              body: "We map your actual workflows — not idealized ones. Compliance requirements, data flows, edge cases, team behaviours." },
+            { n: "02", title: "Build",
+              body: "Sector-specific AI, tested against real industry constraints. Not off-the-shelf models repurposed for compliance." },
+            { n: "03", title: "Operate",
+              body: "Continuous monitoring, model refinement, and compliance updates as regulations evolve around you." },
+          ].map((s, i) => (
+            <Reveal key={s.n} delay={i * 0.1} className="sm:px-12 first:pl-0 last:pr-0">
+              <span className="text-[10px] font-mono text-neutral-700 tracking-widest block mb-8">{s.n}</span>
+              <h3 className="text-2xl sm:text-3xl font-black text-white mb-5 tracking-tight">{s.title}</h3>
+              <p className="text-neutral-600 text-sm leading-relaxed">{s.body}</p>
+            </Reveal>
+          ))}
+        </div>
+
+        <Line delay={0.2} />
+
+        <div className="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <Reveal>
+            <p className="text-neutral-600 text-sm max-w-md leading-relaxed">
+              Every build follows our 6-phase compliance framework — from discovery through to continuous improvement.
             </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Generic */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl border border-border p-8"
-            >
-              <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center mb-6">
-                <span className="text-red-500 text-lg font-bold">✕</span>
-              </div>
-              <h3 className="text-lg font-bold text-foreground mb-5">Generic AI Tools</h3>
-              <ul className="space-y-4">
-                {[
-                  "No understanding of industry regulations",
-                  "Not built for compliance workflows",
-                  "Generic outputs, no domain context",
-                  "High hallucination risk in sensitive docs",
-                  "No audit trail or data governance",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <span className="w-5 h-5 rounded-full bg-red-50 border border-red-100 flex items-center justify-center shrink-0 mt-0.5 text-red-400 text-xs font-bold">✕</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* C TECH */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-foreground rounded-2xl p-8 relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-48 h-48 bg-[radial-gradient(ellipse,hsl(185,85%,38%,0.2),transparent_70%)] pointer-events-none" />
-              <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center mb-6 relative z-10">
-                <span className="text-primary text-lg font-bold">✓</span>
-              </div>
-              <h3 className="text-lg font-bold text-white mb-5 relative z-10">C TECH Platforms</h3>
-              <ul className="space-y-4 relative z-10">
-                {[
-                  "Deep sector-specific regulatory knowledge",
-                  "Purpose-built for compliance environments",
-                  "Domain-trained AI for precise outputs",
-                  "Verified accuracy with auditability baked in",
-                  "Full data governance and privacy architecture",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-white/80">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <Link href="/how-we-build">
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary cursor-pointer group hover:opacity-70 transition-opacity">
+                See the full process
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+          </Reveal>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          FINAL CTA
-      ════════════════════════════════════════ */}
-      <section className="py-28 relative overflow-hidden bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl bg-[hsl(220,30%,7%)] px-8 py-16 md:p-20 text-center text-white overflow-hidden noise-bg"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,hsl(185,85%,38%,0.25),transparent_60%)] pointer-events-none" />
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[radial-gradient(ellipse,hsl(185,65%,52%,0.12),transparent_70%)] pointer-events-none" />
-            <div className="relative z-10">
-              <motion.div
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ repeat: Infinity, duration: 3 }}
-                className="flex justify-center mb-8"
+      {/* ─────────────────────────────────────────
+          CTA — minimal, sharp
+      ───────────────────────────────────────── */}
+      <section className="py-32 px-6 sm:px-10 lg:px-16 xl:px-24 bg-white">
+        <Reveal>
+          <p className="text-[10px] font-mono tracking-[0.32em] uppercase text-neutral-400 mb-10">Get started</p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h2 className="text-[clamp(2.5rem,6vw,5.5rem)] font-black leading-[1.02] tracking-[-0.03em] text-foreground max-w-2xl mb-14">
+            Ready to work<br />
+            <span className="text-primary">differently?</span>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.18}>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <Link href="/contact">
+              <motion.span
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-3 bg-foreground text-white text-sm font-semibold px-8 py-4 cursor-pointer hover:bg-primary transition-colors duration-300"
               >
-                <CTechLogo white />
-              </motion.div>
-              <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
-                Ready to streamline
-                <br />your operations?
-              </h2>
-              <p className="text-white/55 text-lg mb-12 max-w-lg mx-auto leading-relaxed">
-                Let's discuss how our platforms can be tailored to your specific industry requirements.
-                No generic demos — tailored discovery calls only.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/contact">
-                  <motion.button
-                    whileHover={{ scale: 1.04, boxShadow: "0 8px 40px hsl(185 85% 38% / 0.4)" }}
-                    whileTap={{ scale: 0.97 }}
-                    className="h-14 px-10 rounded-full bg-primary text-primary-foreground font-bold text-base hover:bg-primary/90 transition-all"
-                  >
-                    Schedule a Discovery Call
-                  </motion.button>
-                </Link>
-                <Link href="/platforms">
-                  <motion.button
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="h-14 px-10 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 hover:border-white/30 transition-all"
-                  >
-                    View Platforms
-                  </motion.button>
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+                Start a conversation
+                <ArrowRight className="w-4 h-4" />
+              </motion.span>
+            </Link>
+            <Link href="/platforms">
+              <span className="text-sm font-medium text-neutral-400 cursor-pointer hover:text-foreground transition-colors border-b border-neutral-200 pb-0.5">
+                Or browse our platforms →
+              </span>
+            </Link>
+          </div>
+        </Reveal>
       </section>
+
     </Layout>
   );
 }
