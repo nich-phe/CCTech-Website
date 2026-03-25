@@ -4,6 +4,7 @@ import { Menu, X, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { CTechLogo } from "@/components/CTechLogo";
 
 const navLinks = [
   { name: "About", path: "/about" },
@@ -64,13 +65,10 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              src={`${import.meta.env.BASE_URL}images/ctech-logo.png`}
-              alt="C TECH Logo"
-              className="h-10 w-auto object-contain"
-            />
+          <Link href="/" className="shrink-0">
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <CTechLogo />
+            </motion.div>
           </Link>
 
           {/* Desktop Nav */}

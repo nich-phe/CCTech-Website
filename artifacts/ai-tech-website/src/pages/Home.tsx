@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { ArrowRight, ArrowUpRight, Bot, ShieldCheck, Zap, Activity, CheckCircle2 } from "lucide-react";
+import { CTechLogo } from "@/components/CTechLogo";
 
 /* ── Animated counter ── */
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
@@ -543,9 +544,9 @@ export default function Home() {
               <motion.div
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ repeat: Infinity, duration: 3 }}
-                className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center mx-auto mb-8"
+                className="flex justify-center mb-8"
               >
-                <img src={`${import.meta.env.BASE_URL}images/ctech-logo.png`} alt="" className="h-10 w-auto brightness-0 invert" />
+                <CTechLogo white />
               </motion.div>
               <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
                 Ready to streamline

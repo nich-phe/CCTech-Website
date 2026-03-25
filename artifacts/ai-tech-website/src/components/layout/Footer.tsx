@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "wouter";
 import { ArrowRight, Twitter, Linkedin, Github } from "lucide-react";
 import { motion } from "framer-motion";
+import { CTechLogo } from "@/components/CTechLogo";
 
 export function Footer() {
   return (
@@ -14,12 +15,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Col */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <img
-                src={`${import.meta.env.BASE_URL}images/ctech-logo.png`}
-                alt="C TECH Logo"
-                className="h-10 w-auto brightness-0 invert opacity-90"
-              />
+            <Link href="/" className="inline-flex mb-6">
+              <CTechLogo white />
             </Link>
             <p className="text-white/50 text-sm mb-8 max-w-xs leading-relaxed">
               Building AI-powered platforms that reduce manual work and improve compliance visibility across complex industries.
