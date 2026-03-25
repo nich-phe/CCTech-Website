@@ -15,7 +15,7 @@ export function CTechLogo({ white = false, className = "" }: CTechLogoProps) {
   const textSub = white ? "rgba(255,255,255,0.60)" : "#64748b";
 
   return (
-    <div className={`flex items-center gap-2.5 select-none ${className}`}>
+    <div className={`flex items-center gap-1 select-none ${className}`}>
       {/* ── Icon: Concentric C arcs ── */}
       <svg
         width="38"
