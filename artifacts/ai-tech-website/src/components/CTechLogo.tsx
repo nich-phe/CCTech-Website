@@ -61,20 +61,12 @@ export function CTechLogo({ white = false, className = "" }: CTechLogoProps) {
       </svg>
 
       {/* ── Wordmark ── */}
-      <div className="flex items-baseline gap-[3px] leading-none">
-        <span
-          className="text-[22px] font-black tracking-tight leading-none"
-          style={{ color: teal }}
-        >
-          C
-        </span>
-        <span
-          className="text-[11px] font-semibold tracking-[0.28em] uppercase leading-none pb-[1px]"
-          style={{ color: textPrimary }}
-        >
-          TECH
-        </span>
-      </div>
+      <span
+        className="text-[15px] font-bold tracking-[0.18em] uppercase leading-none"
+        style={{ color: textPrimary }}
+      >
+        CTECH
+      </span>
     </div>
   );
 }
