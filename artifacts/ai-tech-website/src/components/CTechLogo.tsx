@@ -62,7 +62,7 @@ export function CTechLogo({ white = false, className = "" }: CTechLogoProps) {
 
       {/* ── Wordmark ── */}
       <span
-        className="text-[13px] font-semibold tracking-[0.3em] uppercase leading-none"
+        className="text-[13px] font-semibold tracking-[0.55em] uppercase leading-none"
         style={{ color: textPrimary }}
       >
         TECH
