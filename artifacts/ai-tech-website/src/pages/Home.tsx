@@ -11,12 +11,14 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 /* ─── Design tokens ─────────────────────────── */
 const C = {
   bg:      "#FFFFFF",
-  text:    "#111111",
-  muted:   "#6B7280",
-  accent:  "#000000",
-  border:  "#EDEDED",
-  soft:    "#F7F7F7",
-  gold:    "#C4A882",   /* ← colour accent suggestion: champagne gold */
+  text:    "#5C0E14",   /* deep burgundy */
+  muted:   "#9B4A52",   /* warm medium   */
+  accent:  "#E84F5E",   /* vivid rose    */
+  gold:    "#F0E193",   /* golden yellow */
+  peach:   "#FCDFC5",   /* warm peach    */
+  dark:    "#5C0E14",   /* dark panels   */
+  border:  "#F0D5CC",   /* soft border   */
+  soft:    "#FEF7F3",   /* off-white warm*/
 };
 
 /* ─── Scroll reveal ─────────────────────────── */
@@ -37,14 +39,14 @@ function Reveal({ children, delay = 0, className = "" }: {
 }
 
 /* ─── Ambient floating shape ────────────────── */
-function FloatShape({ x, y, size, delay, opacity = 0.06 }: {
-  x: string; y: string; size: number; delay: number; opacity?: number;
+function FloatShape({ x, y, size, delay, color = C.peach, opacity = 0.5 }: {
+  x: string; y: string; size: number; delay: number; color?: string; opacity?: number;
 }) {
   return (
     <motion.div
       className="absolute rounded-full pointer-events-none"
-      style={{ left: x, top: y, width: size, height: size, border: `1px solid ${C.border}`, opacity }}
-      animate={{ y: [0, -18, 0], x: [0, 8, 0], rotate: [0, 90, 0] }}
+      style={{ left: x, top: y, width: size, height: size, backgroundColor: color, opacity }}
+      animate={{ y: [0, -20, 0], x: [0, 10, 0], scale: [1, 1.06, 1] }}
       transition={{ duration: 9 + delay * 3, repeat: Infinity, ease: "easeInOut", delay }}
     />
   );
@@ -87,20 +89,8 @@ function ScrollProgress() {
   return (
     <motion.div
       className="fixed top-0 left-0 right-0 z-50 origin-left h-[2px]"
-      style={{ scaleX, backgroundColor: C.gold }}
+      style={{ scaleX, backgroundColor: C.accent }}
     />
-  );
-}
-
-/* ─── Parallax image ────────────────────────── */
-function ParallaxImg({ src, alt, speed = 0.15 }: { src: string; alt: string; speed?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [`${-speed * 100}%`, `${speed * 100}%`]);
-  return (
-    <div ref={ref} className="absolute inset-0 overflow-hidden">
-      <motion.img src={src} alt={alt} className="absolute inset-[-15%] w-[130%] h-[130%] object-cover" style={{ y }} />
-    </div>
   );
 }
 
@@ -145,7 +135,7 @@ function PinnedIndustries() {
   return (
     <div ref={containerRef} style={{ height: `${industries.length * 100}vh` }}>
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden"
-        style={{ backgroundColor: C.bg, borderTop: `1px solid ${C.border}` }}>
+        style={{ backgroundColor: C.soft, borderTop: `1px solid ${C.border}` }}>
 
         <div className="px-8 sm:px-14 lg:px-20 xl:px-28 mb-10">
           <p className="text-[10px] font-mono tracking-[0.35em] uppercase" style={{ color: C.muted }}>
@@ -177,7 +167,7 @@ function PinnedIndustries() {
                 <Link href="/industries">
                   <motion.span whileHover={{ x: 4 }}
                     className="inline-flex items-center gap-2 text-sm font-semibold cursor-pointer"
-                    style={{ color: C.text }}>
+                    style={{ color: C.accent }}>
                     Learn more <ArrowRight className="w-4 h-4" />
                   </motion.span>
                 </Link>
@@ -200,7 +190,7 @@ function PinnedIndustries() {
             style={{ borderLeft: `1px solid ${C.border}`, paddingLeft: "clamp(24px,4vw,56px)" }}>
             {industries.map((ind, i) => (
               <motion.div key={ind.name}
-                animate={{ opacity: i === active ? 1 : 0.28 }}
+                animate={{ opacity: i === active ? 1 : 0.3 }}
                 transition={{ duration: 0.35 }}
                 className="flex items-center justify-between gap-6 py-5"
                 style={{ borderBottom: `1px solid ${C.border}` }}
@@ -254,19 +244,18 @@ export default function Home() {
       <section className="relative flex items-center px-8 sm:px-14 lg:px-20 xl:px-28 overflow-hidden"
         style={{ backgroundColor: C.bg, minHeight: "calc(100vh - 72px)", paddingTop: "clamp(56px,9vh,90px)", paddingBottom: "clamp(56px,9vh,90px)" }}>
 
-        {/* Ambient floating shapes */}
-        <FloatShape x="5%"  y="10%" size={80}  delay={0}   opacity={0.07} />
-        <FloatShape x="90%" y="20%" size={50}  delay={1.2} opacity={0.06} />
-        <FloatShape x="80%" y="75%" size={100} delay={2.4} opacity={0.05} />
-        <FloatShape x="15%" y="80%" size={40}  delay={0.8} opacity={0.06} />
-        <FloatShape x="50%" y="5%"  size={24}  delay={3}   opacity={0.08} />
+        {/* Ambient blobs */}
+        <FloatShape x="-4%" y="8%"  size={280} delay={0}   color={C.peach}  opacity={0.45} />
+        <FloatShape x="85%" y="65%" size={180} delay={1.5} color={C.gold}   opacity={0.35} />
+        <FloatShape x="70%" y="0%"  size={120} delay={2.8} color={C.peach}  opacity={0.3}  />
+        <FloatShape x="20%" y="85%" size={80}  delay={0.9} color={C.accent} opacity={0.12} />
 
-        {/* Gold accent line — colour suggestion preview */}
+        {/* Rose accent sweep at top */}
         <motion.div
           initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
           className="absolute top-0 left-0 origin-left"
-          style={{ height: 2, width: "30vw", backgroundColor: C.gold, opacity: 0.7 }}
+          style={{ height: 2, width: "40vw", backgroundColor: C.accent }}
         />
 
         <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-28 items-center relative z-10">
@@ -281,9 +270,8 @@ export default function Home() {
               <span className="text-[10px] font-mono tracking-[0.35em] uppercase" style={{ color: C.muted }}>
                 C TECH — Sector-specific AI
               </span>
-              {/* Gold badge — colour accent */}
               <span className="text-[9px] font-mono tracking-widest uppercase px-2 py-0.5"
-                style={{ color: C.gold, border: `1px solid ${C.gold}`, opacity: 0.9 }}>
+                style={{ color: C.accent, border: `1px solid ${C.accent}`, opacity: 0.85 }}>
                 Est. 2024
               </span>
             </motion.div>
@@ -301,12 +289,12 @@ export default function Home() {
               </motion.h1>
             </div>
 
-            {/* Thin rule */}
+            {/* Gold rule */}
             <motion.div
               initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
               className="origin-left mb-8 mt-6"
-              style={{ height: 1, backgroundColor: C.border, maxWidth: 80 }}
+              style={{ height: 2, backgroundColor: C.gold, maxWidth: 80 }}
             />
 
             <motion.p
@@ -325,17 +313,17 @@ export default function Home() {
             >
               <Link href="/platforms">
                 <motion.span
-                  whileHover={{ backgroundColor: C.accent, scale: 1.02 }}
+                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 cursor-pointer transition-colors duration-150"
-                  style={{ backgroundColor: C.text, color: "white" }}
+                  className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 cursor-pointer transition-all duration-200"
+                  style={{ backgroundColor: C.accent, color: "white" }}
                 >
                   Explore platforms <ArrowRight className="w-4 h-4" />
                 </motion.span>
               </Link>
               <Link href="/contact">
                 <motion.span
-                  whileHover={{ backgroundColor: C.soft }}
+                  whileHover={{ backgroundColor: C.peach }}
                   whileTap={{ scale: 0.97 }}
                   className="inline-flex items-center gap-2 text-sm font-medium px-7 py-3.5 cursor-pointer transition-colors duration-150"
                   style={{ color: C.text, border: `1px solid ${C.border}`, backgroundColor: C.bg }}
@@ -354,7 +342,7 @@ export default function Home() {
                 <span key={t} className="flex items-center gap-1.5 text-xs" style={{ color: C.muted }}>
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <circle cx="6" cy="6" r="5.5" stroke={C.border} />
-                    <path d="M3.5 6l1.7 1.7L8.5 4" stroke={C.text} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M3.5 6l1.7 1.7L8.5 4" stroke={C.accent} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   {t}
                 </span>
@@ -371,7 +359,7 @@ export default function Home() {
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                style={{ border: `1px solid ${C.border}`, boxShadow: "0 24px 80px rgba(0,0,0,0.09), 0 4px 16px rgba(0,0,0,0.05)" }}
+                style={{ border: `1px solid ${C.border}`, boxShadow: `0 24px 80px rgba(92,14,20,0.10), 0 4px 16px rgba(232,79,94,0.07)` }}
               >
                 {/* Browser chrome */}
                 <div className="flex items-center gap-2 px-4 py-3"
@@ -382,7 +370,7 @@ export default function Home() {
                     ))}
                   </div>
                   <div className="flex-1 mx-3 px-3 py-1 text-[11px] font-mono text-center"
-                    style={{ backgroundColor: C.bg, color: "#aaa", border: `1px solid ${C.border}` }}>
+                    style={{ backgroundColor: C.bg, color: C.muted, border: `1px solid ${C.border}` }}>
                     app.ctech.ai / dashboard
                   </div>
                 </div>
@@ -392,7 +380,7 @@ export default function Home() {
                   {/* Sidebar */}
                   <div className="w-48 shrink-0 py-5 px-3"
                     style={{ backgroundColor: C.soft, borderRight: `1px solid ${C.border}` }}>
-                    <p className="px-3 py-1.5 mb-4 text-[9px] font-mono tracking-[0.2em] uppercase" style={{ color: "#aaa" }}>
+                    <p className="px-3 py-1.5 mb-4 text-[9px] font-mono tracking-[0.2em] uppercase" style={{ color: C.muted }}>
                       AI Admin Co-Pilot
                     </p>
                     {[
@@ -403,9 +391,12 @@ export default function Home() {
                       { label: "Reports", on: false },
                     ].map((it) => (
                       <div key={it.label} className="flex items-center gap-2.5 px-3 py-2 text-xs font-medium mb-0.5"
-                        style={{ backgroundColor: it.on ? C.border : "transparent", color: it.on ? C.text : C.muted }}>
+                        style={{
+                          backgroundColor: it.on ? C.peach : "transparent",
+                          color: it.on ? C.text : C.muted,
+                        }}>
                         <div className="w-1.5 h-1.5 rounded-full shrink-0"
-                          style={{ backgroundColor: it.on ? C.text : C.border }} />
+                          style={{ backgroundColor: it.on ? C.accent : C.border }} />
                         {it.label}
                       </div>
                     ))}
@@ -419,15 +410,15 @@ export default function Home() {
                         <p className="text-[11px] mt-0.5" style={{ color: C.muted }}>Tuesday, 24 June · 47 pending actions</p>
                       </div>
                       <div className="w-7 h-7 rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: C.border }}>
-                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: C.text }} />
+                        style={{ backgroundColor: C.peach }}>
+                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: C.accent }} />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-3 gap-3 mb-4">
                       {[
-                        { label: "Docs automated", val: "143",   delta: "+12 today",  hi: "#059669" },
-                        { label: "Hours saved",    val: "38.5h", delta: "this week",  hi: C.text    },
+                        { label: "Docs automated", val: "143",   delta: "+12 today", hi: C.accent },
+                        { label: "Hours saved",    val: "38.5h", delta: "this week",  hi: C.text  },
                         { label: "Compliance",     val: "100%",  delta: "all clear",  hi: "#059669" },
                       ].map((m) => (
                         <div key={m.label} className="p-3"
@@ -446,7 +437,7 @@ export default function Home() {
                         <span className="text-[10px]" style={{ color: C.muted }}>View all →</span>
                       </div>
                       {[
-                        { name: "Patient intake documentation", status: "Running", pct: 78,  sc: C.text    },
+                        { name: "Patient intake documentation", status: "Running", pct: 78,  sc: C.accent },
                         { name: "Referral letter generation",   status: "Queued",  pct: 0,   sc: C.muted   },
                         { name: "Monthly compliance report",    status: "Done",    pct: 100, sc: "#059669" },
                       ].map((w, wi) => (
@@ -455,7 +446,7 @@ export default function Home() {
                           <div className="flex items-center justify-between mb-1.5">
                             <span className="text-[11px] font-medium" style={{ color: C.text }}>{w.name}</span>
                             <span className="text-[10px] font-medium px-2 py-0.5"
-                              style={{ color: w.sc, backgroundColor: w.sc + "15" }}>{w.status}</span>
+                              style={{ color: w.sc, backgroundColor: w.sc + "20" }}>{w.status}</span>
                           </div>
                           <div className="h-0.5 rounded-full" style={{ backgroundColor: C.border }}>
                             <div className="h-0.5 rounded-full" style={{ width: `${w.pct}%`, backgroundColor: w.sc }} />
@@ -477,7 +468,6 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          style={{ color: C.muted }}
         >
           <motion.div className="w-px h-10 rounded-full"
             style={{ background: `linear-gradient(to bottom, transparent, ${C.border})` }}
@@ -491,12 +481,12 @@ export default function Home() {
           TICKER
       ══════════════════════════════════════════ */}
       <div className="overflow-hidden py-4"
-        style={{ backgroundColor: C.bg, borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
+        style={{ backgroundColor: C.peach, borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
         <div className="animate-marquee">
           {[...ticker, ...ticker].map((item, i) => (
             <span key={i}
               className="inline-flex items-center gap-5 px-6 text-[10px] font-mono tracking-[0.32em] uppercase whitespace-nowrap"
-              style={{ color: i % 5 === 0 ? C.gold : i % 3 === 0 ? C.text : C.muted }}>
+              style={{ color: i % 5 === 0 ? C.accent : i % 3 === 0 ? C.text : C.muted }}>
               {item}
               <span className="w-px h-3 shrink-0" style={{ backgroundColor: C.border }} />
             </span>
@@ -505,26 +495,26 @@ export default function Home() {
       </div>
 
       {/* ══════════════════════════════════════════
-          MANIFESTO — black + parallax photo
+          MANIFESTO — dark burgundy + parallax photo
       ══════════════════════════════════════════ */}
       <section ref={manifestoRef} className="grid grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-col justify-between px-8 sm:px-14 lg:px-20 xl:px-28 py-24"
-          style={{ backgroundColor: C.accent }}>
+          style={{ backgroundColor: C.dark }}>
           <Reveal>
             <p className="text-[10px] font-mono tracking-[0.35em] uppercase mb-16"
-              style={{ color: "rgba(255,255,255,0.3)" }}>Our position</p>
+              style={{ color: "rgba(252,223,197,0.4)" }}>Our position</p>
           </Reveal>
           <div>
             <Reveal delay={0.08}>
-              <p className="font-black leading-[1.1] tracking-[-0.03em] text-white mb-10"
-                style={{ fontSize: "clamp(1.9rem,3.6vw,3rem)" }}>
+              <p className="font-black leading-[1.1] tracking-[-0.03em] mb-10"
+                style={{ fontSize: "clamp(1.9rem,3.6vw,3rem)", color: C.peach }}>
                 Generic AI tools aren't built for sectors with real consequences.{" "}
-                <span style={{ color: "rgba(255,255,255,0.38)" }}>We are.</span>
+                <span style={{ color: "rgba(252,223,197,0.38)" }}>We are.</span>
               </p>
             </Reveal>
             <Reveal delay={0.16}>
               <p className="text-base leading-relaxed mb-14 max-w-sm"
-                style={{ color: "rgba(255,255,255,0.5)" }}>
+                style={{ color: "rgba(252,223,197,0.5)" }}>
                 Healthcare. Financial. Legal. Each industry has its own language, risk profile, and compliance landscape.
               </p>
             </Reveal>
@@ -532,7 +522,7 @@ export default function Home() {
               <Link href="/about">
                 <motion.span whileHover={{ x: 4 }}
                   className="inline-flex items-center gap-2 text-sm font-semibold cursor-pointer"
-                  style={{ color: "rgba(255,255,255,0.55)" }}>
+                  style={{ color: C.gold }}>
                   Our approach <ArrowRight className="w-4 h-4" />
                 </motion.span>
               </Link>
@@ -548,7 +538,7 @@ export default function Home() {
             className="absolute inset-[-10%] w-[120%] h-[120%] object-cover"
             style={{ y: manifestoY }}
           />
-          <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.15)", mixBlendMode: "multiply" }} />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(92,14,20,0.25)", mixBlendMode: "multiply" }} />
         </div>
       </section>
 
@@ -583,7 +573,7 @@ export default function Home() {
             <Link href="/platforms">
               <motion.div
                 className="group grid grid-cols-1 lg:grid-cols-[1fr_420px] cursor-pointer overflow-hidden"
-                whileHover={{ y: -3, boxShadow: "0 12px 40px rgba(0,0,0,0.07)" }}
+                whileHover={{ y: -3, boxShadow: `0 12px 40px rgba(92,14,20,0.08)` }}
                 transition={{ duration: 0.25 }}
                 style={{ border: `1px solid ${C.border}`, backgroundColor: C.bg }}
               >
@@ -603,7 +593,7 @@ export default function Home() {
                     <ul className="space-y-3">
                       {p.features.map((f) => (
                         <li key={f} className="flex items-center gap-3 text-sm" style={{ color: C.muted }}>
-                          <span className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: C.text }} />
+                          <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.accent }} />
                           {f}
                         </li>
                       ))}
@@ -611,7 +601,7 @@ export default function Home() {
                   </div>
                   <div className="mt-10">
                     <span className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all duration-200"
-                      style={{ color: C.text }}>
+                      style={{ color: C.accent }}>
                       Explore platform <ArrowUpRight className="w-4 h-4" />
                     </span>
                   </div>
@@ -626,7 +616,7 @@ export default function Home() {
                     transition={{ duration: 0.7 }}
                   />
                   <div className="absolute inset-0"
-                    style={{ backgroundColor: "rgba(0,0,0,0.1)", mixBlendMode: "multiply" }} />
+                    style={{ backgroundColor: "rgba(92,14,20,0.12)", mixBlendMode: "multiply" }} />
                 </div>
               </motion.div>
             </Link>
@@ -640,16 +630,21 @@ export default function Home() {
       <PinnedIndustries />
 
       {/* ══════════════════════════════════════════
-          HOW WE BUILD — black panel, floating nums
+          HOW WE BUILD — deep burgundy, floating nums
       ══════════════════════════════════════════ */}
       <section className="py-24 px-8 sm:px-14 lg:px-20 xl:px-28 relative overflow-hidden"
-        style={{ backgroundColor: C.accent }}>
+        style={{ backgroundColor: C.dark }}>
+
+        {/* Peach ambient blobs */}
+        <motion.div className="absolute rounded-full pointer-events-none"
+          style={{ width: 400, height: 400, right: -100, top: -100, backgroundColor: C.accent, opacity: 0.07 }}
+          animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} />
 
         {/* Floating large ghost numbers */}
         {["01","02","03"].map((n, i) => (
           <motion.span key={n}
             className="absolute font-black select-none pointer-events-none"
-            style={{ fontSize: "clamp(8rem,18vw,16rem)", color: "rgba(255,255,255,0.025)",
+            style={{ fontSize: "clamp(8rem,18vw,16rem)", color: "rgba(252,223,197,0.05)",
               right: `${5 + i * 28}%`, bottom: "-1rem", lineHeight: 1 }}
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 8 + i * 2, repeat: Infinity, ease: "easeInOut", delay: i * 1.5 }}
@@ -661,7 +656,7 @@ export default function Home() {
         <div className="relative z-10">
           <Reveal>
             <p className="text-[10px] font-mono tracking-[0.35em] uppercase mb-16"
-              style={{ color: "rgba(255,255,255,0.3)" }}>How we build</p>
+              style={{ color: "rgba(252,223,197,0.4)" }}>How we build</p>
           </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 sm:gap-0">
@@ -672,13 +667,13 @@ export default function Home() {
             ].map((s, i) => (
               <Reveal key={s.n} delay={i * 0.1}
                 className="sm:px-12 first:pl-0 last:pr-0"
-                style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.1)" : "none" } as any}>
+                style={{ borderLeft: i > 0 ? "1px solid rgba(252,223,197,0.12)" : "none" } as any}>
                 <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.25 }}>
-                  <span className="text-[10px] font-mono tracking-widest block mb-8" style={{ color: "rgba(255,255,255,0.3)" }}>
-                    {s.n}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">{s.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{s.body}</p>
+                  <span className="text-[10px] font-mono tracking-widest block mb-8"
+                    style={{ color: "rgba(252,223,197,0.3)" }}>{s.n}</span>
+                  <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-4"
+                    style={{ color: C.peach }}>{s.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(252,223,197,0.5)" }}>{s.body}</p>
                 </motion.div>
               </Reveal>
             ))}
@@ -686,11 +681,11 @@ export default function Home() {
 
           <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }}
             transition={{ duration: 1.1, delay: 0.2 }} className="h-px origin-left mt-16 mb-10"
-            style={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+            style={{ backgroundColor: "rgba(252,223,197,0.1)" }} />
 
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <Reveal>
-              <p className="text-sm leading-relaxed max-w-md" style={{ color: "rgba(255,255,255,0.4)" }}>
+              <p className="text-sm leading-relaxed max-w-md" style={{ color: "rgba(252,223,197,0.4)" }}>
                 Every build follows our 6-phase compliance framework — discovery through to continuous improvement.
               </p>
             </Reveal>
@@ -698,7 +693,7 @@ export default function Home() {
               <Link href="/how-we-build">
                 <motion.span whileHover={{ x: 4 }}
                   className="inline-flex items-center gap-2 text-sm font-bold cursor-pointer"
-                  style={{ color: "rgba(255,255,255,0.55)" }}>
+                  style={{ color: C.gold }}>
                   Full process <ArrowRight className="w-4 h-4" />
                 </motion.span>
               </Link>
@@ -708,28 +703,28 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════
-          CTA — white with live animated bg
+          CTA — warm peach with animated rings
       ══════════════════════════════════════════ */}
       <section className="relative py-36 px-8 sm:px-14 lg:px-20 xl:px-28 overflow-hidden"
-        style={{ backgroundColor: C.bg, borderTop: `1px solid ${C.border}` }}>
+        style={{ backgroundColor: C.peach, borderTop: `1px solid ${C.border}` }}>
 
-        {/* Scroll-reactive floating circles */}
+        {/* Animated rings */}
         {[
-          { size: 300, x: "75%",  y: "10%",  delay: 0   },
-          { size: 180, x: "85%",  y: "60%",  delay: 1.5 },
-          { size: 80,  x: "60%",  y: "30%",  delay: 0.7 },
+          { size: 320, x: "72%", y: "5%",  delay: 0   },
+          { size: 180, x: "82%", y: "55%", delay: 1.5 },
+          { size: 90,  x: "60%", y: "25%", delay: 0.7 },
         ].map((s, i) => (
           <motion.div key={i}
             className="absolute rounded-full pointer-events-none"
-            style={{ width: s.size, height: s.size, left: s.x, top: s.y, border: `1px solid ${C.border}` }}
-            animate={{ scale: [1, 1.08, 1], rotate: [0, 30, 0], opacity: [0.5, 1, 0.5] }}
+            style={{ width: s.size, height: s.size, left: s.x, top: s.y, border: `1px solid ${C.accent}`, opacity: 0.2 }}
+            animate={{ scale: [1, 1.08, 1], rotate: [0, 30, 0], opacity: [0.15, 0.3, 0.15] }}
             transition={{ duration: 10 + s.delay * 2, repeat: Infinity, ease: "easeInOut", delay: s.delay }}
           />
         ))}
 
-        {/* Gold accent line above CTA */}
+        {/* Gold accent bar */}
         <Reveal>
-          <div className="mb-12" style={{ width: 40, height: 2, backgroundColor: C.gold }} />
+          <div className="mb-12" style={{ width: 40, height: 3, backgroundColor: C.accent }} />
         </Reveal>
 
         <Reveal delay={0.04}>
@@ -752,16 +747,16 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Link href="/contact">
               <motion.span
-                whileHover={{ backgroundColor: C.accent, scale: 1.02 }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-3 text-sm font-semibold px-8 py-4 cursor-pointer transition-colors duration-150"
-                style={{ backgroundColor: C.text, color: "white" }}>
+                className="inline-flex items-center gap-3 text-sm font-semibold px-8 py-4 cursor-pointer"
+                style={{ backgroundColor: C.accent, color: "white" }}>
                 Start a conversation <ArrowRight className="w-4 h-4" />
               </motion.span>
             </Link>
             <Link href="/platforms">
               <span className="text-sm font-medium cursor-pointer hover:opacity-60 transition-opacity border-b pb-px"
-                style={{ color: C.muted, borderColor: C.border }}>
+                style={{ color: C.muted, borderColor: C.muted }}>
                 Browse our platforms →
               </span>
             </Link>

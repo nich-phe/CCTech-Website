@@ -10,9 +10,9 @@ interface CTechLogoProps {
  * white=true renders a fully white version for dark backgrounds.
  */
 export function CTechLogo({ white = false, className = "" }: CTechLogoProps) {
-  const teal = white ? "#ffffff" : "#111111";
-  const textPrimary = white ? "rgba(255,255,255,0.95)" : "#0f172a";
-  const textSub = white ? "rgba(255,255,255,0.60)" : "#64748b";
+  const teal = white ? "#FCDFC5" : "#5C0E14";
+  const textPrimary = white ? "rgba(252,223,197,0.95)" : "#5C0E14";
+  const textSub = white ? "rgba(252,223,197,0.55)" : "#9B4A52";
 
   return (
     <div className={`flex items-center gap-1 select-none ${className}`}>
