@@ -137,6 +137,48 @@ export default function About() {
           </div>
         </div>
       </section>
+      {/* Founders */}
+      <section className="py-28 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#9B4A52" }}>The people behind the platforms</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+              Built by founders who <span className="text-gradient">understand the work.</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden mb-6" style={{ borderRadius: 2 }}>
+                <img
+                  src="/cofounder.png"
+                  alt="CC TECH Co-Founder"
+                  className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  style={{ height: 400 }}
+                />
+                <div className="absolute inset-0 pointer-events-none"
+                  style={{ background: "linear-gradient(to top, rgba(92,14,20,0.18) 0%, transparent 50%)" }} />
+              </div>
+              <p className="text-xl font-bold text-foreground mb-1">Co-Founder, CC TECH</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Driving the vision for sector-specific AI platforms that put compliance, clinical accuracy, and operational efficiency at the centre of every decision.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 bg-muted/40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(0,0,0,0.05),transparent_70%)]" />
