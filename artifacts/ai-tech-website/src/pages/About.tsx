@@ -52,7 +52,7 @@ export default function About() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-border shadow-sm mb-8 text-sm font-medium text-muted-foreground">
               <span className="w-2 h-2 rounded-full bg-secondary" />
-              About C TECH
+              About CC TECH
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-8 max-w-4xl">
               We build the foundation for efficient,{" "}

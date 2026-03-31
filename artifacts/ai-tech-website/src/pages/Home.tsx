@@ -357,112 +357,90 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Right: mouse-tilt product mockup */}
+          {/* Right: editorial photo with floating stat cards */}
           <motion.div
             initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           >
             <MouseTilt>
               <motion.div
+                className="relative overflow-hidden"
                 animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                style={{ border: `1px solid ${C.border}`, boxShadow: `0 24px 80px rgba(92,14,20,0.10), 0 4px 16px rgba(232,79,94,0.07)` }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                style={{
+                  borderRadius: 4,
+                  boxShadow: `0 32px 80px rgba(92,14,20,0.12), 0 4px 20px rgba(92,14,20,0.06)`,
+                }}
               >
-                {/* Browser chrome */}
-                <div className="flex items-center gap-2 px-4 py-3"
-                  style={{ backgroundColor: C.soft, borderBottom: `1px solid ${C.border}` }}>
-                  <div className="flex gap-1.5">
-                    {["#fca5a5","#fde68a","#6ee7b7"].map((cc) => (
-                      <div key={cc} className="w-3 h-3 rounded-full" style={{ backgroundColor: cc }} />
-                    ))}
-                  </div>
-                  <div className="flex-1 mx-3 px-3 py-1 text-[11px] font-mono text-center"
-                    style={{ backgroundColor: C.bg, color: C.muted, border: `1px solid ${C.border}` }}>
-                    app.ctech.ai / dashboard
-                  </div>
-                </div>
+                <img
+                  src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=900&auto=format&fit=crop&q=85"
+                  alt="Allied health professional at work"
+                  className="w-full object-cover block"
+                  style={{ height: 480, objectPosition: "center top" }}
+                />
+                <div className="absolute inset-0 pointer-events-none"
+                  style={{ background: `linear-gradient(to top, rgba(92,14,20,0.28) 0%, transparent 55%)` }} />
 
-                {/* App UI */}
-                <div className="flex" style={{ backgroundColor: C.bg, minHeight: 400 }}>
-                  {/* Sidebar */}
-                  <div className="w-48 shrink-0 py-5 px-3"
-                    style={{ backgroundColor: C.soft, borderRight: `1px solid ${C.border}` }}>
-                    <p className="px-3 py-1.5 mb-4 text-[9px] font-mono tracking-[0.2em] uppercase" style={{ color: C.muted }}>
-                      AI Admin Co-Pilot
-                    </p>
-                    {[
-                      { label: "Dashboard", on: true },
-                      { label: "Workflows", on: false },
-                      { label: "Documents", on: false },
-                      { label: "Compliance", on: false },
-                      { label: "Reports", on: false },
-                    ].map((it) => (
-                      <div key={it.label} className="flex items-center gap-2.5 px-3 py-2 text-xs font-medium mb-0.5"
-                        style={{
-                          backgroundColor: it.on ? C.peach : "transparent",
-                          color: it.on ? C.text : C.muted,
-                        }}>
-                        <div className="w-1.5 h-1.5 rounded-full shrink-0"
-                          style={{ backgroundColor: it.on ? C.accent : C.border }} />
-                        {it.label}
-                      </div>
-                    ))}
+                {/* Hours saved — top left */}
+                <motion.div
+                  className="absolute top-5 left-5 px-4 py-3"
+                  initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  style={{
+                    background: "rgba(254,247,243,0.92)",
+                    backdropFilter: "blur(12px)",
+                    border: `1px solid rgba(240,213,204,0.7)`,
+                    borderRadius: 2,
+                    boxShadow: "0 4px 24px rgba(92,14,20,0.08)",
+                  }}
+                >
+                  <p className="text-[20px] font-black leading-none" style={{ color: C.text }}>38.5h</p>
+                  <p className="text-[11px] mt-0.5" style={{ color: C.muted }}>saved per practitioner / week</p>
+                </motion.div>
+
+                {/* Compliant badge — top right */}
+                <motion.div
+                  className="absolute top-5 right-5 flex items-center gap-2 px-3 py-2"
+                  initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  style={{
+                    background: "rgba(254,247,243,0.92)",
+                    backdropFilter: "blur(12px)",
+                    border: `1px solid rgba(240,213,204,0.7)`,
+                    borderRadius: 2,
+                    boxShadow: "0 4px 24px rgba(92,14,20,0.08)",
+                  }}
+                >
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#059669" }} />
+                  <span className="text-[11px] font-semibold" style={{ color: C.text }}>100% compliant</span>
+                </motion.div>
+
+                {/* Referral notification — bottom */}
+                <motion.div
+                  className="absolute bottom-6 left-5 flex items-start gap-3 px-4 py-3"
+                  initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  style={{
+                    background: "rgba(254,247,243,0.93)",
+                    backdropFilter: "blur(12px)",
+                    border: `1px solid rgba(240,213,204,0.7)`,
+                    borderRadius: 2,
+                    boxShadow: "0 4px 24px rgba(92,14,20,0.10)",
+                    maxWidth: 230,
+                  }}
+                >
+                  <motion.div
+                    className="w-2 h-2 rounded-full mt-1 shrink-0"
+                    style={{ backgroundColor: C.accent }}
+                    animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
+                    transition={{ repeat: Infinity, duration: 1.6 }}
+                  />
+                  <div>
+                    <p className="text-[11px] font-semibold" style={{ color: C.text }}>New referral received</p>
+                    <p className="text-[10px] mt-0.5" style={{ color: C.muted }}>Sarah Mitchell · CBT for anxiety · Medicare plan attached</p>
+                    <p className="text-[10px] mt-1 font-medium" style={{ color: C.accent }}>AI processing now</p>
                   </div>
-
-                  {/* Main content */}
-                  <div className="flex-1 p-5">
-                    <div className="flex items-center justify-between mb-5">
-                      <div>
-                        <p className="text-sm font-bold" style={{ color: C.text }}>Good morning, Dr. Chen</p>
-                        <p className="text-[11px] mt-0.5" style={{ color: C.muted }}>Tuesday, 24 June · 47 pending actions</p>
-                      </div>
-                      <div className="w-7 h-7 rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: C.peach }}>
-                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: C.accent }} />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-3 mb-4">
-                      {[
-                        { label: "Docs automated", val: "143",   delta: "+12 today", hi: C.accent },
-                        { label: "Hours saved",    val: "38.5h", delta: "this week",  hi: C.text  },
-                        { label: "Compliance",     val: "100%",  delta: "all clear",  hi: "#059669" },
-                      ].map((m) => (
-                        <div key={m.label} className="p-3"
-                          style={{ backgroundColor: C.soft, border: `1px solid ${C.border}` }}>
-                          <p className="text-[9px] font-medium mb-1" style={{ color: C.muted }}>{m.label}</p>
-                          <p className="text-base font-black" style={{ color: C.text }}>{m.val}</p>
-                          <p className="text-[9px] mt-0.5 font-medium" style={{ color: m.hi }}>{m.delta}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div style={{ border: `1px solid ${C.border}` }}>
-                      <div className="px-4 py-2.5 flex items-center justify-between"
-                        style={{ backgroundColor: C.soft, borderBottom: `1px solid ${C.border}` }}>
-                        <span className="text-[10px] font-semibold" style={{ color: C.text }}>Active workflows</span>
-                        <span className="text-[10px]" style={{ color: C.muted }}>View all →</span>
-                      </div>
-                      {[
-                        { name: "Patient intake documentation", status: "Running", pct: 78,  sc: C.accent },
-                        { name: "Referral letter generation",   status: "Queued",  pct: 0,   sc: C.muted   },
-                        { name: "Monthly compliance report",    status: "Done",    pct: 100, sc: "#059669" },
-                      ].map((w, wi) => (
-                        <div key={w.name} className="px-4 py-3"
-                          style={{ borderBottom: wi < 2 ? `1px solid ${C.border}` : "none" }}>
-                          <div className="flex items-center justify-between mb-1.5">
-                            <span className="text-[11px] font-medium" style={{ color: C.text }}>{w.name}</span>
-                            <span className="text-[10px] font-medium px-2 py-0.5"
-                              style={{ color: w.sc, backgroundColor: w.sc + "20" }}>{w.status}</span>
-                          </div>
-                          <div className="h-0.5 rounded-full" style={{ backgroundColor: C.border }}>
-                            <div className="h-0.5 rounded-full" style={{ width: `${w.pct}%`, backgroundColor: w.sc }} />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                </motion.div>
               </motion.div>
             </MouseTilt>
             <p className="text-center text-xs mt-4" style={{ color: C.muted }}>
