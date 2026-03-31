@@ -144,7 +144,7 @@ export default function About() {
 
       {/* CTA */}
       <section className="py-24 bg-muted/40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(79,70,229,0.08),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(0,0,0,0.05),transparent_70%)]" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
