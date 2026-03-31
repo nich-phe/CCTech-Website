@@ -359,7 +359,6 @@ export default function Platforms() {
           </div>
         </motion.div>
       </section>
-
       {/* ══════════════════════════════════════════
           PLATFORM 01 — AI Admin Co-Pilot
       ══════════════════════════════════════════ */}
@@ -450,7 +449,6 @@ export default function Platforms() {
           </div>
         </div>
       </section>
-
       {/* ══════════════════════════════════════════
           PLATFORM 02 — Tax Exposure Analytics
       ══════════════════════════════════════════ */}
@@ -543,7 +541,6 @@ export default function Platforms() {
           </div>
         </div>
       </section>
-
       {/* ══════════════════════════════════════════
           PLATFORM 03 — PMS Co-Pilot  ★ NEW ★
       ══════════════════════════════════════════ */}
@@ -578,9 +575,7 @@ export default function Platforms() {
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{ color: C.text }}>
                 Practice Management<br />AI Co-Pilot
               </h2>
-              <p className="text-lg leading-relaxed mb-10" style={{ color: C.muted }}>
-                An intelligent co-pilot built for allied health professionals — psychologists, physiotherapists, OTs, speech pathologists, and more. It automates the full patient lifecycle: referral intake, scheduling, progress notes, reporting, and Medicare compliance — so practitioners focus on clients, not admin.
-              </p>
+              <p className="text-lg leading-relaxed mb-10" style={{ color: C.muted }}>An intelligent co-pilot built for allied health professionals;  psychologists, physiotherapists, OTs, speech pathologists, and more. It automates the full patient lifecycle: referral intake, scheduling, progress notes, reporting, and Medicare compliance  so practitioners focus on clients, not admin.</p>
 
               <p className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: `${C.text}55` }}>
                 Core Capabilities
@@ -660,7 +655,6 @@ export default function Platforms() {
           </div>
         </div>
       </section>
-
       {/* ══════════════════════════════════════════
           CTA
       ══════════════════════════════════════════ */}
