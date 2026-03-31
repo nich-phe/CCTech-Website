@@ -94,114 +94,214 @@ export default function Home() {
     <Layout>
 
       {/* ═══════════════════════════════════════════════
-          HERO — full-bleed dark photo + white editorial text
+          HERO — clean, minimal, SaaS premium
       ═══════════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex flex-col justify-between overflow-hidden"
-        style={{ backgroundColor: "#050d1a" }}
-      >
-        {/* Background photo */}
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&auto=format&fit=crop&q=80"
-            alt=""
-            className="w-full h-full object-cover opacity-[0.18]"
-          />
-          {/* Radial vignette */}
-          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 70% 50%, transparent 20%, #050d1a 80%)" }} />
-          {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-48" style={{ background: "linear-gradient(to top, #050d1a, transparent)" }} />
-        </div>
+      <section className="flex items-center px-6 sm:px-10 lg:px-16 xl:px-20"
+        style={{ backgroundColor: "#f9fafb", minHeight: "calc(100vh - 72px)", paddingTop: "clamp(48px, 8vh, 80px)", paddingBottom: "clamp(48px, 8vh, 80px)" }}>
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-center">
 
-        {/* Teal accent line top */}
-        <motion.div
-          initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
-          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className="absolute top-0 left-0 right-0 h-[2px] origin-left"
-          style={{ background: "linear-gradient(to right, #0E9FAC, transparent)" }}
-        />
+          {/* ── LEFT: Copy ── */}
+          <div>
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="inline-flex items-center gap-2 mb-8 px-3.5 py-1.5 rounded-full text-xs font-semibold"
+              style={{ backgroundColor: "rgba(14,159,172,0.08)", color: "#0E9FAC", border: "1px solid rgba(14,159,172,0.2)" }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0E9FAC]" />
+              Enterprise AI for Complex Industries
+            </motion.div>
 
-        {/* Content */}
-        <div className="relative z-10 flex flex-col justify-between min-h-screen pt-28 pb-14 px-6 sm:px-10 lg:px-16 xl:px-24">
-          {/* Top labels */}
-          <div className="flex justify-between items-center">
-            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.7 }}
-              className="text-[10px] font-mono tracking-[0.28em] uppercase" style={{ color: "rgba(255,255,255,0.3)" }}>
-              C TECH — Enterprise AI
-            </motion.span>
-            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.7 }}
-              className="text-[10px] font-mono tracking-[0.28em] uppercase" style={{ color: "rgba(255,255,255,0.3)" }}>
-              Est. 2024
-            </motion.span>
-          </div>
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              className="font-black tracking-[-0.035em] leading-[1.06] mb-6"
+              style={{ fontSize: "clamp(2.4rem,4.5vw,4rem)", color: "#0c1117" }}
+            >
+              Built for industries<br />
+              that can't afford<br />
+              <span style={{ color: "#0E9FAC" }}>to get it wrong.</span>
+            </motion.h1>
 
-          {/* Headline */}
-          <div className="max-w-[1100px]">
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45, duration: 0.5 }}
-              className="text-[10px] font-mono tracking-[0.35em] uppercase mb-8" style={{ color: "#0E9FAC" }}>
-              ◆  Sector-specific AI platforms
+            {/* Sub */}
+            <motion.p
+              initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.32 }}
+              className="text-base sm:text-lg leading-relaxed mb-10 max-w-[440px]"
+              style={{ color: "#4b5563" }}
+            >
+              We design AI platforms from the ground up for your compliance requirements, workflow logic, and operating environment — not retrofitted from a generic model.
             </motion.p>
 
-            {[
-              { text: "Built for", color: "white" },
-              { text: "industries", color: "#0E9FAC" },
-              { text: "that can't afford", color: "white" },
-              { text: "to get it wrong.", color: "rgba(255,255,255,0.45)" },
-            ].map((line, i) => (
-              <div key={i} className="overflow-hidden">
-                <motion.h1
-                  initial={{ y: "110%" }} animate={{ y: "0%" }}
-                  transition={{ duration: 0.88, ease: [0.16, 1, 0.3, 1], delay: 0.42 + i * 0.1 }}
-                  className="font-black leading-[0.95] tracking-[-0.035em]"
-                  style={{ fontSize: "clamp(3.2rem,8vw,7rem)", color: line.color }}
-                >
-                  {line.text}
-                </motion.h1>
-              </div>
-            ))}
-
-            <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.95 }}
-              className="text-base sm:text-lg mt-10 max-w-md leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
-              We design AI from the ground up for your compliance requirements, workflow logic, and operating reality.
-            </motion.p>
-
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.1 }}
-              className="flex items-center gap-8 mt-12">
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.44 }}
+              className="flex flex-wrap items-center gap-3 mb-10"
+            >
               <Link href="/platforms">
-                <span className="group inline-flex items-center gap-2.5 bg-[#0E9FAC] text-white text-sm font-semibold px-7 py-3.5 cursor-pointer hover:bg-[#0a8a96] transition-colors duration-200">
-                  Explore platforms <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </span>
+                <motion.span
+                  whileHover={{ backgroundColor: "#0a8a96" }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-lg cursor-pointer transition-colors duration-200"
+                  style={{ backgroundColor: "#0E9FAC", color: "white" }}
+                >
+                  Explore platforms <ArrowRight className="w-4 h-4" />
+                </motion.span>
               </Link>
               <Link href="/contact">
-                <span className="text-sm font-medium cursor-pointer transition-colors duration-200 border-b pb-0.5"
-                  style={{ color: "rgba(255,255,255,0.45)", borderColor: "rgba(255,255,255,0.15)" }}>
-                  Book a conversation
-                </span>
+                <motion.span
+                  whileHover={{ backgroundColor: "#f3f4f6" }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-lg cursor-pointer transition-colors duration-200"
+                  style={{ color: "#374151", border: "1px solid #e5e7eb", backgroundColor: "white" }}
+                >
+                  Book a demo
+                </motion.span>
               </Link>
+            </motion.div>
+
+            {/* Trust indicators */}
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.58 }}
+              className="flex flex-wrap gap-x-6 gap-y-2"
+            >
+              {[
+                "Compliance-first architecture",
+                "Sector-specific AI models",
+                "No generic templates",
+              ].map((t) => (
+                <span key={t} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "#6b7280" }}>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <circle cx="6.5" cy="6.5" r="6.5" fill="#0E9FAC" fillOpacity="0.12" />
+                    <path d="M4 6.5l1.8 1.8L9 4.5" stroke="#0E9FAC" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  {t}
+                </span>
+              ))}
             </motion.div>
           </div>
 
-          {/* Bottom metrics */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="grid grid-cols-3 gap-6 pt-10"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-            {[
-              { val: 40,  suffix: "%", label: "Avg. admin reduction"   },
-              { val: 100, suffix: "%", label: "Compliance-first builds" },
-              { val: 60,  suffix: "%", label: "Faster reporting cycles" },
-            ].map((s, i) => (
-              <div key={i}>
-                <div className="text-3xl sm:text-4xl font-black tabular-nums" style={{ color: "#0E9FAC" }}>
-                  <Counter to={s.val} suffix={s.suffix} />
+          {/* ── RIGHT: Product UI mockup ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+          >
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="rounded-2xl overflow-hidden"
+              style={{ boxShadow: "0 24px 80px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06)", border: "1px solid #e5e7eb" }}
+            >
+              {/* Browser chrome */}
+              <div className="flex items-center gap-2 px-4 py-3" style={{ backgroundColor: "#f3f4f6", borderBottom: "1px solid #e5e7eb" }}>
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#fca5a5" }} />
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#fde68a" }} />
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#6ee7b7" }} />
                 </div>
-                <div className="text-[10px] font-mono tracking-widest uppercase mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
-                  {s.label}
+                <div className="flex-1 mx-3 px-3 py-1 rounded text-[11px] font-mono text-center"
+                  style={{ backgroundColor: "white", color: "#9ca3af", border: "1px solid #e5e7eb" }}>
+                  app.ctech.ai / dashboard
                 </div>
               </div>
-            ))}
+
+              {/* App UI */}
+              <div className="flex" style={{ backgroundColor: "white", minHeight: 420 }}>
+
+                {/* Sidebar */}
+                <div className="w-52 shrink-0 py-5 px-3 flex flex-col gap-1" style={{ backgroundColor: "#f9fafb", borderRight: "1px solid #f0f0f0" }}>
+                  <div className="px-3 py-1.5 mb-3">
+                    <span className="text-[10px] font-mono tracking-[0.2em] uppercase" style={{ color: "#9ca3af" }}>AI Admin Co-Pilot</span>
+                  </div>
+                  {[
+                    { label: "Dashboard", active: true },
+                    { label: "Workflows", active: false },
+                    { label: "Documents", active: false },
+                    { label: "Compliance", active: false },
+                    { label: "Reports", active: false },
+                  ].map((item) => (
+                    <div key={item.label}
+                      className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium"
+                      style={{
+                        backgroundColor: item.active ? "#0E9FAC14" : "transparent",
+                        color: item.active ? "#0E9FAC" : "#6b7280",
+                      }}
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full shrink-0"
+                        style={{ backgroundColor: item.active ? "#0E9FAC" : "#d1d5db" }} />
+                      {item.label}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Main content */}
+                <div className="flex-1 p-5 overflow-hidden">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div>
+                      <p className="text-sm font-bold" style={{ color: "#111827" }}>Good morning, Dr. Chen</p>
+                      <p className="text-xs" style={{ color: "#9ca3af" }}>Tuesday, 24 June · 47 pending actions</p>
+                    </div>
+                    <div className="w-7 h-7 rounded-full" style={{ backgroundColor: "#0E9FAC22" }}>
+                      <div className="w-full h-full rounded-full flex items-center justify-center">
+                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "#0E9FAC" }} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Metric cards */}
+                  <div className="grid grid-cols-3 gap-3 mb-4">
+                    {[
+                      { label: "Docs automated", val: "143", delta: "+12 today", color: "#059669" },
+                      { label: "Hours saved", val: "38.5h", delta: "this week", color: "#0E9FAC" },
+                      { label: "Compliance", val: "100%", delta: "all clear", color: "#6366f1" },
+                    ].map((m) => (
+                      <div key={m.label} className="rounded-xl p-3" style={{ backgroundColor: "#f9fafb", border: "1px solid #f0f0f0" }}>
+                        <p className="text-[10px] font-medium mb-1" style={{ color: "#9ca3af" }}>{m.label}</p>
+                        <p className="text-base font-black" style={{ color: "#111827" }}>{m.val}</p>
+                        <p className="text-[10px] font-medium mt-0.5" style={{ color: m.color }}>{m.delta}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Workflow items */}
+                  <div className="rounded-xl overflow-hidden" style={{ border: "1px solid #f0f0f0" }}>
+                    <div className="px-4 py-2.5 flex items-center justify-between"
+                      style={{ backgroundColor: "#f9fafb", borderBottom: "1px solid #f0f0f0" }}>
+                      <span className="text-[10px] font-semibold" style={{ color: "#374151" }}>Active workflows</span>
+                      <span className="text-[10px]" style={{ color: "#0E9FAC" }}>View all →</span>
+                    </div>
+                    {[
+                      { name: "Patient intake documentation", status: "Running", pct: 78, color: "#0E9FAC" },
+                      { name: "Referral letter generation",   status: "Queued",  pct: 0,  color: "#9ca3af" },
+                      { name: "Monthly compliance report",    status: "Done",    pct: 100, color: "#059669" },
+                    ].map((w) => (
+                      <div key={w.name} className="px-4 py-3" style={{ borderBottom: "1px solid #f9fafb" }}>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="text-[11px] font-medium" style={{ color: "#374151" }}>{w.name}</span>
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                            style={{ color: w.color, backgroundColor: w.color + "15" }}>{w.status}</span>
+                        </div>
+                        <div className="h-1 rounded-full" style={{ backgroundColor: "#f3f4f6" }}>
+                          <div className="h-1 rounded-full transition-all" style={{ width: `${w.pct}%`, backgroundColor: w.color }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Caption below frame */}
+            <p className="text-center text-xs mt-4" style={{ color: "#9ca3af" }}>
+              AI Admin Co-Pilot — Healthcare & Allied Health platform
+            </p>
           </motion.div>
+
         </div>
       </section>
 
