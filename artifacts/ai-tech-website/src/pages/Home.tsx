@@ -275,9 +275,7 @@ export default function Home() {
             >
               <span className="text-[10px] font-mono tracking-[0.35em] uppercase" style={{ color: C.muted }}>CC TECH — Sector-specific AI</span>
               <span className="text-[9px] font-mono tracking-widest uppercase px-2 py-0.5"
-                style={{ color: C.accent, border: `1px solid ${C.accent}`, opacity: 0.85 }}>
-                Est. 2024
-              </span>
+                style={{ color: C.accent, border: `1px solid ${C.accent}`, opacity: 0.85 }}>Est. 2025</span>
             </motion.div>
 
             <div className="overflow-hidden mb-2">
