@@ -58,13 +58,10 @@ export default function About() {
               We build the foundation for efficient,{" "}
               <span className="text-gradient">compliant operations.</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              C TECH is an AI technology company focused on practical, sector-specific platforms. AI shouldn't just be an impressive demo — it should be a reliable engine for daily work.
-            </p>
+            <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">CC TECH is an AI technology company focused on practical, sector-specific platforms. AI shouldn't just be an impressive demo — it should be a reliable engine for daily work.</p>
           </motion.div>
         </motion.div>
       </section>
-
       {/* Stats Strip */}
       <section className="py-16 bg-foreground text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* Approach — Narrative */}
       <section className="py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -141,7 +137,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className="py-24 bg-muted/40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(0,0,0,0.05),transparent_70%)]" />
