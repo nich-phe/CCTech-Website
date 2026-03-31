@@ -35,10 +35,10 @@ const taxOutcomes = [
   "Stronger advisory support capabilities",
 ];
 const pmsOutcomes = [
-  "Faster maintenance resolution — 3× quicker",
-  "Automated tenant communication logs",
-  "Real-time portfolio health dashboards",
-  "Compliance-ready audit trail on every action",
+  "Progress notes drafted in seconds, not 30+ minutes",
+  "Referrals processed and patients onboarded automatically",
+  "Medicare & billing compliance built into every workflow",
+  "Full audit trail on every patient interaction",
 ];
 
 /* ─────────────────────────────────────────────────────
@@ -46,72 +46,72 @@ const pmsOutcomes = [
 ────────────────────────────────────────────────────── */
 const WORKFLOW_STEPS = [
   {
-    id: "request",
-    label: "Tenant submits maintenance request",
-    icon: MessageSquare,
-    role: "Tenant",
-    avatar: "TC",
+    id: "referral",
+    label: "Referral received from GP",
+    icon: Send,
+    role: "Referral — Dr. Nguyen (GP)",
+    avatar: "GP",
     avatarColor: "#FCDFC5",
     avatarText: C.text,
-    message: "Hi, the hot water in unit 4B has been out since this morning. Can someone fix it ASAP?",
-    meta: "Unit 4B · Submitted 9:03 AM",
-    tag: "New Request",
+    message: "Referral for Sarah Mitchell, 34F. Presenting: anxiety, work-related stress, sleep disruption. Requesting 6 sessions of CBT. Medicare Plan attached. Urgency: routine.",
+    meta: "Ref #REF-0391 · Received 8:47 AM",
+    tag: "New Referral",
     tagColor: C.accent,
-    duration: 2400,
+    duration: 2600,
   },
   {
-    id: "parse",
-    label: "AI Co-pilot classifies & prioritises",
+    id: "intake",
+    label: "AI Co-pilot processes & matches patient",
     icon: Zap,
     role: "AI Co-pilot",
     avatar: "AI",
     avatarColor: C.accent,
     avatarText: "#fff",
-    message: "Request classified: Plumbing — Hot Water System. Priority: HIGH. Estimated resolution window: 4h. Matching qualified vendors in postcode 3000…",
-    meta: "Classified in 0.8s · Confidence 98%",
+    message: "Referral parsed. Patient record created for Sarah Mitchell. Medicare eligibility confirmed. Matched to Dr. L. Park (CBT specialist, next available: Tue 2 PM). Intake forms dispatched automatically.",
+    meta: "Processed in 1.1s · Medicare verified",
     tag: "Processing",
     tagColor: "#F0E193",
-    duration: 2600,
+    duration: 2800,
   },
   {
-    id: "vendor",
-    label: "Vendor matched & work order created",
-    icon: Wrench,
-    role: "System",
-    avatar: "WO",
-    avatarColor: "#5C0E14",
-    avatarText: "#FCDFC5",
-    message: "Work order WO-2847 created. Assigned: ServicePro Plumbing (4.9★, prev. contractor). ETA: 11:30 AM today. Compliance docs auto-attached.",
-    meta: "WO-2847 · $0 manual input",
-    tag: "Work Order Created",
-    tagColor: "#5C0E14",
-    duration: 2400,
-  },
-  {
-    id: "notify",
-    label: "Tenant notified automatically",
+    id: "appointment",
+    label: "Appointment booked & patient notified",
     icon: Bell,
     role: "Notification sent",
     avatar: "SMS",
     avatarColor: "#F0E193",
     avatarText: C.text,
-    message: "\"Hi Taylor, your maintenance request has been logged (Ref #WO-2847). A plumber is scheduled for 11:30 AM today. You'll receive a reminder 30 min before.\"",
-    meta: "SMS + Email · Delivered 9:04 AM",
-    tag: "Tenant Notified",
+    message: "\"Hi Sarah, your appointment with Dr. Park has been booked for Tuesday 14 Oct at 2:00 PM. Please complete your intake form using the link below before your session. Reply CONFIRM to accept.\"",
+    meta: "SMS + Email · Delivered 8:48 AM",
+    tag: "Patient Notified",
     tagColor: "#059669",
-    duration: 2400,
+    duration: 2600,
   },
   {
-    id: "resolve",
-    label: "Work completed — audit trail logged",
-    icon: CheckCircle2,
-    role: "Resolution",
+    id: "notes",
+    label: "Progress note drafted after session",
+    icon: FileText,
+    role: "AI Co-pilot — Post-session",
+    avatar: "AI",
+    avatarColor: C.accent,
+    avatarText: "#fff",
+    message: "Session note drafted: 'S: Patient reports improved sleep (6–7h). O: Engaged, affect euthymic. A: Moderate anxiety, responding to CBT. P: Continue relaxation protocol, review in 2 weeks.' Awaiting clinician review.",
+    meta: "Session #2 · Note ready for sign-off",
+    tag: "Draft Ready",
+    tagColor: C.text,
+    duration: 2800,
+  },
+  {
+    id: "report",
+    label: "Report sent to referring practitioner",
+    icon: BarChart3,
+    role: "Report dispatched",
     avatar: "✓",
     avatarColor: "#059669",
     avatarText: "#fff",
-    message: "Work completed 11:52 AM. Photo evidence uploaded. Invoice processed. Tenant satisfaction: ★★★★★ 5.0. Compliance record auto-filed to portfolio.",
-    meta: "Resolved in 2h 49m · Full audit trail",
-    tag: "Resolved",
+    message: "Progress report auto-generated and sent to Dr. Nguyen (GP). Sessions completed: 4/6. Outcome: measurable improvement across PHQ-9 and GAD-7. Compliance record filed. Medicare claim submitted.",
+    meta: "Report delivered · Claim lodged",
+    tag: "Complete",
     tagColor: "#059669",
     duration: 2800,
   },
@@ -169,7 +169,7 @@ function PmsWorkflowDemo() {
         </div>
         <div className="flex-1 px-3 py-1 text-[11px] font-mono text-center"
           style={{ backgroundColor: C.bg, color: C.muted, border: `1px solid ${C.border}`, maxWidth: 280, margin: "0 auto" }}>
-          pms.ctech.ai / co-pilot
+          pms.ctech.ai / practice
         </div>
         {/* Play/pause */}
         <button
@@ -187,7 +187,7 @@ function PmsWorkflowDemo() {
         {/* Sidebar — step list */}
         <div className="py-4" style={{ backgroundColor: C.soft, borderRight: `1px solid ${C.border}` }}>
           <p className="px-4 text-[9px] font-mono tracking-[0.2em] uppercase mb-3" style={{ color: C.muted }}>
-            PMS Co-Pilot
+            Practice Manager
           </p>
           {WORKFLOW_STEPS.map((s, i) => {
             const Icon = s.icon;
@@ -235,7 +235,7 @@ function PmsWorkflowDemo() {
           <div className="flex items-center justify-between mb-4 pb-4" style={{ borderBottom: `1px solid ${C.border}` }}>
             <div className="flex items-center gap-2">
               <Building2 className="w-4 h-4" style={{ color: C.accent }} />
-              <span className="text-xs font-semibold" style={{ color: C.text }}>Harbour View Portfolio · 128 Units</span>
+              <span className="text-xs font-semibold" style={{ color: C.text }}>Allied Health Practice · 3 Practitioners</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#059669" }} />
@@ -246,9 +246,9 @@ function PmsWorkflowDemo() {
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-2 mb-5">
             {[
-              { label: "Open requests", val: "3", hi: C.accent },
-              { label: "In progress",   val: "7", hi: C.text   },
-              { label: "Resolved today",val: "12", hi: "#059669" },
+              { label: "New referrals",   val: "4",  hi: C.accent  },
+              { label: "Active patients", val: "38", hi: C.text    },
+              { label: "Notes drafted",   val: "11", hi: "#059669" },
             ].map((m) => (
               <div key={m.label} className="p-2.5 text-center" style={{ backgroundColor: C.soft, border: `1px solid ${C.border}` }}>
                 <p className="text-xl font-black" style={{ color: m.hi }}>{m.val}</p>
@@ -576,10 +576,10 @@ export default function Platforms() {
                 <Home className="w-3.5 h-3.5" /> CCTech PMS Co-Pilot
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{ color: C.text }}>
-                Property Management<br />AI Co-Pilot
+                Practice Management<br />AI Co-Pilot
               </h2>
               <p className="text-lg leading-relaxed mb-10" style={{ color: C.muted }}>
-                An intelligent co-pilot built for property managers, strata companies, and portfolio operators. It automates the entire maintenance lifecycle — from tenant request to work order completion — so your team spends time on relationships, not paperwork.
+                An intelligent co-pilot built for allied health professionals — psychologists, physiotherapists, OTs, speech pathologists, and more. It automates the full patient lifecycle: referral intake, scheduling, progress notes, reporting, and Medicare compliance — so practitioners focus on clients, not admin.
               </p>
 
               <p className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: `${C.text}55` }}>
@@ -587,11 +587,11 @@ export default function Platforms() {
               </p>
               <div className="space-y-6 mb-12">
                 {[
-                  { icon: MessageSquare, text: "Instant AI triage of tenant maintenance requests — classified, prioritised, actioned." },
-                  { icon: Wrench,        text: "Automated vendor matching and compliant work order generation." },
-                  { icon: Bell,          text: "Tenant and owner communications triggered without manual input." },
-                  { icon: BarChart3,     text: "Portfolio health dashboard with real-time resolution tracking and audit trail." },
-                  { icon: ShieldAlert,   text: "Compliance document attachment and regulatory log maintenance at every step." },
+                  { icon: Send,          text: "Automated referral intake — parsed, prioritised, and matched to the right practitioner instantly." },
+                  { icon: User,          text: "Patient onboarding with intake forms, Medicare verification, and record creation — hands-free." },
+                  { icon: FileText,      text: "AI-drafted progress notes using SOAP format, ready for clinician review and sign-off." },
+                  { icon: BarChart3,     text: "Automated outcome reports dispatched to referring practitioners and insurers." },
+                  { icon: ShieldAlert,   text: "Medicare, NDIS, and private health billing compliance built into every interaction." },
                 ].map((item, i) => (
                   <motion.div key={i}
                     initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
@@ -647,7 +647,7 @@ export default function Platforms() {
                   transition={{ repeat: Infinity, duration: 1.4 }}
                 />
                 <span className="text-[10px] font-mono tracking-[0.3em] uppercase" style={{ color: C.muted }}>
-                  MVP Workflow — Live Demo
+                  Practice Workflow — Live Demo
                 </span>
               </div>
 
