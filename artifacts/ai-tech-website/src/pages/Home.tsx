@@ -110,6 +110,13 @@ const platforms = [
     features: ["Early tax exposure detection", "Deep transaction data analysis", "Automated advisory reporting"],
     photo: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&auto=format&fit=crop&q=85",
   },
+  {
+    index: "03", name: "PMS Co-Pilot",
+    tag: "Property Management",
+    desc: "End-to-end AI automation for property managers — from maintenance triage to vendor dispatch and compliance filing, without a single manual step.",
+    features: ["Automated maintenance triage & dispatch", "Vendor matching & work order generation", "Tenant communication & audit trail"],
+    photo: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&auto=format&fit=crop&q=85",
+  },
 ];
 
 const industries = [
@@ -120,7 +127,7 @@ const industries = [
   { name: "Supply Chain & Logistics",   role: "Operations intelligence, tracking",      photo: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80" },
 ];
 
-const ticker = ["Healthcare","Financial Services","Legal","Compliance","Tax Analytics","Admin Automation","Allied Health","Risk Detection","Document Intelligence","Workflow Mapping","Operations","Supply Chain"];
+const ticker = ["Healthcare","Financial Services","Property Management","Legal","Compliance","Tax Analytics","Admin Automation","Allied Health","Risk Detection","PMS Co-Pilot","Workflow Mapping","Maintenance Automation","Supply Chain"];
 
 /* ─── Pinned scroll industries ──────────────── */
 function PinnedIndustries() {
