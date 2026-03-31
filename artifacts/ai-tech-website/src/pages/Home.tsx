@@ -244,7 +244,6 @@ export default function Home() {
   return (
     <Layout>
       <ScrollProgress />
-
       {/* ══════════════════════════════════════════
           HERO
       ══════════════════════════════════════════ */}
@@ -274,9 +273,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex items-center gap-3 mb-8"
             >
-              <span className="text-[10px] font-mono tracking-[0.35em] uppercase" style={{ color: C.muted }}>
-                C TECH — Sector-specific AI
-              </span>
+              <span className="text-[10px] font-mono tracking-[0.35em] uppercase" style={{ color: C.muted }}>CC TECH — Sector-specific AI</span>
               <span className="text-[9px] font-mono tracking-widest uppercase px-2 py-0.5"
                 style={{ color: C.accent, border: `1px solid ${C.accent}`, opacity: 0.85 }}>
                 Est. 2024
@@ -461,7 +458,6 @@ export default function Home() {
           <span className="text-[9px] font-mono tracking-[0.3em] uppercase" style={{ color: C.border }}>scroll</span>
         </motion.div>
       </section>
-
       {/* ══════════════════════════════════════════
           TICKER
       ══════════════════════════════════════════ */}
@@ -478,7 +474,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-
       {/* ══════════════════════════════════════════
           MANIFESTO — dark burgundy + parallax photo
       ══════════════════════════════════════════ */}
@@ -526,7 +521,6 @@ export default function Home() {
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(92,14,20,0.25)", mixBlendMode: "multiply" }} />
         </div>
       </section>
-
       {/* ══════════════════════════════════════════
           PLATFORMS
       ══════════════════════════════════════════ */}
@@ -608,12 +602,10 @@ export default function Home() {
           </motion.div>
         ))}
       </section>
-
       {/* ══════════════════════════════════════════
           INDUSTRIES — pinned scroll
       ══════════════════════════════════════════ */}
       <PinnedIndustries />
-
       {/* ══════════════════════════════════════════
           HOW WE BUILD — deep burgundy, floating nums
       ══════════════════════════════════════════ */}
@@ -686,7 +678,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ══════════════════════════════════════════
           CTA — warm peach with animated rings
       ══════════════════════════════════════════ */}
@@ -748,7 +739,6 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
-
     </Layout>
   );
 }
