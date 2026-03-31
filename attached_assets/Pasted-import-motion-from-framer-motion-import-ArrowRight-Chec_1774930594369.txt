@@ -1,0 +1,215 @@
+import { motion } from "framer-motion";
+import { ArrowRight, Check, Palette } from "lucide-react";
+
+type FloatingCardProps = {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+};
+
+const FloatingCard = ({
+  children,
+  className = "",
+  delay = 0,
+}: FloatingCardProps) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24, scale: 0.97 }}
+    animate={{ opacity: 1, y: 0, scale: 1 }}
+    transition={{ duration: 0.65, delay, ease: "easeOut" }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
+
+const orbitClockwise = {
+  x: [0, 10, 18, 10, 0, -10, -18, -10, 0],
+  y: [0, -8, 0, 8, 16, 8, 0, -8, 0],
+  rotate: [0, 1, 2, 1, 0, -1, -2, -1, 0],
+};
+
+const orbitCounter = {
+  x: [0, -12, -20, -12, 0, 12, 20, 12, 0],
+  y: [0, 10, 0, -10, -16, -10, 0, 10, 0],
+  rotate: [0, -1, -2, -1, 0, 1, 2, 1, 0],
+};
+
+const softFloat = {
+  y: [0, -10, 0],
+};
+
+const Hero = () => {
+  // Fun animation variant for the words
+  const wordBounce = {
+    initial: { opacity: 0, scale: 0.5, y: 20 },
+    animate: (i: number) => ({
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+        delay: 0.1 * i + 0.5,
+      },
+    }),
+  };
+
+  return (
+    <section
+      id="home"
+      className="relative overflow-hidden bg-[#F7F8FA] pt-24 pb-16 lg:pt-32 lg:pb-28"
+    >
+      {/* Background blobs */}
+      <div className="absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full bg-violet-light opacity-60 blur-3xl" />
+      <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-teal-light opacity-60 blur-3xl" />
+      <div className="absolute left-[40%] top-[20%] h-[300px] w-[300px] rounded-full bg-amber-light opacity-50 blur-3xl" />
+      <div className="absolute right-[20%] bottom-[10%] h-[250px] w-[250px] rounded-full bg-rose-light opacity-40 blur-3xl" />
+
+      {/* Decorative dots */}
+      <motion.div animate={{ y: [0, -12, 0] }} transition={{ repeat: Infinity, duration: 5 }} className="absolute left-[8%] top-[20%] h-5 w-5 rounded-full bg-coral" />
+      <motion.div animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 7, delay: 1 }} className="absolute right-[15%] top-[15%] h-4 w-4 rounded-full bg-violet" />
+      <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 6, delay: 2 }} className="absolute left-[20%] bottom-[25%] h-3 w-3 rounded-full bg-amber" />
+      <motion.div animate={{ y: [0, -6, 0] }} transition={{ repeat: Infinity, duration: 8, delay: 0.5 }} className="absolute right-[8%] bottom-[30%] h-6 w-6 rounded-full bg-teal opacity-60" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-12">
+          {/* Left content */}
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-white/80 px-4 py-2 backdrop-blur-sm shadow-soft"
+            >
+              <div className="h-2.5 w-2.5 rounded-full bg-coral" />
+              <span className="text-sm font-bold tracking-tight text-foreground">
+                affordable websites for small businesses
+              </span>
+            </motion.div>
+
+            <div className="mb-6">
+              <h1 className="text-5xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl">
+                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+                  Beautiful websites
+                </motion.span>
+                <br />
+                <div className="inline-flex flex-wrap gap-x-3">
+                  <motion.span custom={1} initial="initial" animate="animate" className="text-amber">that</motion.span>
+                  <motion.span custom={2} initial="initial" animate="animate" className="text-coral">don't</motion.span>
+                  <motion.span custom={3} initial="initial" animate="animate" className="text-violet">feel</motion.span>
+                  <motion.span custom={4} initial="initial" animate="animate" className="text-teal underline decoration-amber decoration-4 underline-offset-8">cheap.</motion.span>
+                </div>
+              </h1>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.16 }}
+              className="mb-8 max-w-xl text-lg font-medium leading-relaxed text-charcoal-light md:text-xl"
+            >
+              ezi creates polished, modern websites for small business owners in
+              Australia — with a process that feels clear, friendly, and easy
+              from the start.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.24 }}
+              className="mb-10 flex flex-wrap gap-4"
+            >
+              <a href="#packages" className="group inline-flex items-center rounded-full bg-foreground px-7 py-4 font-bold text-white shadow-elevated transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+                View packages
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+              <a href="#contact" className="inline-flex items-center rounded-full border-2 border-foreground/10 bg-white/70 px-7 py-4 font-bold text-foreground shadow-soft backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white">
+                Start your website
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap gap-3"
+            >
+              {[
+                { label: "Affordable packages", bg: "bg-coral-light", dot: "bg-coral" },
+                { label: "Built for small business", bg: "bg-violet-light", dot: "bg-violet" },
+                { label: "Australia-based", bg: "bg-teal-light", dot: "bg-teal" },
+              ].map((item) => (
+                <div key={item.label} className={`flex items-center gap-2 rounded-full ${item.bg} px-4 py-2.5 text-sm font-bold text-foreground shadow-soft`}>
+                  <div className={`h-2 w-2 rounded-full ${item.dot}`} />
+                  {item.label}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Right visual area (Rest of the code stays exactly the same) */}
+          <div className="relative hidden md:block">
+            <div className="relative mx-auto h-[680px] w-full max-w-[620px]">
+              <FloatingCard delay={0.2} className="absolute right-0 top-45 z-20 w-[390px] -translate-y-1/2 lg:w-[580px]">
+                <div className="rounded-[34px] border border-white/80 bg-white p-2 shadow-elevated">
+                  <div className="overflow-hidden rounded-[28px] border border-foreground/10 bg-white">
+                    <div className="flex items-center justify-between border-b border-foreground/8 px-4 py-3">
+                      <div className="flex items-center gap-2">
+                        <div className="h-2.5 w-2.5 rounded-full bg-coral" />
+                        <div className="h-2.5 w-2.5 rounded-full bg-amber" />
+                        <div className="h-2.5 w-2.5 rounded-full bg-teal" />
+                      </div>
+                      <span className="text-xs font-medium text-muted-foreground">ezi preview</span>
+                    </div>
+                    <div className="p-2">
+                      <video src="/hero-demo.mp4" autoPlay loop muted playsInline className="h-[340px] w-full rounded-[22px] object-cover shadow-[0_20px_50px_rgba(0,0,0,0.18)]" />
+                    </div>
+                    <div className="px-4 pb-4">
+                      <div className="rounded-[20px] bg-foreground p-5 text-white shadow-elevated">
+                        <div className="mb-4 flex items-center justify-between">
+                          <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">premium feel</span>
+                          <Palette className="h-5 w-5 text-amber" />
+                        </div>
+                        <h3 className="text-xl font-bold leading-tight">A website that feels modern, easy, and designed with intention.</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </FloatingCard>
+
+              <motion.div animate={orbitClockwise} transition={{ duration: 16, repeat: Infinity, ease: "linear" }} className="absolute -left-[178px] -top-[40px] w-[220px]">
+                <FloatingCard delay={0.35}>
+                  <div className="rounded-[24px] border border-violet/12 bg-white p-3 shadow-elevated">
+                    <img src="/hero-card-side-1.jpg" alt="Business" className="h-[136px] w-full rounded-[16px] object-cover" />
+                    <div className="pt-3"><p className="text-sm font-bold text-foreground">Starter Package</p></div>
+                  </div>
+                </FloatingCard>
+              </motion.div>
+
+              <motion.div animate={orbitCounter} transition={{ duration: 18, repeat: Infinity, ease: "linear" }} className="absolute -right-[100px] bottom-2 z-30 w-[210px]">
+                <FloatingCard delay={0.45}>
+                  <div className="rounded-[20px] border border-coral/14 bg-white p-3 shadow-elevated">
+                    <img src="/hero-card-side-2.jpg" alt="Modern" className="h-[118px] w-full rounded-[14px] object-cover" />
+                    <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.18em] text-coral">polished + practical</p>
+                  </div>
+                </FloatingCard>
+              </motion.div>
+
+              <motion.div animate={softFloat} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-16 left-10 z-30">
+                <FloatingCard delay={0.65}>
+                  <div className="flex items-center gap-3 rounded-[22px] border border-teal/15 bg-teal-light px-4 py-3 shadow-elevated">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal"><Check className="h-4 w-4 text-white" /></div>
+                    <div><p className="text-sm font-bold text-foreground">Ready to launch</p></div>
+                  </div>
+                </FloatingCard>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
