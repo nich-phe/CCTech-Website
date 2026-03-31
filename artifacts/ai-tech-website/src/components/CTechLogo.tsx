@@ -10,7 +10,7 @@ interface CTechLogoProps {
  * white=true renders a fully white version for dark backgrounds.
  */
 export function CTechLogo({ white = false, className = "" }: CTechLogoProps) {
-  const teal = white ? "#ffffff" : "#0E9FAC";
+  const teal = white ? "#ffffff" : "#4F46E5";
   const textPrimary = white ? "rgba(255,255,255,0.95)" : "#0f172a";
   const textSub = white ? "rgba(255,255,255,0.60)" : "#64748b";
 

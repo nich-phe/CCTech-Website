@@ -178,7 +178,7 @@ export default function Platforms() {
           >
             <span className="text-5xl font-bold text-muted/30 tabular-nums">02</span>
             <div className="flex-1 h-px bg-border" />
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-bold border border-teal-100">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-100">
               Financial Services & Tax Advisory
             </div>
           </motion.div>
@@ -202,8 +202,8 @@ export default function Platforms() {
               </div>
 
               {/* Outcomes */}
-              <div className="bg-gradient-to-br from-teal-50 to-white border border-teal-100 rounded-2xl p-8">
-                <p className="text-xs font-bold uppercase tracking-widest text-teal-600 mb-5">Key Outcomes</p>
+              <div className="bg-gradient-to-br from-indigo-50 to-white border border-indigo-100 rounded-2xl p-8">
+                <p className="text-xs font-bold uppercase tracking-widest text-indigo-600 mb-5">Key Outcomes</p>
                 <ul className="space-y-3">
                   {taxOutcomes.map((o, i) => (
                     <motion.li
@@ -214,7 +214,7 @@ export default function Platforms() {
                       transition={{ delay: i * 0.08 }}
                       className="flex items-center gap-3 text-foreground"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-teal-500 shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-indigo-500 shrink-0" />
                       <span className="text-sm font-medium">{o}</span>
                     </motion.li>
                   ))}
@@ -253,8 +253,8 @@ export default function Platforms() {
                     transition={{ delay: i * 0.1, duration: 0.4 }}
                     className="flex items-start gap-4"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <item.icon className="w-4 h-4 text-teal-600" />
+                    <div className="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <item.icon className="w-4 h-4 text-indigo-600" />
                     </div>
                     <p className="text-muted-foreground leading-relaxed pt-1.5">{item.text}</p>
                   </motion.div>

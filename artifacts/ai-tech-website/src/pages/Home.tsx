@@ -107,9 +107,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="inline-flex items-center gap-2 mb-8 px-3.5 py-1.5 rounded-full text-xs font-semibold"
-              style={{ backgroundColor: "rgba(14,159,172,0.08)", color: "#0E9FAC", border: "1px solid rgba(14,159,172,0.2)" }}
+              style={{ backgroundColor: "rgba(79,70,229,0.08)", color: "#4F46E5", border: "1px solid rgba(79,70,229,0.2)" }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0E9FAC]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4F46E5]" />
               Enterprise AI for Complex Industries
             </motion.div>
 
@@ -122,7 +122,7 @@ export default function Home() {
             >
               Built for industries<br />
               that can't afford<br />
-              <span style={{ color: "#0E9FAC" }}>to get it wrong.</span>
+              <span style={{ color: "#4F46E5" }}>to get it wrong.</span>
             </motion.h1>
 
             {/* Sub */}
@@ -143,10 +143,10 @@ export default function Home() {
             >
               <Link href="/platforms">
                 <motion.span
-                  whileHover={{ backgroundColor: "#0a8a96" }}
+                  whileHover={{ backgroundColor: "#4338ca" }}
                   whileTap={{ scale: 0.98 }}
                   className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-lg cursor-pointer transition-colors duration-200"
-                  style={{ backgroundColor: "#0E9FAC", color: "white" }}
+                  style={{ backgroundColor: "#4F46E5", color: "white" }}
                 >
                   Explore platforms <ArrowRight className="w-4 h-4" />
                 </motion.span>
@@ -176,8 +176,8 @@ export default function Home() {
               ].map((t) => (
                 <span key={t} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "#6b7280" }}>
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                    <circle cx="6.5" cy="6.5" r="6.5" fill="#0E9FAC" fillOpacity="0.12" />
-                    <path d="M4 6.5l1.8 1.8L9 4.5" stroke="#0E9FAC" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="6.5" cy="6.5" r="6.5" fill="#4F46E5" fillOpacity="0.12" />
+                    <path d="M4 6.5l1.8 1.8L9 4.5" stroke="#4F46E5" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   {t}
                 </span>
@@ -227,12 +227,12 @@ export default function Home() {
                     <div key={item.label}
                       className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium"
                       style={{
-                        backgroundColor: item.active ? "#0E9FAC14" : "transparent",
-                        color: item.active ? "#0E9FAC" : "#6b7280",
+                        backgroundColor: item.active ? "#4F46E514" : "transparent",
+                        color: item.active ? "#4F46E5" : "#6b7280",
                       }}
                     >
                       <div className="w-1.5 h-1.5 rounded-full shrink-0"
-                        style={{ backgroundColor: item.active ? "#0E9FAC" : "#d1d5db" }} />
+                        style={{ backgroundColor: item.active ? "#4F46E5" : "#d1d5db" }} />
                       {item.label}
                     </div>
                   ))}
@@ -246,9 +246,9 @@ export default function Home() {
                       <p className="text-sm font-bold" style={{ color: "#111827" }}>Good morning, Dr. Chen</p>
                       <p className="text-xs" style={{ color: "#9ca3af" }}>Tuesday, 24 June · 47 pending actions</p>
                     </div>
-                    <div className="w-7 h-7 rounded-full" style={{ backgroundColor: "#0E9FAC22" }}>
+                    <div className="w-7 h-7 rounded-full" style={{ backgroundColor: "#4F46E522" }}>
                       <div className="w-full h-full rounded-full flex items-center justify-center">
-                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "#0E9FAC" }} />
+                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "#4F46E5" }} />
                       </div>
                     </div>
                   </div>
@@ -257,7 +257,7 @@ export default function Home() {
                   <div className="grid grid-cols-3 gap-3 mb-4">
                     {[
                       { label: "Docs automated", val: "143", delta: "+12 today", color: "#059669" },
-                      { label: "Hours saved", val: "38.5h", delta: "this week", color: "#0E9FAC" },
+                      { label: "Hours saved", val: "38.5h", delta: "this week", color: "#4F46E5" },
                       { label: "Compliance", val: "100%", delta: "all clear", color: "#6366f1" },
                     ].map((m) => (
                       <div key={m.label} className="rounded-xl p-3" style={{ backgroundColor: "#f9fafb", border: "1px solid #f0f0f0" }}>
@@ -273,10 +273,10 @@ export default function Home() {
                     <div className="px-4 py-2.5 flex items-center justify-between"
                       style={{ backgroundColor: "#f9fafb", borderBottom: "1px solid #f0f0f0" }}>
                       <span className="text-[10px] font-semibold" style={{ color: "#374151" }}>Active workflows</span>
-                      <span className="text-[10px]" style={{ color: "#0E9FAC" }}>View all →</span>
+                      <span className="text-[10px]" style={{ color: "#4F46E5" }}>View all →</span>
                     </div>
                     {[
-                      { name: "Patient intake documentation", status: "Running", pct: 78, color: "#0E9FAC" },
+                      { name: "Patient intake documentation", status: "Running", pct: 78, color: "#4F46E5" },
                       { name: "Referral letter generation",   status: "Queued",  pct: 0,  color: "#9ca3af" },
                       { name: "Monthly compliance report",    status: "Done",    pct: 100, color: "#059669" },
                     ].map((w) => (
@@ -312,7 +312,7 @@ export default function Home() {
         <div className="animate-marquee">
           {[...ticker, ...ticker].map((item, i) => (
             <span key={i} className="inline-flex items-center gap-6 px-6 text-[10px] font-mono tracking-[0.32em] uppercase whitespace-nowrap"
-              style={{ color: i % 3 === 0 ? "#0E9FAC" : "rgba(255,255,255,0.2)" }}>
+              style={{ color: i % 3 === 0 ? "#4F46E5" : "rgba(255,255,255,0.2)" }}>
               {item}
               <span className="w-px h-3 shrink-0" style={{ backgroundColor: "rgba(255,255,255,0.08)" }} />
             </span>
@@ -325,7 +325,7 @@ export default function Home() {
       ═══════════════════════════════════════════════ */}
       <section className="grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]">
         {/* Left: teal panel */}
-        <div className="flex flex-col justify-between px-8 sm:px-14 py-20" style={{ backgroundColor: "#0E9FAC" }}>
+        <div className="flex flex-col justify-between px-8 sm:px-14 py-20" style={{ backgroundColor: "#4F46E5" }}>
           <Reveal>
             <p className="text-[10px] font-mono tracking-[0.32em] uppercase mb-14" style={{ color: "rgba(255,255,255,0.55)" }}>
               Our position
@@ -363,7 +363,7 @@ export default function Home() {
             alt="Modern professional workspace"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(14,159,172,0.3) 0%, transparent 60%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(79,70,229,0.3) 0%, transparent 60%)" }} />
         </div>
       </section>
 
@@ -379,7 +379,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.1}>
             <Link href="/platforms">
-              <span className="text-[10px] font-mono tracking-[0.22em] uppercase cursor-pointer hover:opacity-60 transition-opacity" style={{ color: "#0E9FAC" }}>
+              <span className="text-[10px] font-mono tracking-[0.22em] uppercase cursor-pointer hover:opacity-60 transition-opacity" style={{ color: "#4F46E5" }}>
                 All platforms →
               </span>
             </Link>
@@ -424,7 +424,7 @@ export default function Home() {
                     </ul>
                   </div>
                   <div className="mt-10">
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all duration-200" style={{ color: "#0E9FAC" }}>
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all duration-200" style={{ color: "#4F46E5" }}>
                       Explore platform <ArrowUpRight className="w-4 h-4" />
                     </span>
                   </div>
@@ -455,7 +455,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.1}>
             <Link href="/industries">
-              <span className="text-[10px] font-mono tracking-[0.22em] uppercase cursor-pointer hover:opacity-60 transition-opacity" style={{ color: "#0E9FAC" }}>
+              <span className="text-[10px] font-mono tracking-[0.22em] uppercase cursor-pointer hover:opacity-60 transition-opacity" style={{ color: "#4F46E5" }}>
                 Explore →
               </span>
             </Link>
@@ -501,7 +501,7 @@ export default function Home() {
           HOW WE BUILD — bold teal background
       ═══════════════════════════════════════════════ */}
       <section className="py-24 px-6 sm:px-10 lg:px-16 xl:px-24 relative overflow-hidden"
-        style={{ backgroundColor: "#0E9FAC" }}>
+        style={{ backgroundColor: "#4F46E5" }}>
         {/* Subtle grid */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.07]"
           style={{
@@ -579,7 +579,7 @@ export default function Home() {
             <h2 className="font-black leading-[1.02] tracking-[-0.03em] max-w-xl mb-14 text-white"
               style={{ fontSize: "clamp(2.5rem,6vw,5rem)" }}>
               Ready to work<br />
-              <span style={{ color: "#0E9FAC" }}>differently?</span>
+              <span style={{ color: "#4F46E5" }}>differently?</span>
             </h2>
           </Reveal>
           <Reveal delay={0.18}>
@@ -588,7 +588,7 @@ export default function Home() {
                 <motion.span
                   whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                   className="inline-flex items-center gap-3 text-sm font-semibold px-8 py-4 cursor-pointer transition-colors duration-300"
-                  style={{ backgroundColor: "#0E9FAC", color: "white" }}
+                  style={{ backgroundColor: "#4F46E5", color: "white" }}
                 >
                   Start a conversation <ArrowRight className="w-4 h-4" />
                 </motion.span>
