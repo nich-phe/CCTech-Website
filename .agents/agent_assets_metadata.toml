@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "HS1_kAUqPafKjD_MkbRd-"
+uri = "file://screenshots/logo.jpg"
+type = "image"
+title = "CC TECH Logo"
