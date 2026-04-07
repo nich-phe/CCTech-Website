@@ -138,57 +138,132 @@ export default function About() {
         </div>
       </section>
       {/* Founders */}
-      <section className="py-28 bg-muted/30">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="group"
-          >
-            <div className="relative overflow-hidden mb-6 rounded-2xl">
-              <img
-                src="./public/co-founder.png"
-                alt="Cauthan, Co-Founder of CC TECH"
-                className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                style={{ height: 400 }}
-              />
-            </div>
-            <p className="text-2xl font-bold text-foreground mb-1">Cauthan</p>
-            <p className="text-sm font-medium text-primary mb-3">Co-Founder, CC TECH</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Co-Founder of CC TECH, focused on building practical AI systems that solve
-              real operational challenges in regulated industries.
-            </p>
-          </motion.div>
+<section className="relative overflow-hidden bg-muted/30 py-20 sm:py-24 lg:py-28">
+  {/* Background animation */}
+  <div className="absolute inset-0 -z-10">
+    <div className="absolute left-1/2 top-0 h-[320px] w-[320px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl animate-pulse" />
+    <div className="animate-float absolute left-[8%] top-[38%] h-[220px] w-[220px] rounded-full bg-secondary/10 blur-3xl" />
+    <div className="animate-float-delayed absolute right-[8%] top-[18%] h-[260px] w-[260px] rounded-full bg-primary/8 blur-3xl" />
+    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.35)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.35)_1px,transparent_1px)] bg-[size:42px_42px] opacity-30" />
+  </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
-            className="group"
-          >
-            <div className="relative overflow-hidden mb-6 rounded-2xl">
-              <img
-                src="./public/co-founder-cctech.png"
-                alt="Chanmonich Phe, Co-Founder of CC TECH"
-                className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                style={{ height: 400 }}
-              />
+  <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="mx-auto mb-12 max-w-2xl text-center sm:mb-14"
+    >
+      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary/80 sm:text-sm">
+        Leadership
+      </p>
+      <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+        Meet the founders
+      </h2>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-lg">
+        The people behind CC TECH, building practical AI platforms for
+        operational efficiency and compliance-conscious industries.
+      </p>
+    </motion.div>
+
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
+      {/* Founder 1 */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55 }}
+        className="group h-full"
+      >
+        <div className="flex h-full flex-col overflow-hidden rounded-[28px] border border-border/60 bg-white/80 backdrop-blur-sm shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_65px_rgba(15,23,42,0.12)]">
+          <div className="p-5 sm:p-6">
+            <div className="overflow-hidden rounded-[22px] bg-gradient-to-br from-[#f8fafc] to-[#eef3f8] ring-1 ring-black/5">
+              <div className="flex h-[280px] items-center justify-center sm:h-[320px] lg:h-[340px]">
+                <img
+                  src="/cofounder.png"
+                  alt="Cauthan, Co-Founder of CC TECH"
+                  className="max-h-[100%] max-w-[100%] transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
             </div>
-            <p className="text-2xl font-bold text-foreground mb-1">Chanmonich Phe</p>
-            <p className="text-sm font-medium text-primary mb-3">Co-Founder, CC TECH</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Chanmonich Phe is a Co-Founder of CC TECH, helping shape practical,
-              sector-specific AI platforms designed to reduce administrative burden,
-              improve operational efficiency, and support compliance-conscious
-              workflows.
-            </p>
-          </motion.div>
+          </div>
+
+          <div className="flex flex-1 flex-col justify-between px-5 pb-5 sm:px-6 sm:pb-6">
+            <div>
+              <div className="mb-4 flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-bold text-foreground sm:text-2xl">
+                    Cauthan
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-primary">
+                    Co-Founder, CC TECH
+                  </p>
+                </div>
+
+                <span className="rounded-full border border-border bg-muted/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  Founder
+                </span>
+              </div>
+
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Focused on building practical AI systems that solve real
+                operational challenges in regulated industries.
+              </p>
+            </div>
+          </div>
         </div>
-      </section>
+      </motion.div>
+
+      {/* Founder 2 */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.65 }}
+        className="group h-full"
+      >
+        <div className="flex h-full flex-col overflow-hidden rounded-[28px] border border-border/60 bg-white/80 backdrop-blur-sm shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_65px_rgba(15,23,42,0.12)]">
+          <div className="p-5 sm:p-6">
+            <div className="overflow-hidden rounded-[22px] bg-gradient-to-br from-[#f8fafc] to-[#eef3f8] ring-1 ring-black/5">
+              <div className="flex h-[280px] items-center justify-center sm:h-[320px] lg:h-[340px]">
+                <img
+                  src="/co-founder-cctech.png"
+                  alt="Chanmonich Phe, Co-Founder of CC TECH"
+                  className="max-h-[100%] max-w-[100%] transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-1 flex-col justify-between px-5 pb-5 sm:px-6 sm:pb-6">
+            <div>
+              <div className="mb-4 flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-bold text-foreground sm:text-2xl">
+                    Chanmonich Phe
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-primary">
+                    Co-Founder, CC TECH
+                  </p>
+                </div>
+
+                <span className="rounded-full border border-border bg-muted/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  Founder
+                </span>
+              </div>
+
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Helping shape practical, sector-specific AI platforms designed
+                to reduce administrative burden, improve operational efficiency,
+                and support compliance-conscious workflows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* CTA */}
       <section className="py-24 bg-muted/40 relative overflow-hidden">

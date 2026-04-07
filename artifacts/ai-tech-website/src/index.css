@@ -350,3 +350,21 @@
     pointer-events: none;
   }
 }
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-14px) translateX(8px);
+  }
+}
+
+.animate-float {
+  animation: floatSoft 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSoft 11s ease-in-out infinite;
+}
