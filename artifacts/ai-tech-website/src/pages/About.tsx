@@ -139,43 +139,54 @@ export default function About() {
       </section>
       {/* Founders */}
       <section className="py-28 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-16"
+            transition={{ duration: 0.55 }}
+            className="group"
           >
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#9B4A52" }}>The people behind the platforms</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
-              Built by founders who <span className="text-gradient">understand the work.</span>
-            </h2>
+            <div className="relative overflow-hidden mb-6 rounded-2xl">
+              <img
+                src="./public/co-founder.png"
+                alt="Cauthan, Co-Founder of CC TECH"
+                className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                style={{ height: 400 }}
+              />
+            </div>
+            <p className="text-2xl font-bold text-foreground mb-1">Cauthan</p>
+            <p className="text-sm font-medium text-primary mb-3">Co-Founder, CC TECH</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Co-Founder of CC TECH, focused on building practical AI systems that solve
+              real operational challenges in regulated industries.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55 }}
-              className="group"
-            >
-              <div className="relative overflow-hidden mb-6" style={{ borderRadius: 2 }}>
-                <img
-                  src="/cofounder.png"
-                  alt="CC TECH Co-Founder"
-                  className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                  style={{ height: 400 }}
-                />
-                <div className="absolute inset-0 pointer-events-none"
-                  style={{ background: "linear-gradient(to top, rgba(92,14,20,0.18) 0%, transparent 50%)" }} />
-              </div>
-              <p className="text-xl font-bold text-foreground mb-1">Co-Founder, CC TECH</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Driving the vision for sector-specific AI platforms that put compliance, clinical accuracy, and operational efficiency at the centre of every decision.
-              </p>
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65 }}
+            className="group"
+          >
+            <div className="relative overflow-hidden mb-6 rounded-2xl">
+              <img
+                src="./public/co-founder-cctech.png"
+                alt="Chanmonich Phe, Co-Founder of CC TECH"
+                className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                style={{ height: 400 }}
+              />
+            </div>
+            <p className="text-2xl font-bold text-foreground mb-1">Chanmonich Phe</p>
+            <p className="text-sm font-medium text-primary mb-3">Co-Founder, CC TECH</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Chanmonich Phe is a Co-Founder of CC TECH, helping shape practical,
+              sector-specific AI platforms designed to reduce administrative burden,
+              improve operational efficiency, and support compliance-conscious
+              workflows.
+            </p>
+          </motion.div>
         </div>
       </section>
 
