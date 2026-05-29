@@ -144,8 +144,8 @@ export default function Contact() {
                         className="w-full h-11 px-4 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-foreground"
                       >
                         <option value="">Select an option...</option>
-                        <option value="admin">AI Admin Co-Pilot</option>
-                        <option value="tax">Tax Exposure Analytics</option>
+                        <option value="admin">Carer Scribe</option>
+                        <option value="tax">Tax Exposure Platform</option>
                         <option value="custom">Custom Platform Development</option>
                         <option value="partner">Partnership Inquiry</option>
                       </select>

@@ -97,16 +97,16 @@ function ScrollProgress() {
 /* ─── Data ──────────────────────────────────── */
 const platforms = [
   {
-    index: "01", name: "AI Admin Co-Pilot",
+    index: "01", name: "Carer Scribe",
     tag: "Healthcare & Allied Health",
     desc: "An invisible layer of intelligence handling documentation, reporting, and communication workflows — returning hours to the people who need them most.",
     features: ["Automated clinical documentation", "Intelligent follow-up workflows", "Compliance-safe reporting"],
     photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&auto=format&fit=crop&q=85",
   },
   {
-    index: "02", name: "Tax Exposure Analytics",
-    tag: "Financial Services",
-    desc: "Proactive tax risk detection for organisations and advisory firms. Surface exposure before it compounds into costly liability.",
+    index: "02", name: "Tax Exposure Platform",
+    tag: "Tax Risk Intelligence",
+    desc: "Instant tax exposure assessment for NDIS support workers and businesses. Know your ATO obligations before they become a problem.",
     features: ["Early tax exposure detection", "Deep transaction data analysis", "Automated advisory reporting"],
     photo: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&auto=format&fit=crop&q=85",
   },
@@ -437,7 +437,7 @@ export default function Home() {
               </motion.div>
             </MouseTilt>
             <p className="text-center text-xs mt-4" style={{ color: C.muted }}>
-              AI Admin Co-Pilot — Healthcare & Allied Health platform
+              Carer Scribe — Healthcare & Allied Health platform
             </p>
           </motion.div>
         </div>

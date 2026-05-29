@@ -9,13 +9,13 @@ const roadmapItems = [
     phase: "Now",
     status: "active",
     title: "Healthcare Administration",
-    desc: "AI Admin Co-Pilot is live and reducing admin burden for healthcare and allied health teams across multiple organisations.",
+    desc: "Carer Scribe is live and reducing admin burden for healthcare and allied health teams across multiple organisations.",
   },
   {
     phase: "Now",
     status: "active",
-    title: "Tax Exposure Analytics",
-    desc: "Our Tax Exposure Analytics Platform is helping advisory firms and large organisations identify compliance risks before they become costly.",
+    title: "Tax Exposure Platform",
+    desc: "Our Tax Exposure Platform is helping advisory firms and large organisations identify compliance risks before they become costly.",
   },
   {
     phase: "Next",

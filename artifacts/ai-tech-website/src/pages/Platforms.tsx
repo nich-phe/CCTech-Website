@@ -360,7 +360,7 @@ export default function Platforms() {
         </motion.div>
       </section>
       {/* ══════════════════════════════════════════
-          PLATFORM 01 — AI Admin Co-Pilot
+          PLATFORM 01 — Carer Scribe
       ══════════════════════════════════════════ */}
       <section className="py-24 overflow-hidden" style={{ borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -380,7 +380,7 @@ export default function Platforms() {
             <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{ color: C.text }}>
-                AI Admin Co-Pilot
+                Carer Scribe
               </h2>
               <p className="text-lg leading-relaxed mb-10" style={{ color: C.muted }}>
                 An AI-powered administrative co-pilot built specifically for healthcare and allied health teams. It acts as an invisible assistant, seamlessly handling the massive documentation burden that pulls practitioners away from their clients.
@@ -422,7 +422,7 @@ export default function Platforms() {
               <div className="relative overflow-hidden" style={{ border: `1px solid ${C.border}` }}>
                 <img
                   src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&auto=format&fit=crop&q=80"
-                  alt="AI Admin Co-Pilot"
+                  alt="Carer Scribe"
                   className="w-full object-cover"
                 />
                 <div className="absolute inset-0"
@@ -450,7 +450,7 @@ export default function Platforms() {
         </div>
       </section>
       {/* ══════════════════════════════════════════
-          PLATFORM 02 — Tax Exposure Analytics
+          PLATFORM 02 — Tax Exposure Platform
       ══════════════════════════════════════════ */}
       <section className="py-24 overflow-hidden" style={{ borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -462,7 +462,7 @@ export default function Platforms() {
             <div className="flex-1 h-px" style={{ backgroundColor: C.border }} />
             <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold"
               style={{ backgroundColor: C.soft, color: C.muted, border: `1px solid ${C.border}` }}>
-              Financial Services & Tax Advisory
+              Tax Exposure Platform
             </div>
           </motion.div>
 
@@ -473,7 +473,7 @@ export default function Platforms() {
               <div className="relative overflow-hidden" style={{ border: `1px solid ${C.border}` }}>
                 <img
                   src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&auto=format&fit=crop&q=80"
-                  alt="Tax Exposure Analytics Platform"
+                  alt="Tax Exposure Platform"
                   className="w-full object-cover"
                 />
                 <div className="absolute inset-0"
@@ -502,10 +502,10 @@ export default function Platforms() {
               viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
               className="order-1 lg:order-2">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{ color: C.text }}>
-                Tax Exposure Analytics
+                Know your ATO exposure before it becomes a debt.
               </h2>
               <p className="text-lg leading-relaxed mb-10" style={{ color: C.muted }}>
-                A proactive tax risk and exposure platform for large organisations and advisory firms. By continuously analyzing massive datasets, it transforms raw transaction data into clear, auditable insights — before exposure becomes liability.
+                Australia's NDIS workforce is one of the fastest-growing gig economy segments — and one of the most undertaxed. Our platform helps unregistered NDIS workers, ABN holders, and disability support businesses instantly assess their tax obligations, superannuation exposure, and GST position.
               </p>
               <p className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: `${C.text}55` }}>
                 Core Capabilities
