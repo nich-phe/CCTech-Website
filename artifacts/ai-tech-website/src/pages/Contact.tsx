@@ -147,6 +147,7 @@ export default function Contact() {
                         <option value="admin">Carer Scribe</option>
                         <option value="tax">Tax Exposure Platform</option>
                         <option value="custom">Custom Platform Development</option>
+                        <option value="all">All of the above</option>
                         <option value="partner">Partnership Inquiry</option>
                       </select>
                       {errors.interest && <p className="text-sm text-destructive">{errors.interest.message}</p>}

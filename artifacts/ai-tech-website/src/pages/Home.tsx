@@ -321,6 +321,16 @@ export default function Home() {
                   Explore platforms <ArrowRight className="w-4 h-4" />
                 </motion.span>
               </Link>
+              <Link href="/tax-exposure">
+                <motion.span
+                  whileHover={{ backgroundColor: C.peach }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-2 text-sm font-medium px-7 py-3.5 cursor-pointer transition-colors duration-150"
+                  style={{ color: C.text, border: `1px solid ${C.border}`, backgroundColor: C.bg }}
+                >
+                  Tax Exposure Tool
+                </motion.span>
+              </Link>
               <Link href="/contact">
                 <motion.span
                   whileHover={{ backgroundColor: C.peach }}

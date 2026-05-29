@@ -15,6 +15,7 @@ const NAV_BG      = "#FFFFFF";
 const navLinks = [
   { name: "About",       path: "/about"         },
   { name: "Platforms",   path: "/platforms"      },
+  { name: "Tax Exposure",path: "/tax-exposure"   },
   { name: "Industries",  path: "/industries"     },
   { name: "How We Build",path: "/how-we-build"   },
   { name: "Vision",      path: "/vision"         },
