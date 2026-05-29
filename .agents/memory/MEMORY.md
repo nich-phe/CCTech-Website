@@ -1,1 +1,2 @@
 - [CC Tech tax calculator](cctech-tax-calculator.md) — GST guidance & risk scoring must be gated by worktype; employees never register GST on wages.
+- [CC Tech brand theme](cctech-brand-theme.md) — brand is LIGHT/feminine (white bg, crimson, burgundy, pastels), NOT dark; never reintroduce a dark theme.
