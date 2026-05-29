@@ -1,0 +1,181 @@
+```
+You are modifying the EXISTING CC Tech Australia website. Do NOT rewrite it. 
+Do NOT touch any CSS. Do NOT change any styling, colours, fonts, or layout. 
+Only change text content, product names, section copy, and links where instructed below.
+
+Read the full file first, then make only the changes listed. Nothing else.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHANGE 1 — PRODUCT NAME (find and replace, entire file)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Find every instance of "CareScribe" anywhere in the HTML and JS.
+Replace all with "Carer Scribe".
+This includes nav links, headings, body text, tab labels, button text, meta tags, 
+page title, dashboard mockup text, and any JS strings.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHANGE 2 — ADD SECOND PRODUCT TO NAVIGATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Find the nav Products dropdown. It currently lists only "Carer Scribe".
+Add a second item below it: "Tax Exposure Platform" 
+Link it to the anchor: #taxexposure
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHANGE 3 — HERO SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Find the two hero CTA buttons. Keep the first one as is (Carer Scribe).
+Add a second button next to it with this text: "Tax Exposure Tool"
+Link it to: #taxexposure
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHANGE 4 — PRODUCTS OVERVIEW SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Find the products overview section (the two product cards). 
+Keep the existing Carer Scribe card exactly as is.
+
+Find the second product card (currently empty or placeholder).
+Replace its content with:
+
+  Name: "Tax Exposure Platform"
+  Tag: "Tax Risk Intelligence"
+  Description: "Instant tax exposure assessment for NDIS support workers 
+  and businesses. Know your ATO obligations before they become a problem."
+  Link text: "Learn more ↓" → anchor: #taxexposure
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHANGE 5 — ADD TAX EXPOSURE SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Find the closing </section> tag of the Carer Scribe section.
+Insert a new section immediately after it with id="taxexposure".
+
+Use the exact same HTML structure and element types already used elsewhere 
+on the page (same card divs, same heading tags, same button classes).
+Do NOT introduce any new CSS classes. Reuse existing ones.
+
+The section must contain:
+
+BANNER:
+  Eyebrow: "Product 02 — Tax Exposure Platform"
+  Heading: "Know your ATO exposure before it becomes a debt."
+  Body: "Australia's NDIS workforce is one of the fastest-growing gig economy 
+  segments — and one of the most undertaxed. Our platform helps unregistered 
+  NDIS workers, ABN holders, and disability support businesses instantly assess 
+  their tax obligations, superannuation exposure, and GST position."
+  Button: "Try the Tool" → links to the calculator further down in this section
+
+WHO IT'S FOR (3 cards using the same card class already on the page):
+  Card 1 — "Independent NDIS Workers"
+    "Unregistered or ABN support workers unsure if they owe income tax, 
+    need to register for GST, or are missing superannuation contributions."
+
+  Card 2 — "NDIS Support Businesses"
+    "Small businesses paying workers as contractors without realising they 
+    may have PAYG withholding, superannuation guarantee, or payroll tax 
+    obligations."
+
+  Card 3 — "Platform Workers (Mable, Kynd)"
+    "Gig workers on disability platforms who earn above the GST threshold 
+    or don't realise they've become deemed employees for tax purposes."
+
+WHAT IT CHECKS (6 feature tiles using the same feature tile class already on the page):
+  1. Income Tax Exposure — "Calculates likely income tax liability based on 
+     annual earnings, including Medicare Levy."
+  2. Superannuation Guarantee — "Determines whether the business hiring you 
+     is legally required to pay superannuation on your behalf, even on an ABN."
+  3. GST Registration Threshold — "Checks whether gross income exceeds 
+     $75,000 AUD and flags GST registration obligations."
+  4. PAYG Withholding Risk — "Assesses whether working arrangements meet 
+     the ATO's definition of employee vs genuine contractor."
+  5. Sham Contracting Exposure — "Identifies red flags that could trigger 
+     an ATO sham contracting audit — for workers and businesses."
+  6. ATO Reporting Obligations — "Maps obligations: BAS lodgement, tax 
+     return deadlines, and TPAR if applicable."
+
+INTERACTIVE CALCULATOR (id="tax-calculator"):
+  Title: "Quick Tax Exposure Check"
+  Subtitle: "Answer 4 questions. Get your exposure summary."
+
+  Build as a 4-step JS wizard. No page reload. Use existing button and 
+  input classes from the page. Add only the JS logic — no new CSS.
+
+  Step 1 — "How do you work?"
+    Radio options:
+    · I'm an independent contractor (ABN holder)
+    · I work for a business (employee or casual)
+    · I run a disability support business and hire workers
+
+  Step 2 — "What is your estimated annual income from NDIS work?"
+    Radio options:
+    · Under $18,200
+    · $18,201 – $45,000
+    · $45,001 – $75,000
+    · $75,001 – $120,000
+    · Over $120,000
+
+  Step 3 — "Do you currently meet these obligations?"
+    Two yes/no toggles:
+    · I lodge an annual tax return
+    · I am registered for GST
+
+  Step 4 — Results (generated from answers):
+    Show four result rows:
+    · Income Tax: approximate liability from ATO 2024-25 tax tables
+    · GST: "⚠️ You may need to register" if income over $75,000, 
+            otherwise "✅ Below threshold"
+    · Super: "⚠️ Your employer may owe you super" if contractor, 
+              otherwise "✅ No obligation detected"
+    · ATO Risk Level: LOW / MEDIUM / HIGH based on combination of answers
+
+    Disclaimer below results (plain text, no new styling):
+    "These results are indicative only and do not constitute tax advice. 
+    Consult a registered tax agent."
+
+    Button below disclaimer: "Join the Waitlist" → scrolls to #contact
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHANGE 6 — WAITLIST / CONTACT FORM DROPDOWN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Find the existing waitlist or contact form dropdown that asks which 
+product the user is interested in.
+Add two new options if not already present:
+  · Tax Exposure Platform
+  · All of the above
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHANGE 7 — FOOTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Find the footer links. Add "Tax Exposure" as a link to #taxexposure 
+next to the existing Carer Scribe links.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHANGE 8 — PAGE META
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Update the <title> to:
+  CC Tech Australia — Carer Scribe & Tax Exposure Platform
+
+Update the <meta name="description"> to:
+  CC Tech Australia builds AI compliance tools for Australian industries. 
+  Carer Scribe for NDIS providers. Tax Exposure Platform for NDIS workers 
+  and businesses.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RULES — DO NOT BREAK THESE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Do NOT touch any CSS file or any <style> block
+- Do NOT add any new CSS classes or inline styles
+- Do NOT restructure or reorder any existing sections
+- Do NOT remove any existing content unless explicitly told above
+- Do NOT change any existing Carer Scribe content other than the name fix
+- Only add new JS inside a single <script> block at the bottom of the file
+
+When done, confirm each of the 8 changes was applied and show the preview.
+```
