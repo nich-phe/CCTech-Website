@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CC Tech Australia — AI Compliance Platforms for Australian Industries</title>
+    <meta name="description" content="CC Tech Australia builds AI-powered compliance tools for Australian industries. Carer Scribe for NDIS providers. Tax Exposure Platform for NDIS workers and businesses." />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CC Tech Australia" />
+    <meta property="og:title" content="CC Tech Australia — AI Compliance Platforms for Australian Industries" />
+    <meta property="og:description" content="AI-powered compliance infrastructure for Australia. Carer Scribe for NDIS providers. Tax Exposure Platform for NDIS workers and businesses." />
+    <meta property="og:url" content="https://cctechaustralia.com" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CC Tech Australia — AI Compliance Platforms" />
+    <meta name="twitter:description" content="AI-powered compliance infrastructure for Australian industries. Carer Scribe and the Tax Exposure Platform." />
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ===================== NAV ===================== -->
+    <header class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#top" class="brand" aria-label="CC Tech Australia home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="32" height="32">
+              <path d="M28 13a9 9 0 1 0 0 14" fill="none" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"/>
+              <path d="M24 16a5 5 0 1 0 0 8" fill="none" stroke="#06B6D4" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="brand-text"><span class="brand-cc">CC Tech</span> <span class="brand-au">Australia</span></span>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <div class="nav-dropdown">
+            <button class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+              Products
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="#carerscribe" role="menuitem">
+                <span class="dd-dot" style="background:var(--blue)"></span>
+                <span><strong>Carer Scribe</strong><em>NDIS compliance documentation</em></span>
+              </a>
+              <a href="#taxexposure" role="menuitem">
+                <span class="dd-dot" style="background:var(--orange)"></span>
+                <span><strong>Tax Exposure Platform</strong><em>Tax risk intelligence</em></span>
+              </a>
+            </div>
+          </div>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="#contact" class="btn btn-primary btn-sm">Get Early Access</a>
+        </nav>
+
+        <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===================== MOBILE MENU ===================== -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <nav class="mobile-links" aria-label="Mobile">
+        <a href="#carerscribe" class="mm-link">Carer Scribe</a>
+        <a href="#taxexposure" class="mm-link">Tax Exposure</a>
+        <a href="#about" class="mm-link">About</a>
+        <a href="#contact" class="mm-link">Contact</a>
+        <a href="#contact" class="btn btn-primary">Get Early Access</a>
+      </nav>
+    </div>
+
+    <main id="top">
+      <!-- ===================== HERO ===================== -->
+      <section class="hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="orb orb-blue" aria-hidden="true"></div>
+        <div class="orb orb-purple" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <span class="pill reveal">🇦🇺&nbsp;&nbsp;South Australian AI Company · Founded 2026</span>
+          <h1 class="hero-title reveal">AI tools that make<br /><span class="gradient-text">compliance invisible.</span></h1>
+          <p class="hero-sub reveal">CC Tech Australia builds intelligent compliance platforms for Australian industries — starting with disability services and tax. Less paperwork. Less risk. More time doing the work that matters.</p>
+          <div class="hero-cta reveal">
+            <a href="#carerscribe" class="btn btn-primary">Explore Carer Scribe</a>
+            <a href="#taxexposure" class="btn btn-outline">Tax Exposure Tool</a>
+          </div>
+          <div class="stats reveal">
+            <div class="stat">
+              <span class="stat-num">257,000+</span>
+              <span class="stat-label">NDIS providers in AU</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num">$45B</span>
+              <span class="stat-label">annual NDIS market</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num">1 July 2026</span>
+              <span class="stat-label">Compliance deadline</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PRODUCTS OVERVIEW ===================== -->
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2 class="section-title">Two products. One mission.</h2>
+            <p class="section-sub">We build AI infrastructure for Australian compliance-heavy industries.</p>
+          </div>
+          <div class="product-grid">
+            <article class="product-card reveal" style="--accent:var(--blue)">
+              <span class="product-bar"></span>
+              <div class="product-icon">🛡️</div>
+              <h3 class="product-name" style="color:var(--blue)">Carer Scribe</h3>
+              <span class="product-tag">NDIS Compliance Platform</span>
+              <p class="product-desc">AI progress notes in any language, real-time NDIS compliance scoring, and a coordinator dashboard for disability support businesses.</p>
+              <a href="#carerscribe" class="product-link" style="color:var(--blue)">Learn more&nbsp;↓</a>
+            </article>
+            <article class="product-card reveal" style="--accent:var(--orange)">
+              <span class="product-bar"></span>
+              <div class="product-icon">🧾</div>
+              <h3 class="product-name" style="color:var(--orange)">Tax Exposure</h3>
+              <span class="product-tag">Tax Risk Intelligence</span>
+              <p class="product-desc">Instant tax exposure assessment for NDIS support workers and businesses. Know your ATO obligations before they become a problem.</p>
+              <a href="#taxexposure" class="product-link" style="color:var(--orange)">Learn more&nbsp;↓</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CARER SCRIBE DEEP DIVE ===================== -->
+      <section class="section product-section cs-section" id="carerscribe">
+        <div class="container">
+          <!-- 6A hero banner -->
+          <div class="prod-banner cs-banner reveal">
+            <p class="eyebrow eyebrow-blue">Product 01 — Carer Scribe</p>
+            <h2 class="prod-headline">NDIS compliance documentation. Done by AI. In any language.</h2>
+            <p class="prod-body">Built for disability support businesses across Australia. Support workers document in their own language — Carer Scribe writes the compliant note. Coordinators get real-time visibility across the whole team.</p>
+            <div class="prod-cta">
+              <a href="#contact" class="btn btn-primary">Request a Demo</a>
+              <a href="https://carerscribe.replit.app" target="_blank" rel="noopener" class="btn btn-outline">carerscribe.replit.app&nbsp;↗</a>
+            </div>
+          </div>
+
+          <!-- 6B tab switcher -->
+          <div class="tabs reveal" id="csTabs">
+            <div class="tab-bar" role="tablist" aria-label="Carer Scribe platforms">
+              <button class="tab-btn active" role="tab" aria-selected="true" data-tab="business">
+                Carer Scribe <span class="tab-sub">— Business Platform</span>
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" data-tab="clinical">
+                Carer Scribe Pro <span class="tab-sub">— Clinical Platform</span>
+              </button>
+            </div>
+
+            <!-- TAB 1 -->
+            <div class="tab-panel active" data-panel="business" role="tabpanel">
+              <div class="tab-split">
+                <div class="tab-features">
+                  <h3 class="tab-h">For support coordination businesses</h3>
+                  <p class="tab-sub-text">A parent + child account structure. The business owns the data. Workers get access to only what they need.</p>
+                  <ul class="feature-list">
+                    <li><span class="fi">🌐</span><div><strong>Multilingual AI Notes</strong><p>Voice or text input in 11 languages: English, Hindi, Tagalog, Nepali, Arabic, Swahili, Mandarin, Vietnamese, Punjabi, Somali, Amharic — output always in compliant English.</p></div></li>
+                    <li><span class="fi">📊</span><div><strong>Live Compliance Score</strong><p>Every note gets scored 0–100% against the NDIS Practice Standards. Red, amber, green. Coordinators see the whole team's score at a glance.</p></div></li>
+                    <li><span class="fi">🛡️</span><div><strong>12-Rule NDIS Compliance Engine</strong><p>Checks person-first language, goal linkage, incident flags, subjective language, copy-paste detection, and 7 more rules — automatically.</p></div></li>
+                    <li><span class="fi">👜</span><div><strong>Credential Wallet</strong><p>Workers store and manage qualifications, police checks, NDIS Worker Screening, and certifications in one place. Coordinators get alerts when they expire.</p></div></li>
+                    <li><span class="fi">📋</span><div><strong>Coordinator Dashboard</strong><p>One view of every note, every worker, every score, and every pending credential across the entire organisation.</p></div></li>
+                  </ul>
+                </div>
+
+                <!-- fake dashboard -->
+                <div class="dashboard" aria-label="Carer Scribe dashboard preview">
+                  <div class="dash-top">
+                    <span class="dash-dot"></span><span class="dash-dot"></span><span class="dash-dot"></span>
+                    <span class="dash-title">Carer Scribe Dashboard</span>
+                  </div>
+                  <div class="dash-body">
+                    <div class="dash-tiles">
+                      <div class="dash-tile">
+                        <span class="dash-tile-label">Team Compliance</span>
+                        <span class="dash-tile-val" style="color:var(--green)">91%</span>
+                      </div>
+                      <div class="dash-tile">
+                        <span class="dash-tile-label">Notes This Week</span>
+                        <span class="dash-tile-val">47</span>
+                      </div>
+                      <div class="dash-tile">
+                        <span class="dash-tile-label">Credentials Expiring</span>
+                        <span class="dash-tile-val" style="color:var(--orange)">2</span>
+                      </div>
+                    </div>
+                    <div class="dash-chart">
+                      <span class="dash-chart-label">Worker compliance score</span>
+                      <div class="bar-row"><span class="bar-name">A. Nguyen</span><div class="bar-track"><div class="bar-fill" style="width:96%;background:var(--green)"></div></div><span class="bar-val">96%</span></div>
+                      <div class="bar-row"><span class="bar-name">M. Okafor</span><div class="bar-track"><div class="bar-fill" style="width:89%;background:var(--green)"></div></div><span class="bar-val">89%</span></div>
+                      <div class="bar-row"><span class="bar-name">S. Patel</span><div class="bar-track"><div class="bar-fill" style="width:74%;background:var(--orange)"></div></div><span class="bar-val">74%</span></div>
+                      <div class="bar-row"><span class="bar-name">L. Chen</span><div class="bar-track"><div class="bar-fill" style="width:93%;background:var(--green)"></div></div><span class="bar-val">93%</span></div>
+                      <div class="bar-row"><span class="bar-name">R. Ali</span><div class="bar-track"><div class="bar-fill" style="width:58%;background:var(--red)"></div></div><span class="bar-val">58%</span></div>
+                    </div>
+                    <div class="dash-note">
+                      <div class="dash-note-head">
+                        <span class="dash-note-title">Progress Note — Shift 14:00–18:00</span>
+                        <span class="badge-compliant">Compliant 94%</span>
+                      </div>
+                      <p class="dash-note-text">Supported participant to attend community access goal. Participant independently selected groceries, practising budgeting skills aligned with their stated NDIS goal of increased daily living independence. No incidents. Follow-up scheduled.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 2 -->
+            <div class="tab-panel" data-panel="clinical" role="tabpanel" hidden>
+              <div class="tab-split">
+                <div class="tab-features">
+                  <h3 class="tab-h">For OTs, Physios, and Speech Pathologists</h3>
+                  <p class="tab-sub-text">A standalone clinical platform. Sign up individually. Full allied health toolset.</p>
+                  <ul class="feature-list">
+                    <li><span class="fi">🌐</span><div><strong>Multilingual Voice Input</strong><p>Dictate session notes in your preferred language — Carer Scribe Pro reformats to compliant English clinical notes automatically.</p></div></li>
+                    <li><span class="fi">📊</span><div><strong>Compliance Percentage Score</strong><p>Every clinical note is scored against NDIS documentation standards before you submit. Know your exposure before your auditor does.</p></div></li>
+                    <li><span class="fi">🫀</span><div><strong>Body Coding — ICD / Anatomy Map</strong><p>Interactive body map for documenting functional limitations, therapy outcomes, and physical observations. Tap a region, add clinical details — no typing required.</p></div></li>
+                    <li><span class="fi">👜</span><div><strong>Credential Wallet</strong><p>Your AHPRA registration, indemnity insurance, and NDIS screening — all in one place with expiry alerts.</p></div></li>
+                    <li><span class="fi">📄</span><div><strong>PDF Export</strong><p>Export compliant clinical notes as formatted PDFs ready for participant records, plan reviews, or audit submission.</p></div></li>
+                  </ul>
+                </div>
+
+                <!-- clinical mockup -->
+                <div class="dashboard" aria-label="Carer Scribe Pro clinical preview">
+                  <div class="dash-top">
+                    <span class="dash-dot"></span><span class="dash-dot"></span><span class="dash-dot"></span>
+                    <span class="dash-title">Carer Scribe Pro — Clinical</span>
+                  </div>
+                  <div class="dash-body">
+                    <div class="body-map">
+                      <span class="body-map-label">Body Coding</span>
+                      <svg viewBox="0 0 120 200" class="body-svg" aria-hidden="true">
+                        <circle cx="60" cy="22" r="14" class="bp"/>
+                        <rect x="46" y="38" width="28" height="50" rx="10" class="bp bp-active"/>
+                        <rect x="30" y="42" width="12" height="44" rx="6" class="bp"/>
+                        <rect x="78" y="42" width="12" height="44" rx="6" class="bp"/>
+                        <rect x="48" y="90" width="11" height="50" rx="5" class="bp bp-active"/>
+                        <rect x="61" y="90" width="11" height="50" rx="5" class="bp"/>
+                      </svg>
+                      <div class="body-tags">
+                        <span class="body-tag">Shoulder — ROM ↓ 30%</span>
+                        <span class="body-tag">L. Knee — flexion noted</span>
+                      </div>
+                    </div>
+                    <div class="dash-note">
+                      <div class="dash-note-head">
+                        <span class="dash-note-title">OT Session Note</span>
+                        <span class="badge-compliant">Compliant 97%</span>
+                      </div>
+                      <p class="dash-note-text">Functional reach assessment completed. Right shoulder range of motion reduced ~30%, limiting overhead activities of daily living. Therapy plan updated; graded exercise program issued. Outcome measured against participant mobility goals.</p>
+                    </div>
+                    <button class="dash-export">📄&nbsp; Export compliant PDF</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6C urgency -->
+          <div class="urgency reveal">
+            <p class="urgency-title">⚠️&nbsp; Regulatory deadline: 1 July 2026</p>
+            <p class="urgency-body">Mandatory registration requirements expand across platform providers, SIL providers, and support coordinators. NDIS businesses relying on informal documentation practices are now directly exposed. Carer Scribe is built for exactly this moment.</p>
+            <a href="#contact" class="btn btn-orange">Join the Waitlist&nbsp;→</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== TAX EXPOSURE ===================== -->
+      <section class="section section-alt product-section tx-section" id="taxexposure">
+        <div class="container">
+          <!-- 7A banner -->
+          <div class="prod-banner tx-banner reveal">
+            <p class="eyebrow eyebrow-orange">Product 02 — Tax Exposure Platform</p>
+            <h2 class="prod-headline">Know your ATO exposure before it becomes a debt.</h2>
+            <p class="prod-body">Australia's NDIS workforce is one of the fastest-growing gig economy segments — and one of the most undertaxed. Our platform helps unregistered NDIS workers, ABN holders, and disability support businesses instantly assess their tax obligations, superannuation exposure, and GST position.</p>
+            <div class="prod-cta">
+              <a href="#calculator" class="btn btn-orange">Try the Tool</a>
+            </div>
+          </div>
+
+          <!-- 7B who it's for -->
+          <div class="who-grid">
+            <article class="glass-card reveal">
+              <div class="who-icon">🧑‍💼</div>
+              <h3 class="who-title">Independent NDIS Workers</h3>
+              <p class="who-desc">Unregistered or ABN support workers who aren't sure if they owe income tax, need to register for GST, or are missing superannuation contributions.</p>
+            </article>
+            <article class="glass-card reveal">
+              <div class="who-icon">🏢</div>
+              <h3 class="who-title">NDIS Support Businesses</h3>
+              <p class="who-desc">Small businesses paying workers as contractors without realising they may have PAYG withholding, superannuation guarantee, or payroll tax obligations.</p>
+            </article>
+            <article class="glass-card reveal">
+              <div class="who-icon">📋</div>
+              <h3 class="who-title">Platform Workers (Mable, Kynd)</h3>
+              <p class="who-desc">Gig workers on disability platforms who earn above the GST threshold or don't realise they've become deemed employees for tax purposes.</p>
+            </article>
+          </div>
+
+          <!-- 7C what it checks -->
+          <div class="checks-head reveal">
+            <h3 class="section-title">What the platform analyses</h3>
+          </div>
+          <div class="checks-grid">
+            <div class="check-tile reveal"><span class="check-icon">💰</span><div><strong>Income Tax Exposure</strong><p>Based on annual earnings, calculates likely income tax liability including Medicare Levy.</p></div></div>
+            <div class="check-tile reveal"><span class="check-icon">🏦</span><div><strong>Superannuation Guarantee</strong><p>Determines whether the business hiring you is legally required to pay superannuation on your behalf — even if you hold an ABN.</p></div></div>
+            <div class="check-tile reveal"><span class="check-icon">🧾</span><div><strong>GST Registration Threshold</strong><p>Checks whether your gross income exceeds $75,000 AUD and flags GST registration obligations.</p></div></div>
+            <div class="check-tile reveal"><span class="check-icon">📊</span><div><strong>PAYG Withholding Risk</strong><p>Assesses whether your working arrangements meet the ATO's definition of an employee vs genuine contractor.</p></div></div>
+            <div class="check-tile reveal"><span class="check-icon">🔒</span><div><strong>Sham Contracting Exposure</strong><p>Identifies red flags that could trigger an ATO sham contracting audit — for both workers and businesses.</p></div></div>
+            <div class="check-tile reveal"><span class="check-icon">📄</span><div><strong>ATO Reporting Obligations</strong><p>Maps your specific obligations: BAS lodgement, tax return deadlines, TPAR (Taxable Payments Annual Report) if applicable.</p></div></div>
+          </div>
+
+          <!-- 7D calculator -->
+          <div class="calc reveal" id="calculator">
+            <div class="calc-head">
+              <h3 class="calc-title">Quick Tax Exposure Check</h3>
+              <p class="calc-sub">Answer 4 questions. Get your exposure summary.</p>
+            </div>
+
+            <div class="calc-progress" aria-hidden="true">
+              <span class="cp-step active" data-cp="1"></span>
+              <span class="cp-step" data-cp="2"></span>
+              <span class="cp-step" data-cp="3"></span>
+              <span class="cp-step" data-cp="4"></span>
+            </div>
+
+            <form id="calcForm" novalidate>
+              <!-- Step 1 -->
+              <div class="calc-step active" data-step="1">
+                <span class="calc-step-num">Step 1 of 4</span>
+                <h4 class="calc-q">How do you work?</h4>
+                <div class="opt-list">
+                  <label class="opt"><input type="radio" name="worktype" value="contractor" /><span class="opt-box">I'm an independent contractor (ABN holder)</span></label>
+                  <label class="opt"><input type="radio" name="worktype" value="employee" /><span class="opt-box">I work for a business (employee or casual)</span></label>
+                  <label class="opt"><input type="radio" name="worktype" value="business" /><span class="opt-box">I run a disability support business and hire workers</span></label>
+                </div>
+                <div class="calc-nav">
+                  <span></span>
+                  <button type="button" class="btn btn-orange calc-next" data-next="2" disabled>Next →</button>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="calc-step" data-step="2" hidden>
+                <span class="calc-step-num">Step 2 of 4</span>
+                <h4 class="calc-q">What is your estimated annual income from NDIS work?</h4>
+                <div class="opt-list">
+                  <label class="opt"><input type="radio" name="income" value="band1" /><span class="opt-box">Under $18,200</span></label>
+                  <label class="opt"><input type="radio" name="income" value="band2" /><span class="opt-box">$18,201 – $45,000</span></label>
+                  <label class="opt"><input type="radio" name="income" value="band3" /><span class="opt-box">$45,001 – $75,000</span></label>
+                  <label class="opt"><input type="radio" name="income" value="band4" /><span class="opt-box">$75,001 – $120,000</span></label>
+                  <label class="opt"><input type="radio" name="income" value="band5" /><span class="opt-box">Over $120,000</span></label>
+                </div>
+                <div class="calc-nav">
+                  <button type="button" class="btn btn-ghost calc-back" data-back="1">← Back</button>
+                  <button type="button" class="btn btn-orange calc-next" data-next="3" disabled>Next →</button>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="calc-step" data-step="3" hidden>
+                <span class="calc-step-num">Step 3 of 4</span>
+                <h4 class="calc-q">Do you currently lodge a tax return and pay GST?</h4>
+                <div class="toggle-q">
+                  <span>I lodge an annual tax return</span>
+                  <div class="toggle-group" data-toggle="lodges">
+                    <button type="button" class="toggle-opt" data-val="yes">Yes</button>
+                    <button type="button" class="toggle-opt" data-val="no">No</button>
+                  </div>
+                </div>
+                <div class="toggle-q">
+                  <span>I am registered for GST</span>
+                  <div class="toggle-group" data-toggle="gst">
+                    <button type="button" class="toggle-opt" data-val="yes">Yes</button>
+                    <button type="button" class="toggle-opt" data-val="no">No</button>
+                  </div>
+                </div>
+                <div class="calc-nav">
+                  <button type="button" class="btn btn-ghost calc-back" data-back="2">← Back</button>
+                  <button type="button" class="btn btn-orange calc-next" data-next="4" disabled>See results →</button>
+                </div>
+              </div>
+
+              <!-- Step 4 results -->
+              <div class="calc-step" data-step="4" hidden>
+                <span class="calc-step-num">Your exposure summary</span>
+                <div id="calcResults" class="calc-results"></div>
+                <p class="calc-disclaimer">These results are indicative only and do not constitute tax advice. Consult a registered tax agent.</p>
+                <div class="calc-results-cta">
+                  <a href="#contact" class="btn btn-orange">Get a full assessment →</a>
+                  <button type="button" class="btn btn-ghost calc-restart">Start over</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== ABOUT ===================== -->
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-left reveal">
+            <h2 class="section-title">Built in South Australia. Solving Australian problems.</h2>
+            <p class="about-body">CC Tech Australia was founded in 2026 by Cauthan and Chanmonich — two builders who saw that Australia's fastest-growing industries were drowning in compliance paperwork that AI could eliminate. We started in disability services because the compliance burden is real, the workforce is underserved, and the regulatory stakes are high. Tax exposure came next because the NDIS gig economy is enormous and largely invisible to the ATO.</p>
+            <p class="about-body">We are pre-revenue, pre-launch, and building fast. Both products are in active development. If you work in disability services, allied health, or tax — we want to talk to you.</p>
+          </div>
+          <div class="about-right">
+            <article class="founder-card reveal">
+              <div class="founder-avatar" style="--a1:var(--blue);--a2:var(--purple)">C</div>
+              <div>
+                <h3 class="founder-name">Cauthan</h3>
+                <p class="founder-role">Co-Founder · CEO</p>
+                <p class="founder-desc">Business strategy, commercial operations, go-to-market, and NDIS industry relationships.</p>
+              </div>
+            </article>
+            <article class="founder-card reveal">
+              <div class="founder-avatar" style="--a1:var(--teal);--a2:var(--blue)">C</div>
+              <div>
+                <h3 class="founder-name">Chanmonich</h3>
+                <p class="founder-role">Co-Founder · CTO</p>
+                <p class="founder-desc">Technology architecture, AI/NLP engineering, and product development.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACT / WAITLIST ===================== -->
+      <section class="section section-alt" id="contact">
+        <div class="container contact-inner">
+          <div class="section-head reveal">
+            <h2 class="section-title">Get early access.</h2>
+            <p class="section-sub">Both products are in closed beta. Join the waitlist and we'll reach out based on your industry.</p>
+          </div>
+
+          <div class="form-wrap reveal">
+            <form id="waitlistForm" class="waitlist-form" novalidate>
+              <div class="field">
+                <label for="wlName">Name</label>
+                <input type="text" id="wlName" name="name" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="wlEmail">Email</label>
+                <input type="email" id="wlEmail" name="email" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="wlProduct">Which product are you interested in?</label>
+                <select id="wlProduct" name="product" required>
+                  <option value="" disabled selected>Select a product…</option>
+                  <option value="carer-scribe">Carer Scribe (business)</option>
+                  <option value="carer-scribe-pro">Carer Scribe Pro (allied health)</option>
+                  <option value="tax-exposure">Tax Exposure Platform</option>
+                  <option value="all">All of the above</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="wlMessage">Tell us about your situation <span class="opt-tag">(optional)</span></label>
+                <textarea id="wlMessage" name="message" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Join the Waitlist</button>
+            </form>
+
+            <div class="form-success" id="formSuccess" hidden>
+              <div class="success-check">✅</div>
+              <h3>You're on the list.</h3>
+              <p>We'll be in touch. In the meantime, check out <a href="https://carerscribe.replit.app" target="_blank" rel="noopener">carerscribe.replit.app</a> for a live preview of Carer Scribe.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <span class="brand-text footer-brand"><span class="brand-cc">CC Tech</span> <span class="brand-au">Australia</span></span>
+          <p class="footer-meta">South Australia, Australia</p>
+          <p class="footer-meta">ACN: [To be inserted]</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#carerscribe">Carer Scribe</a>
+          <a href="#carerscribe">Carer Scribe Pro</a>
+          <a href="#taxexposure">Tax Exposure</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="footer-col footer-right">
+          <p class="footer-meta">© 2026 CC Tech Australia Pty Ltd.<br />All rights reserved.</p>
+        </div>
+      </div>
+      <div class="footer-strip">Built in Adelaide 🇦🇺</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

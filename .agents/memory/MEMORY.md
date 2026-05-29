@@ -1,0 +1,1 @@
+- [CC Tech tax calculator](cctech-tax-calculator.md) — GST guidance & risk scoring must be gated by worktype; employees never register GST on wages.
