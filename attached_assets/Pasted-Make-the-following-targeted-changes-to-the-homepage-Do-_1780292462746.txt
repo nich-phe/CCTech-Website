@@ -1,0 +1,75 @@
+Make the following targeted changes to the homepage. Do not change any CSS, do not add new classes, do not change the visual design or layout structure. Only update text content, add new sections using existing component patterns, and update meta tags.
+
+---
+
+1. META TAGS
+Update the <head> section:
+- Set <title> to: "Carer Scribe | NDIS Compliance Software for Support Businesses | CC Tech Australia"
+- Add <meta name="description" content="Carer Scribe by CC Tech Australia helps NDIS support businesses manage compliance, progress notes, and team documentation — in 11 languages. Built for the 1 July 2026 mandatory registration deadline.">
+- Add <meta property="og:title" content="Carer Scribe | NDIS Compliance Software | CC Tech Australia">
+- Add <meta property="og:description" content="AI-powered NDIS compliance documentation for disability support businesses. Voice input in 11 languages, real-time compliance scoring, coordinator dashboard.">
+
+---
+
+2. COUNTDOWN BANNER
+Add a full-width banner directly below the navigation bar and above the hero section. Use the same font and colour tokens already in use on the site. Banner text:
+"⚠️ NDIS mandatory registration expands 1 July 2026 — Is your team compliant? [Get Ready →]"
+The [Get Ready →] should be a link that scrolls to the waitlist/signup section.
+
+---
+
+3. HERO SECTION
+Replace the current hero headline with:
+"Your team's NDIS compliance — managed in one place."
+
+Replace the hero subheadline with:
+"Carer Scribe gives coordinators a real-time compliance dashboard, automated progress notes in 11 languages, and audit-ready documentation — built for the 1 July 2026 mandatory registration deadline."
+
+Replace the primary CTA button text with: "Try Carer Scribe Free"
+Replace the secondary CTA button text with: "See How It Works" — link it to scroll down to the How It Works section.
+
+---
+
+4. MULTILINGUAL CALLOUT
+Add a callout section after the hero and before the features/product cards section. Content:
+
+Heading: "Built for Australia's CALD Workforce"
+Body: "Your support workers speak Khmer, Vietnamese, Swahili, Arabic, Tagalog, and more. Carer Scribe accepts voice input in 11 languages and automatically translates and formats NDIS-compliant progress notes in English — in under 30 seconds."
+Include a row of the following language names as pill/badge elements (use existing badge or tag styling on the site):
+Khmer · Vietnamese · Arabic · Tagalog · Swahili · Amharic · Somali · Nepali · Hindi · Punjabi · English
+
+---
+
+5. HOW IT WORKS SECTION
+Add a "How It Works" section after the multilingual callout. Use the same card or step component pattern already used on the site.
+
+Heading: "How It Works"
+Subheading: "From voice to compliant note in under 30 seconds."
+
+Four steps:
+Step 1 — "Worker Speaks" — "Support worker records a voice note in their language after a session."
+Step 2 — "AI Translates & Formats" — "Carer Scribe translates and structures the note into NDIS-compliant English."
+Step 3 — "Compliance Check" — "Our 12-rule compliance engine scores the note and flags any issues instantly."
+Step 4 — "Coordinator Reviews" — "The coordinator approves, edits, or exports — all from one dashboard."
+
+---
+
+6. STRONGER CTA BUTTONS
+Find every instance of a button with text "Learn More" or "Get Started" on the page and update them as follows:
+- Buttons related to Carer Scribe → change text to "Try Carer Scribe Free"
+- Buttons related to the Tax Exposure Platform → change text to "Check My Tax Exposure"
+- Any general/primary CTA buttons → change text to "Join the Waitlist"
+
+---
+
+7. FOOTER
+Update the footer section to include the following information alongside any existing footer content. Do not remove existing footer links or elements:
+
+Company: CC Tech Australia Pty Ltd
+Location: South Australia, Australia
+Email: hello@cctechaustralia.com
+Website: cctechaustralia.com
+Tagline: "Proudly built in South Australia."
+
+Add a second line in the footer copyright area:
+"© 2025 CC Tech Australia Pty Ltd. All rights reserved."

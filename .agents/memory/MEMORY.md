@@ -1,2 +1,3 @@
 - [CC Tech tax calculator](cctech-tax-calculator.md) — GST guidance & risk scoring must be gated by worktype; employees never register GST on wages.
 - [CC Tech brand theme](cctech-brand-theme.md) — brand is LIGHT/feminine (white bg, crimson, burgundy, pastels), NOT dark; never reintroduce a dark theme.
+- [ai-tech-website legacy site](ai-tech-website-legacy.md) — /legacy/ multi-page React site (not cctech-australia sibling); Lenis+whileInView means tall/hash screenshots miss below-fold content.

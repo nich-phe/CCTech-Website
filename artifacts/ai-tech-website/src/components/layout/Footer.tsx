@@ -26,9 +26,24 @@ export function Footer() {
             <Link href="/" className="inline-flex mb-6">
               <CTechLogo white />
             </Link>
-            <p className="text-sm mb-8 max-w-xs leading-relaxed" style={{ color: `${PEACH}80` }}>
+            <p className="text-sm mb-6 max-w-xs leading-relaxed" style={{ color: `${PEACH}80` }}>
               Building AI-powered platforms that reduce manual work and improve compliance visibility across complex industries.
             </p>
+            <div className="mb-8 text-sm leading-relaxed" style={{ color: `${PEACH}60` }}>
+              <p style={{ color: `${PEACH}80` }}>CC Tech Australia Pty Ltd</p>
+              <p>South Australia, Australia</p>
+              <p>
+                <a href="mailto:hello@cctechaustralia.com" className="transition-colors" style={{ color: `${PEACH}60` }}>
+                  hello@cctechaustralia.com
+                </a>
+              </p>
+              <p>
+                <a href="https://cctechaustralia.com" target="_blank" rel="noopener noreferrer" className="transition-colors" style={{ color: `${PEACH}60` }}>
+                  cctechaustralia.com
+                </a>
+              </p>
+              <p className="mt-3 italic" style={{ color: `${PEACH}70` }}>Proudly built in South Australia.</p>
+            </div>
             <div className="flex gap-3">
               {[Twitter, Linkedin, Github].map((Icon, i) => (
                 <motion.a
@@ -119,7 +134,10 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs"
           style={{ borderTop: `1px solid ${PEACH}12`, color: `${PEACH}30` }}>
-          <p>© {new Date().getFullYear()} C TECH. All rights reserved.</p>
+          <div className="flex flex-col gap-1 text-center sm:text-left">
+            <p>© {new Date().getFullYear()} C TECH. All rights reserved.</p>
+            <p>© 2025 CC Tech Australia Pty Ltd. All rights reserved.</p>
+          </div>
           <div className="flex gap-6">
             <a href="#" className="transition-colors" style={{ color: `${PEACH}30` }}>Privacy Policy</a>
             <a href="#" className="transition-colors" style={{ color: `${PEACH}30` }}>Terms of Service</a>

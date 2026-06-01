@@ -245,6 +245,20 @@ export default function Home() {
     <Layout>
       <ScrollProgress />
       {/* ══════════════════════════════════════════
+          COUNTDOWN BANNER
+      ══════════════════════════════════════════ */}
+      <div className="w-full px-6 sm:px-10 py-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-sm font-medium"
+        style={{ backgroundColor: C.dark, color: C.peach }}>
+        <span>⚠️ NDIS mandatory registration expands 1 July 2026 — Is your team compliant?</span>
+        <button
+          onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}
+          className="font-semibold underline underline-offset-2 transition-opacity hover:opacity-80"
+          style={{ color: C.gold }}
+        >
+          Get Ready →
+        </button>
+      </div>
+      {/* ══════════════════════════════════════════
           HERO
       ══════════════════════════════════════════ */}
       <section className="relative flex items-center px-8 sm:px-14 lg:px-20 xl:px-28 overflow-hidden"
@@ -285,9 +299,8 @@ export default function Home() {
                 className="font-black tracking-[-0.04em] leading-[1.04]"
                 style={{ fontSize: "clamp(2.6rem,5vw,4.4rem)", color: C.text }}
               >
-                Built for industries<br />
-                that can't afford<br />
-                to get it wrong.
+                Your team's NDIS compliance<br />
+                — managed in one place.
               </motion.h1>
             </div>
 
@@ -304,23 +317,22 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.32 }}
               className="text-base sm:text-[1.05rem] leading-relaxed mb-10 max-w-[420px]"
               style={{ color: C.muted }}
-            >We design AI platforms from the ground up for your compliance requirements, workflow logic, and operating reality  not generic tools retrofitted with disclaimers.</motion.p>
+            >Carer Scribe gives coordinators a real-time compliance dashboard, automated progress notes in 11 languages, and audit-ready documentation — built for the 1 July 2026 mandatory registration deadline.</motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.44 }}
               className="flex flex-wrap items-center gap-3 mb-10"
             >
-              <Link href="/platforms">
-                <motion.span
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 cursor-pointer transition-all duration-200"
-                  style={{ backgroundColor: C.accent, color: "white" }}
-                >
-                  Explore platforms <ArrowRight className="w-4 h-4" />
-                </motion.span>
-              </Link>
+              <motion.button
+                onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 cursor-pointer transition-all duration-200"
+                style={{ backgroundColor: C.accent, color: "white" }}
+              >
+                Try Carer Scribe Free <ArrowRight className="w-4 h-4" />
+              </motion.button>
               <Link href="/tax-exposure">
                 <motion.span
                   whileHover={{ backgroundColor: C.peach }}
@@ -331,16 +343,15 @@ export default function Home() {
                   Tax Exposure Tool
                 </motion.span>
               </Link>
-              <Link href="/contact">
-                <motion.span
-                  whileHover={{ backgroundColor: C.peach }}
-                  whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2 text-sm font-medium px-7 py-3.5 cursor-pointer transition-colors duration-150"
-                  style={{ color: C.text, border: `1px solid ${C.border}`, backgroundColor: C.bg }}
-                >
-                  Book a demo
-                </motion.span>
-              </Link>
+              <motion.button
+                onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
+                whileHover={{ backgroundColor: C.peach }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 text-sm font-medium px-7 py-3.5 cursor-pointer transition-colors duration-150"
+                style={{ color: C.text, border: `1px solid ${C.border}`, backgroundColor: C.bg }}
+              >
+                See How It Works
+              </motion.button>
             </motion.div>
 
             <motion.div
@@ -463,6 +474,79 @@ export default function Home() {
             transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }} />
           <span className="text-[9px] font-mono tracking-[0.3em] uppercase" style={{ color: C.border }}>scroll</span>
         </motion.div>
+      </section>
+      {/* ══════════════════════════════════════════
+          MULTILINGUAL CALLOUT
+      ══════════════════════════════════════════ */}
+      <section className="py-24 px-8 sm:px-14 lg:px-20 xl:px-28"
+        style={{ backgroundColor: C.soft, borderTop: `1px solid ${C.border}` }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <Reveal>
+            <p className="text-[10px] font-mono tracking-[0.35em] uppercase mb-6" style={{ color: C.muted }}>
+              Multilingual by design
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="font-black tracking-tight mb-6"
+              style={{ fontSize: "clamp(1.8rem,3.5vw,2.8rem)", color: C.text }}>
+              Built for Australia's CALD Workforce
+            </h2>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="text-base sm:text-lg leading-relaxed mb-10 max-w-3xl mx-auto" style={{ color: C.muted }}>
+              Your support workers speak Khmer, Vietnamese, Swahili, Arabic, Tagalog, and more. Carer Scribe
+              accepts voice input in 11 languages and automatically translates and formats NDIS-compliant
+              progress notes in English — in under 30 seconds.
+            </p>
+          </Reveal>
+          <Reveal delay={0.24}>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              {["Khmer","Vietnamese","Arabic","Tagalog","Swahili","Amharic","Somali","Nepali","Hindi","Punjabi","English"].map((lang) => (
+                <span key={lang}
+                  className="text-xs font-medium px-3.5 py-1.5"
+                  style={{ color: C.text, backgroundColor: C.bg, border: `1px solid ${C.border}` }}>
+                  {lang}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+      {/* ══════════════════════════════════════════
+          HOW IT WORKS
+      ══════════════════════════════════════════ */}
+      <section id="how-it-works" className="py-24 px-8 sm:px-14 lg:px-20 xl:px-28"
+        style={{ backgroundColor: C.bg, borderTop: `1px solid ${C.border}` }}>
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <p className="text-[10px] font-mono tracking-[0.35em] uppercase mb-4" style={{ color: C.muted }}>
+              How It Works
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="font-black tracking-tight mb-14"
+              style={{ fontSize: "clamp(1.8rem,3.5vw,2.8rem)", color: C.text }}>
+              From voice to compliant note in under 30 seconds.
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px"
+            style={{ backgroundColor: C.border, border: `1px solid ${C.border}` }}>
+            {[
+              { n: "01", title: "Worker Speaks", body: "Support worker records a voice note in their language after a session." },
+              { n: "02", title: "AI Translates & Formats", body: "Carer Scribe translates and structures the note into NDIS-compliant English." },
+              { n: "03", title: "Compliance Check", body: "Our 12-rule compliance engine scores the note and flags any issues instantly." },
+              { n: "04", title: "Coordinator Reviews", body: "The coordinator approves, edits, or exports — all from one dashboard." },
+            ].map((s, i) => (
+              <Reveal key={s.n} delay={(i % 4) * 0.08}>
+                <div className="h-full p-8" style={{ backgroundColor: C.bg }}>
+                  <span className="text-[11px] font-mono tracking-widest" style={{ color: C.accent }}>{s.n}</span>
+                  <h3 className="font-bold mt-4 mb-2" style={{ color: C.text }}>{s.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{s.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
       {/* ══════════════════════════════════════════
           TICKER
@@ -687,7 +771,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           CTA — warm peach with animated rings
       ══════════════════════════════════════════ */}
-      <section className="relative py-36 px-8 sm:px-14 lg:px-20 xl:px-28 overflow-hidden"
+      <section id="waitlist" className="relative py-36 px-8 sm:px-14 lg:px-20 xl:px-28 overflow-hidden"
         style={{ backgroundColor: C.peach, borderTop: `1px solid ${C.border}` }}>
 
         {/* Animated rings */}
