@@ -56,7 +56,7 @@
     });
   }
 
-  /* ===================== CARER SCRIBE TABS ===================== */
+  /* ===================== CARECLIQ TABS ===================== */
   var tabBtns = document.querySelectorAll("#csTabs .tab-btn");
   var tabPanels = document.querySelectorAll("#csTabs .tab-panel");
   tabBtns.forEach(function (btn) {

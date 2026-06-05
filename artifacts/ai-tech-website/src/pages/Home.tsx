@@ -97,7 +97,7 @@ function ScrollProgress() {
 /* ─── Data ──────────────────────────────────── */
 const platforms = [
   {
-    index: "01", name: "Carer Scribe",
+    index: "01", name: "CareCliQ",
     tag: "Healthcare & Allied Health",
     desc: "An invisible layer of intelligence handling documentation, reporting, and communication workflows — returning hours to the people who need them most.",
     features: ["Automated clinical documentation", "Intelligent follow-up workflows", "Compliance-safe reporting"],
@@ -317,7 +317,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.32 }}
               className="text-base sm:text-[1.05rem] leading-relaxed mb-10 max-w-[420px]"
               style={{ color: C.muted }}
-            >Carer Scribe gives coordinators a real-time compliance dashboard, automated progress notes in 11 languages, and audit-ready documentation — built for the 1 July 2026 mandatory registration deadline.</motion.p>
+            >CareCliQ gives coordinators a real-time compliance dashboard, automated progress notes in 11 languages, and audit-ready documentation — built for the 1 July 2026 mandatory registration deadline.</motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
@@ -331,7 +331,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 cursor-pointer transition-all duration-200"
                 style={{ backgroundColor: C.accent, color: "white" }}
               >
-                Try Carer Scribe Free <ArrowRight className="w-4 h-4" />
+                Try CareCliQ Free <ArrowRight className="w-4 h-4" />
               </motion.button>
               <Link href="/tax-exposure">
                 <motion.span
@@ -458,7 +458,7 @@ export default function Home() {
               </motion.div>
             </MouseTilt>
             <p className="text-center text-xs mt-4" style={{ color: C.muted }}>
-              Carer Scribe — Healthcare & Allied Health platform
+              CareCliQ — Healthcare & Allied Health platform
             </p>
           </motion.div>
         </div>
@@ -494,7 +494,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="text-base sm:text-lg leading-relaxed mb-10 max-w-3xl mx-auto" style={{ color: C.muted }}>
-              Your support workers speak Khmer, Vietnamese, Swahili, Arabic, Tagalog, and more. Carer Scribe
+              Your support workers speak Khmer, Vietnamese, Swahili, Arabic, Tagalog, and more. CareCliQ
               accepts voice input in 11 languages and automatically translates and formats NDIS-compliant
               progress notes in English — in under 30 seconds.
             </p>
@@ -533,7 +533,7 @@ export default function Home() {
             style={{ backgroundColor: C.border, border: `1px solid ${C.border}` }}>
             {[
               { n: "01", title: "Worker Speaks", body: "Support worker records a voice note in their language after a session." },
-              { n: "02", title: "AI Translates & Formats", body: "Carer Scribe translates and structures the note into NDIS-compliant English." },
+              { n: "02", title: "AI Translates & Formats", body: "CareCliQ translates and structures the note into NDIS-compliant English." },
               { n: "03", title: "Compliance Check", body: "Our 12-rule compliance engine scores the note and flags any issues instantly." },
               { n: "04", title: "Coordinator Reviews", body: "The coordinator approves, edits, or exports — all from one dashboard." },
             ].map((s, i) => (

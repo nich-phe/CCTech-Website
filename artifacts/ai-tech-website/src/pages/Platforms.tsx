@@ -360,7 +360,7 @@ export default function Platforms() {
         </motion.div>
       </section>
       {/* ══════════════════════════════════════════
-          PLATFORM 01 — Carer Scribe
+          PLATFORM 01 — CareCliQ
       ══════════════════════════════════════════ */}
       <section className="py-24 overflow-hidden" style={{ borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -380,7 +380,7 @@ export default function Platforms() {
             <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{ color: C.text }}>
-                Carer Scribe
+                CareCliQ
               </h2>
               <p className="text-lg leading-relaxed mb-10" style={{ color: C.muted }}>
                 An AI-powered administrative co-pilot built specifically for healthcare and allied health teams. It acts as an invisible assistant, seamlessly handling the massive documentation burden that pulls practitioners away from their clients.
@@ -422,7 +422,7 @@ export default function Platforms() {
               <div className="relative overflow-hidden" style={{ border: `1px solid ${C.border}` }}>
                 <img
                   src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&auto=format&fit=crop&q=80"
-                  alt="Carer Scribe"
+                  alt="CareCliQ"
                   className="w-full object-cover"
                 />
                 <div className="absolute inset-0"

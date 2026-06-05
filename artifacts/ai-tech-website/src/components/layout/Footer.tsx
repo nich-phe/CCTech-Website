@@ -64,7 +64,7 @@ export function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: `${PEACH}40` }}>Platforms</h4>
             <ul className="flex flex-col gap-3 text-sm">
               {[
-                ["Carer Scribe",     "/platforms"],
+                ["CareCliQ",     "/platforms"],
                 ["Tax Exposure Platform","/tax-exposure"],
                 ["Industry Solutions",    "/industries"],
                 ["Request Custom Build",  "/contact"],

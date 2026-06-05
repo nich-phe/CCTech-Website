@@ -9,7 +9,7 @@ const roadmapItems = [
     phase: "Now",
     status: "active",
     title: "Healthcare Administration",
-    desc: "Carer Scribe is live and reducing admin burden for healthcare and allied health teams across multiple organisations.",
+    desc: "CareCliQ is live and reducing admin burden for healthcare and allied health teams across multiple organisations.",
   },
   {
     phase: "Now",
