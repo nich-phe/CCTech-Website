@@ -3,6 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
+import foundersPhoto from "@assets/1000074782_1783319421076.jpg";
 
 const values = [
   {
@@ -176,114 +177,74 @@ export default function About() {
             className="mx-auto mb-12 max-w-2xl text-center sm:mb-14"
           >
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary/80 sm:text-sm">
-              Leadership
+              Our story
             </p>
             <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               Meet the founders
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-lg">
-              The people behind CC TECH, building practical AI platforms for
-              operational efficiency and compliance-conscious industries.
+              Two TAFE SA graduates who met in 2024 and set out to fix a
+              problem they'd both seen up close.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
-            {/* Founder 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55 }}
-              className="group h-full"
-            >
-              <div className="flex h-full flex-col overflow-hidden rounded-[28px] border border-border/60 bg-white/80 backdrop-blur-sm shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_65px_rgba(15,23,42,0.12)]">
-                <div className="p-5 sm:p-6">
-                  <div className="overflow-hidden rounded-[22px] bg-gradient-to-br from-[#f8fafc] to-[#eef3f8] ring-1 ring-black/5">
-                    <div className="flex h-[280px] items-center justify-center sm:h-[320px] lg:h-[340px]">
-                      <img
-                        src="/cofounder.png"
-                        alt="Cauthan, Co-Founder of CC TECH"
-                        className="max-h-[100%] max-w-[100%] transition-transform duration-500 group-hover:scale-[1.02]"
-                      />
-                    </div>
-                  </div>
-                </div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto grid max-w-5xl grid-cols-1 gap-0 overflow-hidden rounded-[28px] border border-border/60 bg-white/80 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur-sm lg:grid-cols-5"
+          >
+            <div className="overflow-hidden lg:col-span-2">
+              <img
+                src={foundersPhoto}
+                alt="Cauthan and Chanmonich, Co-Founders of CC Tech Australia, standing together in Adelaide"
+                className="h-full max-h-[420px] w-full object-cover lg:max-h-none"
+              />
+            </div>
 
-                <div className="flex flex-1 flex-col justify-between px-5 pb-5 sm:px-6 sm:pb-6">
-                  <div>
-                    <div className="mb-4 flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground sm:text-2xl">
-                          Cauthan
-                        </h3>
-                        <p className="mt-1 text-sm font-medium text-primary">
-                          Co-Founder, CC TECH
-                        </p>
-                      </div>
-
-                      <span className="rounded-full border border-border bg-muted/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                        Founder
-                      </span>
-                    </div>
-
-                    <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-                      Focused on building practical AI systems that solve real
-                      operational challenges in regulated industries.
-                    </p>
-                  </div>
-                </div>
+            <div className="flex flex-col justify-center gap-6 p-8 sm:p-10 lg:col-span-3">
+              <div>
+                <h3 className="text-xl font-bold text-foreground sm:text-2xl">
+                  Cauthan &amp; Chanmonich
+                </h3>
+                <p className="mt-1 text-sm font-medium text-primary">
+                  Co-Founders, CC Tech Australia
+                </p>
               </div>
-            </motion.div>
 
-            {/* Founder 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.65 }}
-              className="group h-full"
-            >
-              <div className="flex h-full flex-col overflow-hidden rounded-[28px] border border-border/60 bg-white/80 backdrop-blur-sm shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_65px_rgba(15,23,42,0.12)]">
-                <div className="p-5 sm:p-6">
-                  <div className="overflow-hidden rounded-[22px] bg-gradient-to-br from-[#f8fafc] to-[#eef3f8] ring-1 ring-black/5">
-                    <div className="flex h-[280px] items-center justify-center sm:h-[320px] lg:h-[340px]">
-                      <img
-                        src="/co-founder-cctech.png"
-                        alt="Chanmonich Phe, Co-Founder of CC TECH"
-                        className="max-h-[100%] max-w-[100%] transition-transform duration-500 group-hover:scale-[1.02]"
-                      />
-                    </div>
-                  </div>
-                </div>
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                CC Tech Australia is an early-stage technology company based
+                in Adelaide, South Australia, founded by two graduates of
+                TAFE SA's Software Development program who met in 2024. We're
+                building CareCliQ — an AI-powered compliance documentation and
+                workforce management platform purpose-built for the
+                Australian NDIS disability support sector.
+              </p>
 
-                <div className="flex flex-1 flex-col justify-between px-5 pb-5 sm:px-6 sm:pb-6">
-                  <div>
-                    <div className="mb-4 flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground sm:text-2xl">
-                          Chanmonich Phe
-                        </h3>
-                        <p className="mt-1 text-sm font-medium text-primary">
-                          Co-Founder, CC TECH
-                        </p>
-                      </div>
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                CareCliQ was born from lived experience. Cauthan, our
+                Co-Founder and CEO, spent years working as an NDIS support
+                worker — writing progress notes by hand at the end of long
+                shifts, navigating complex compliance requirements with no
+                real tools to help. He saw firsthand how administrative
+                burden was pulling support workers away from the people they
+                were there to care for, and how that same burden was putting
+                small disability support businesses at serious audit and
+                registration risk. CareCliQ exists to fix that.
+              </p>
 
-                      <span className="rounded-full border border-border bg-muted/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                        Founder
-                      </span>
-                    </div>
-
-                    <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-                      Helping shape practical, sector-specific AI platforms
-                      designed to reduce administrative burden, improve
-                      operational efficiency, and support compliance-conscious
-                      workflows.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Chanmonich, our Co-Founder and CTO, brings the technical
+                vision and engineering leadership to turn that problem into a
+                product. Together, they're building something neither of
+                them could have built alone — a platform that sits at the
+                intersection of artificial intelligence, multilingual
+                accessibility, and one of Australia's most regulated and
+                human-centred industries.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
