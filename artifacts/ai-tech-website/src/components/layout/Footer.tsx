@@ -61,11 +61,10 @@ export function Footer() {
 
           {/* Platforms */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: `${PEACH}40` }}>Platforms</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: `${PEACH}40` }}>Product</h4>
             <ul className="flex flex-col gap-3 text-sm">
               {[
-                ["CareCliQ",     "/platforms"],
-                ["Tax Exposure Platform","/tax-exposure"],
+                ["CareCliQ",     "/carecliq"],
                 ["Industry Solutions",    "/industries"],
                 ["Request Custom Build",  "/contact"],
               ].map(([label, path]) => (

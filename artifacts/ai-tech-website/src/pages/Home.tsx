@@ -103,20 +103,6 @@ const platforms = [
     features: ["Automated clinical documentation", "Intelligent follow-up workflows", "Compliance-safe reporting"],
     photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&auto=format&fit=crop&q=85",
   },
-  {
-    index: "02", name: "Tax Exposure Platform",
-    tag: "Tax Risk Intelligence",
-    desc: "Instant tax exposure assessment for NDIS support workers and businesses. Know your ATO obligations before they become a problem.",
-    features: ["Early tax exposure detection", "Deep transaction data analysis", "Automated advisory reporting"],
-    photo: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&auto=format&fit=crop&q=85",
-  },
-  {
-    index: "03", name: "PMS Co-Pilot",
-    tag: "Allied Health Practice Management",
-    desc: "End-to-end AI automation for allied health practitioners — from referral intake and patient scheduling to progress notes, outcome reports, and Medicare compliance.",
-    features: ["Automated referral intake & patient onboarding", "AI-drafted progress notes (SOAP format)", "Outcome reports & Medicare billing compliance"],
-    photo: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&auto=format&fit=crop&q=85",
-  },
 ];
 
 const industries = [
@@ -333,16 +319,6 @@ export default function Home() {
               >
                 Try CareCliQ Free <ArrowRight className="w-4 h-4" />
               </motion.button>
-              <Link href="/tax-exposure">
-                <motion.span
-                  whileHover={{ backgroundColor: C.peach }}
-                  whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2 text-sm font-medium px-7 py-3.5 cursor-pointer transition-colors duration-150"
-                  style={{ color: C.text, border: `1px solid ${C.border}`, backgroundColor: C.bg }}
-                >
-                  Tax Exposure Tool
-                </motion.span>
-              </Link>
               <motion.button
                 onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
                 whileHover={{ backgroundColor: C.peach }}
@@ -618,14 +594,14 @@ export default function Home() {
         <div className="px-8 sm:px-14 lg:px-20 xl:px-28 pt-20 pb-6 flex items-end justify-between">
           <Reveal>
             <p className="text-[10px] font-mono tracking-[0.35em] uppercase" style={{ color: C.muted }}>
-              Flagship platforms
+              Flagship platform
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <Link href="/platforms">
+            <Link href="/carecliq">
               <span className="text-[10px] font-mono tracking-[0.22em] uppercase cursor-pointer hover:opacity-50 transition-opacity"
                 style={{ color: C.text }}>
-                All platforms →
+                View CareCliQ →
               </span>
             </Link>
           </Reveal>
@@ -639,7 +615,7 @@ export default function Home() {
             transition={{ duration: 0.65, delay: i * 0.08 }}
             className="mx-8 sm:mx-14 lg:mx-20 xl:mx-28 mb-4"
           >
-            <Link href="/platforms">
+            <Link href="/carecliq">
               <motion.div
                 className="group grid grid-cols-1 lg:grid-cols-[1fr_420px] cursor-pointer overflow-hidden"
                 whileHover={{ y: -3, boxShadow: `0 12px 40px rgba(92,14,20,0.08)` }}
@@ -820,10 +796,10 @@ export default function Home() {
                 Start a conversation <ArrowRight className="w-4 h-4" />
               </motion.span>
             </Link>
-            <Link href="/platforms">
+            <Link href="/carecliq">
               <span className="text-sm font-medium cursor-pointer hover:opacity-60 transition-opacity border-b pb-px"
                 style={{ color: C.muted, borderColor: C.muted }}>
-                Browse our platforms →
+                Explore CareCliQ →
               </span>
             </Link>
           </div>

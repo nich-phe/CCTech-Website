@@ -6,9 +6,7 @@ import { LenisProvider } from "@/components/LenisProvider";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Platforms from "./pages/Platforms";
 import CareCliq from "./pages/CareCliq";
-import TaxExposure from "./pages/TaxExposure";
 import Industries from "./pages/Industries";
 import HowWeBuild from "./pages/HowWeBuild";
 import Vision from "./pages/Vision";
@@ -22,9 +20,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/platforms" component={Platforms} />
       <Route path="/carecliq" component={CareCliq} />
-      <Route path="/tax-exposure" component={TaxExposure} />
       <Route path="/industries" component={Industries} />
       <Route path="/how-we-build" component={HowWeBuild} />
       <Route path="/vision" component={Vision} />

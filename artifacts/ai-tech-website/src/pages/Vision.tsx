@@ -12,12 +12,6 @@ const roadmapItems = [
     desc: "CareCliQ is live and reducing admin burden for healthcare and allied health teams across multiple organisations.",
   },
   {
-    phase: "Now",
-    status: "active",
-    title: "Tax Exposure Platform",
-    desc: "Our Tax Exposure Platform is helping advisory firms and large organisations identify compliance risks before they become costly.",
-  },
-  {
     phase: "Next",
     status: "upcoming",
     title: "Legal & Contract Intelligence",
