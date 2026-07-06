@@ -1,9 +1,9 @@
-import React, { useRef, useState, useCallback } from "react";
+import React, { useRef, useCallback } from "react";
 import { Link } from "wouter";
 import {
-  motion, AnimatePresence,
+  motion,
   useScroll, useTransform, useSpring,
-  useMotionValue, useMotionValueEvent,
+  useMotionValue,
 } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -105,120 +105,7 @@ const platforms = [
   },
 ];
 
-const industries = [
-  { name: "Healthcare & Allied Health", role: "Clinical automation, admin co-pilots",  photo: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop&q=80" },
-  { name: "Financial Services",         role: "Risk detection, tax intelligence",       photo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&auto=format&fit=crop&q=80" },
-  { name: "Legal & Professional",       role: "Document intelligence, matter flow",     photo: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop&q=80" },
-  { name: "Enterprise & SME",           role: "Scalable workflow automation",           photo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80" },
-  { name: "Supply Chain & Logistics",   role: "Operations intelligence, tracking",      photo: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80" },
-];
-
 const ticker = ["Healthcare","Financial Services","Practice Management","Legal","Compliance","Tax Analytics","Admin Automation","Allied Health","Risk Detection","Progress Notes","Referral Automation","Medicare Compliance","Supply Chain"];
-
-/* ─── Pinned scroll industries ──────────────── */
-function PinnedIndustries() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
-  const [active, setActive] = useState(0);
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setActive(Math.min(industries.length - 1, Math.floor(v * industries.length)));
-  });
-
-  return (
-    <div ref={containerRef} style={{ height: `${industries.length * 100}vh` }}>
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden"
-        style={{ backgroundColor: C.soft, borderTop: `1px solid ${C.border}` }}>
-
-        <div className="px-8 sm:px-14 lg:px-20 xl:px-28 mb-10">
-          <p className="text-[10px] font-mono tracking-[0.35em] uppercase" style={{ color: C.muted }}>
-            Industries we serve
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 px-8 sm:px-14 lg:px-20 xl:px-28">
-          {/* Left */}
-          <div className="flex flex-col justify-center pr-0 lg:pr-20 mb-10 lg:mb-0">
-            <AnimatePresence mode="wait">
-              <motion.div key={active}
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <span className="font-black leading-none select-none block mb-3"
-                  style={{ fontSize: "clamp(5rem,12vw,10rem)", color: C.border, lineHeight: 1 }}>
-                  {String(active + 1).padStart(2, "0")}
-                </span>
-                <h2 className="font-black tracking-[-0.03em] leading-[1.05] mb-4"
-                  style={{ fontSize: "clamp(1.6rem,3.5vw,3rem)", color: C.text }}>
-                  {industries[active].name}
-                </h2>
-                <p className="text-base mb-8 max-w-sm" style={{ color: C.muted }}>
-                  {industries[active].role}
-                </p>
-                <Link href="/industries">
-                  <motion.span whileHover={{ x: 4 }}
-                    className="inline-flex items-center gap-2 text-sm font-semibold cursor-pointer"
-                    style={{ color: C.accent }}>
-                    Learn more <ArrowRight className="w-4 h-4" />
-                  </motion.span>
-                </Link>
-              </motion.div>
-            </AnimatePresence>
-            {/* Progress dots */}
-            <div className="flex gap-2 mt-10">
-              {industries.map((_, i) => (
-                <motion.div key={i}
-                  animate={{ width: i === active ? 24 : 6, backgroundColor: i === active ? C.accent : C.border }}
-                  transition={{ duration: 0.4 }}
-                  className="h-1.5 rounded-full"
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Right list */}
-          <div className="flex flex-col justify-center"
-            style={{ borderLeft: `1px solid ${C.border}`, paddingLeft: "clamp(24px,4vw,56px)" }}>
-            {industries.map((ind, i) => (
-              <motion.div key={ind.name}
-                animate={{ opacity: i === active ? 1 : 0.3 }}
-                transition={{ duration: 0.35 }}
-                className="flex items-center justify-between gap-6 py-5"
-                style={{ borderBottom: `1px solid ${C.border}` }}
-              >
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-base truncate" style={{ color: C.text }}>{ind.name}</p>
-                  <p className="text-xs mt-0.5 truncate" style={{ color: C.muted }}>{ind.role}</p>
-                </div>
-                <motion.div
-                  animate={{ opacity: i === active ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-16 h-11 overflow-hidden rounded shrink-0 hidden sm:block"
-                  style={{ border: `1px solid ${C.border}` }}
-                >
-                  <img src={ind.photo} alt={ind.name} className="w-full h-full object-cover" />
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Scroll hint */}
-        <div className="absolute bottom-8 right-8 sm:right-14 lg:right-20 xl:right-28 flex items-center gap-2">
-          <motion.span className="text-[10px] font-mono tracking-[0.3em] uppercase" style={{ color: C.border }}
-            animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 2 }}>
-            scroll
-          </motion.span>
-          <motion.div className="w-px h-6 rounded-full"
-            style={{ background: `linear-gradient(to bottom, ${C.accent}, transparent)` }}
-            animate={{ scaleY: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 2 }} />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ─── Page ──────────────────────────────────── */
 export default function Home() {
@@ -668,10 +555,6 @@ export default function Home() {
           </motion.div>
         ))}
       </section>
-      {/* ══════════════════════════════════════════
-          INDUSTRIES — pinned scroll
-      ══════════════════════════════════════════ */}
-      <PinnedIndustries />
       {/* ══════════════════════════════════════════
           HOW WE BUILD — deep burgundy, floating nums
       ══════════════════════════════════════════ */}

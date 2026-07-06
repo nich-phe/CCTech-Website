@@ -65,7 +65,6 @@ export function Footer() {
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 ["CareCliQ",     "/carecliq"],
-                ["Industry Solutions",    "/industries"],
                 ["Request Custom Build",  "/contact"],
               ].map(([label, path]) => (
                 <li key={label}>
