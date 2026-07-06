@@ -31,10 +31,15 @@ export function Footer() {
             </p>
             <div className="mb-8 text-sm leading-relaxed" style={{ color: `${PEACH}60` }}>
               <p style={{ color: `${PEACH}80` }}>CC Tech Australia Pty Ltd</p>
-              <p>South Australia, Australia</p>
+              <p>Ground Floor/10 Pulteney St, Adelaide SA 5000</p>
               <p>
                 <a href="mailto:hello@cctechaustralia.com" className="transition-colors" style={{ color: `${PEACH}60` }}>
                   hello@cctechaustralia.com
+                </a>
+              </p>
+              <p>
+                <a href="tel:+61451291711" className="transition-colors" style={{ color: `${PEACH}60` }}>
+                  0451 291 711
                 </a>
               </p>
               <p>
