@@ -1,5 +1,5 @@
 kind = "web"
-previewPath = "/"
+previewPath = "/cctech/"
 title = "CC Tech Australia"
 version = "1.0.0"
 id = "artifacts/cctech-australia"
@@ -11,14 +11,14 @@ version = "1.0.0"
 
 [[services]]
 name = "web"
-paths = [ "/" ]
+paths = ["/cctech/"]
 localPort = 24756
 
 [services.development]
 run = "pnpm --filter @workspace/cctech-australia run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/cctech-australia", "run", "build" ]
+build = ["pnpm", "--filter", "@workspace/cctech-australia", "run", "build"]
 publicDir = "artifacts/cctech-australia/dist/public"
 serve = "static"
 
@@ -28,4 +28,4 @@ to = "/index.html"
 
 [services.env]
 PORT = "24756"
-BASE_PATH = "/"
+BASE_PATH = "/cctech/"

@@ -1,5 +1,5 @@
 kind = "web"
-previewPath = "/legacy/"
+previewPath = "/"
 title = "AI Technology Company Website (Legacy)"
 version = "1.0.0"
 id = "artifacts/ai-tech-website"
@@ -12,14 +12,14 @@ version = "1.0.0"
 [[services]]
 localPort = 25569
 name = "web"
-paths = ["/legacy/"]
+paths = ["/"]
 
 [services.development]
 run = "pnpm --filter @workspace/ai-tech-website run dev"
 
 [services.env]
 PORT = "25569"
-BASE_PATH = "/legacy/"
+BASE_PATH = "/"
 
 [services.production]
 build = ["pnpm", "--filter", "@workspace/ai-tech-website", "run", "build"]
